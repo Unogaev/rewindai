@@ -1,0 +1,491 @@
+Вот код — выдели всё от начала до конца, копируй и вставляй в GitHub:
+html<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>REWIND.AI - Машина времени для дизайна!!!</title>
+<style>
+body {
+  background-color: #000080;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='2' height='2' fill='%23000066'/%3E%3Crect x='2' y='2' width='2' height='2' fill='%23000066'/%3E%3C/svg%3E");
+  margin: 0; padding: 0;
+  font-family: "Comic Sans MS", "Arial", sans-serif;
+  font-size: 12px; color: #ffffff;
+}
+a { color: #ffff00; text-decoration: underline; }
+a:hover { color: #ff0000; text-decoration: none; }
+.wrap { width: 780px; margin: 0 auto; }
+.header-bg { background: linear-gradient(180deg, #cc0000 0%, #ff6600 40%, #ffcc00 100%); padding: 4px; border: 3px ridge #ffcc00; text-align: center; }
+.site-title { font-family: "Impact", "Arial Black", sans-serif; font-size: 48px; color: #ffffff; text-shadow: 3px 3px 0px #000000; letter-spacing: 8px; margin: 0; }
+.site-subtitle { font-family: "Comic Sans MS", sans-serif; font-size: 13px; color: #ffff99; margin: 2px 0 0 0; }
+.marquee-bar { background: #000000; border-top: 2px solid #ffcc00; border-bottom: 2px solid #ffcc00; padding: 3px 0; color: #00ff00; font-family: "Courier New", monospace; font-size: 11px; overflow: hidden; white-space: nowrap; }
+.marquee-inner { display: inline-block; animation: marquee 20s linear infinite; }
+@keyframes marquee { 0% { transform: translateX(800px); } 100% { transform: translateX(-100%); } }
+.nav-bar { background: linear-gradient(180deg, #003399 0%, #000066 100%); border: 2px outset #6699ff; text-align: center; padding: 3px; }
+.nav-btn { display: inline-block; background: linear-gradient(180deg, #3366cc 0%, #001166 100%); border: 2px outset #6699ff; color: #ffffff; font-family: "Comic Sans MS", sans-serif; font-size: 11px; font-weight: bold; padding: 4px 12px; margin: 3px 2px; cursor: pointer; text-decoration: none; }
+.nav-btn:hover { background: linear-gradient(180deg, #ff6600 0%, #cc3300 100%); border: 2px inset #ff9900; color: #ffff00; }
+.layout { display: table; width: 100%; border-collapse: collapse; }
+.left-col { display: table-cell; width: 150px; background: #000033; border: 1px inset #3333cc; vertical-align: top; padding: 6px; }
+.center-col { display: table-cell; background: #0a0a2a; border: 1px inset #3333cc; vertical-align: top; padding: 10px; }
+.right-col { display: table-cell; width: 140px; background: #000033; border: 1px inset #3333cc; vertical-align: top; padding: 6px; }
+.side-block { background: linear-gradient(180deg, #003399 0%, #000066 100%); border: 2px outset #6699ff; margin-bottom: 8px; padding: 4px; }
+.side-title { background: linear-gradient(90deg, #cc0000, #ff6600); color: #ffffff; font-weight: bold; font-size: 11px; text-align: center; padding: 2px 4px; margin: -4px -4px 6px -4px; border-bottom: 1px solid #ffcc00; }
+.side-text { font-size: 10px; color: #99ccff; line-height: 1.5; }
+.tabs-row { display: flex; gap: 3px; margin-bottom: 0; }
+.tab-btn { background: linear-gradient(180deg, #222266 0%, #000033 100%); border: 2px outset #6699ff; border-bottom: none; color: #9999cc; font-family: "Comic Sans MS", sans-serif; font-size: 11px; font-weight: bold; padding: 5px 8px; cursor: pointer; flex: 1; text-align: center; }
+.tab-btn:hover { color: #ffffff; }
+.tab-btn.active { background: linear-gradient(180deg, #003399 0%, #000066 100%); color: #ffff00; border-color: #ffcc00; }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+.tool-block { background: #000022; border: 3px ridge #6600cc; padding: 10px; margin-bottom: 10px; border-top: 3px solid #ffcc00; }
+.tool-title { background: linear-gradient(90deg, #6600cc, #cc00cc, #6600cc); color: #ffff00; font-family: "Impact", sans-serif; font-size: 16px; text-align: center; padding: 4px; margin: -10px -10px 10px -10px; border-bottom: 2px solid #cc00cc; letter-spacing: 2px; }
+.era-title { color: #ffcc00; font-weight: bold; font-size: 11px; margin-bottom: 4px; }
+.era-table { width: 100%; border-collapse: collapse; margin-bottom: 10px; }
+.era-cell { padding: 4px 4px; border: 1px solid #333366; cursor: pointer; font-size: 10px; color: #ccccff; background: #000033; text-align: center; }
+.era-cell:hover, .era-cell.selected { background: linear-gradient(180deg, #330066, #110033); border-color: #cc00cc; color: #ff99ff; }
+.retro-textarea { width: 100%; background: #ffffcc; border: 2px inset #999900; color: #000033; font-family: "Courier New", monospace; font-size: 12px; padding: 6px; resize: none; height: 90px; box-sizing: border-box; }
+.upload-zone { border: 3px dashed #6699ff; background: #000033; padding: 20px; text-align: center; cursor: pointer; margin-bottom: 8px; }
+.upload-zone:hover { background: #000055; border-color: #ffcc00; }
+.upload-zone input[type=file] { display: none; }
+.retro-input { width: 100%; background: #ffffcc; border: 2px inset #999900; color: #000033; font-family: "Courier New", monospace; font-size: 12px; padding: 6px; box-sizing: border-box; margin-bottom: 8px; }
+.output-box { width: 100%; background: #ffffdd; border: 2px inset #999900; color: #000033; font-family: "Courier New", monospace; font-size: 12px; padding: 6px; min-height: 90px; box-sizing: border-box; white-space: pre-wrap; word-wrap: break-word; }
+.output-box.era-2000 { font-family: "Times New Roman", serif; font-size: 13px; color: #000080; background: #ffffd0; }
+.output-box.era-2005 { font-family: "Tahoma", sans-serif; font-size: 12px; color: #333300; background: #f5f5e0; }
+.output-box.era-2010 { font-family: "Verdana", sans-serif; font-size: 11px; color: #1a1a2e; background: #e8f0ff; }
+.output-box.era-2015 { font-family: "Arial", sans-serif; font-size: 13px; color: #262626; background: #fafafa; border: 1px solid #dbdbdb; padding: 12px; }
+.go-button { background: linear-gradient(180deg, #ff6600 0%, #cc3300 50%, #ff6600 100%); border: 3px outset #ff9900; color: #ffffff; font-family: "Impact", "Arial Black", sans-serif; font-size: 15px; letter-spacing: 2px; padding: 6px 20px; cursor: pointer; display: block; margin: 8px auto; text-shadow: 1px 1px 2px #000000; }
+.go-button:hover { background: linear-gradient(180deg, #ffcc00 0%, #ff6600 50%, #ffcc00 100%); border: 3px inset #ff9900; color: #000000; }
+.go-button:disabled { background: #666666; border-color: #999999; cursor: default; }
+.status-bar { background: #000033; border: 1px inset #333399; color: #00ff00; font-family: "Courier New", monospace; font-size: 10px; padding: 2px 6px; margin-top: 6px; }
+.blink { animation: blink 1s step-end infinite; }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+.star-divider { text-align: center; color: #ffcc00; font-size: 10px; margin: 4px 0; letter-spacing: 2px; }
+.counter-box { background: #000000; border: 2px inset #009900; color: #00ff00; font-family: "Courier New", monospace; font-size: 14px; text-align: center; padding: 4px 8px; letter-spacing: 4px; margin: 4px 0; }
+.example-link { color: #ffff00; font-size: 10px; cursor: pointer; display: block; margin: 2px 0; text-decoration: underline; }
+.example-link:hover { color: #ff0000; }
+.copy-link { color: #00ffff; font-size: 10px; cursor: pointer; text-decoration: underline; display: none; text-align: right; margin-top: 3px; }
+.webring { border: 1px dashed #ff6600; padding: 4px; font-size: 10px; color: #ff9966; text-align: center; margin-top: 6px; }
+.loading-gif { display: none; text-align: center; color: #ffff00; font-size: 11px; animation: blink 0.5s infinite; }
+.footer-bar { background: linear-gradient(180deg, #000033 0%, #000000 100%); border-top: 2px solid #ffcc00; text-align: center; padding: 6px; font-size: 10px; color: #999999; }
+.cam-btn { background: linear-gradient(180deg, #006600 0%, #003300 100%); border: 2px outset #009900; color: #00ff00; font-family: "Comic Sans MS", sans-serif; font-size: 11px; padding: 4px 12px; cursor: pointer; margin: 3px; }
+.cam-btn:hover { background: linear-gradient(180deg, #009900 0%, #006600 100%); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="header-bg">
+  <p class="site-title">⟲ REWIND.AI</p>
+  <p class="site-subtitle">:: Машина времени для дизайна :: rewindai.co ::</p>
+</div>
+
+<div class="marquee-bar">
+  <span class="marquee-inner">&nbsp;&nbsp;&nbsp;*** ДОБРО ПОЖАЛОВАТЬ НА REWIND.AI *** Деградируй текст, фото и сайты!!! *** Оптимизировано для IE 6.0 *** Разрешение 800x600 *** Счётчик: 0001337 *** НОВИНКА: теперь 4 эпохи!!! =) &nbsp;&nbsp;&nbsp;</span>
+</div>
+
+<div class="nav-bar">
+  <a href="#" class="nav-btn">[ ГЛАВНАЯ ]</a>
+  <a href="#" class="nav-btn">[ ТЕКСТ ]</a>
+  <a href="#" class="nav-btn">[ ФОТО ]</a>
+  <a href="#" class="nav-btn">[ САЙТЫ ]</a>
+  <a href="#" class="nav-btn">[ ГОСТЕВАЯ ]</a>
+  <a href="#" class="nav-btn">[ КОНТАКТЫ ]</a>
+</div>
+
+<div class="layout">
+
+<div class="left-col">
+  <div class="side-block">
+    <div class="side-title">:: МЕНЮ ::</div>
+    <div class="side-text">
+      &raquo; <a href="#" onclick="switchTab('text')">Текст</a><br>
+      &raquo; <a href="#" onclick="switchTab('photo')">Фото / Файл</a><br>
+      &raquo; <a href="#" onclick="switchTab('url')">Ссылка на сайт</a><br>
+      &raquo; <a href="#">Гостевая</a><br>
+      &raquo; <a href="#">О проекте</a>
+    </div>
+  </div>
+  <div class="side-block">
+    <div class="side-title">:: СЧЁТЧИК ::</div>
+    <div class="counter-box" id="visitorCount">0001337</div>
+    <div class="side-text" style="text-align:center;font-size:9px;">посетителей сайта</div>
+  </div>
+  <div class="side-block">
+    <div class="side-title">:: ПРИМЕРЫ ::</div>
+    <a class="example-link" onclick="fillAndSwitch('Мы создаём умные инструменты для современных команд.')">» Стартап</a>
+    <a class="example-link" onclick="fillAndSwitch('Добро пожаловать на наш сайт! Здесь вы найдёте всё.')">» Сайт</a>
+    <a class="example-link" onclick="fillAndSwitch('Скачай приложение и экономь время уже сегодня.')">» Приложение</a>
+    <a class="example-link" onclick="fillAndSwitch('Наш AI автоматизирует рутину и поднимает продуктивность.')">» AI-продукт</a>
+  </div>
+  <div class="star-divider">* * * * * * *</div>
+  <div class="side-block">
+    <div class="side-title">:: ЭПОХИ ::</div>
+    <div class="side-text">
+      <b style="color:#ffff00;">2000–2003</b><br>Ранний Рунет<br><br>
+      <b style="color:#ffff00;">2004–2007</b><br>ЖЖ и аська<br><br>
+      <b style="color:#ffff00;">2008–2012</b><br>Первый iPhone<br><br>
+      <b style="color:#ffff00;">2013–2017</b><br>Instagram / Flat
+    </div>
+  </div>
+  <div class="side-block">
+    <div class="side-title">:: НОВОСТИ ::</div>
+    <div class="side-text">
+      <b>2002.03.20</b><br>Добавили эпоху 2013-2017!!!<br><br>
+      <b>2002.03.15</b><br>Фото режим!!!<br><br>
+      <b>2002.03.01</b><br>Сайт открылся!!!
+    </div>
+  </div>
+  <div class="webring">
+    &lt;&lt; <a href="#">НАЗАД</a> &nbsp;<a href="#">ВЕБРИНГ</a> &nbsp;<a href="#">ВПЕРЁД</a> &gt;&gt;
+  </div>
+</div>
+
+<div class="center-col">
+  <div class="tabs-row">
+    <div class="tab-btn active" id="tab-text" onclick="switchTab('text')">[ ТЕКСТ ]</div>
+    <div class="tab-btn" id="tab-photo" onclick="switchTab('photo')">[ ФОТО ]</div>
+    <div class="tab-btn" id="tab-url" onclick="switchTab('url')">[ ССЫЛКА ]</div>
+  </div>
+
+  <div class="tab-content active tool-block" id="content-text">
+    <div class="tool-title">!!! ДЕГРАДАЦИЯ ТЕКСТА !!!</div>
+    <p style="color:#ffcc99;font-size:11px;margin-bottom:8px;">Вставьте современный текст — получите версию из прошлого!!!</p>
+    <div class="star-divider">- - - - - - - - - - -</div>
+    <div class="era-title">[ ВЫБЕРИТЕ ЭПОХУ ]</div>
+    <table class="era-table" cellspacing="2"><tr>
+      <td class="era-cell selected" id="te-2000" onclick="selectEra('text','2000')"><b>2000–03</b><br><span style="font-size:9px">Ранний Рунет</span></td>
+      <td class="era-cell" id="te-2005" onclick="selectEra('text','2005')"><b>2004–07</b><br><span style="font-size:9px">ЖЖ / аська</span></td>
+      <td class="era-cell" id="te-2010" onclick="selectEra('text','2010')"><b>2008–12</b><br><span style="font-size:9px">Первый iPhone</span></td>
+      <td class="era-cell" id="te-2015" onclick="selectEra('text','2015')"><b>2013–17</b><br><span style="font-size:9px">Instagram / Flat</span></td>
+    </tr></table>
+    <div class="era-title">[ ВАШ ТЕКСТ ]</div>
+    <textarea class="retro-textarea" id="textInput" placeholder="Вставьте текст здесь..."></textarea>
+    <button class="go-button" id="textBtn" onclick="runText()">⟲ ДЕГРАДИРОВАТЬ !!!</button>
+    <div class="loading-gif" id="textLoading">*** ЗАГРУЗКА... ПОДОЖДИТЕ... ***</div>
+    <div class="status-bar" id="textStatus">Статус: Готов к работе.</div>
+    <div class="star-divider">- - - - - - - - - - -</div>
+    <div class="era-title">[ РЕЗУЛЬТАТ ]</div>
+    <div class="output-box" id="textOutput">Здесь появится результат...</div>
+    <div class="copy-link" id="textCopy" onclick="copyText('textOutput')">[ СКОПИРОВАТЬ ]</div>
+  </div>
+
+  <div class="tab-content tool-block" id="content-photo">
+    <div class="tool-title">!!! ДЕГРАДАЦИЯ ФОТО И ФАЙЛОВ !!!</div>
+    <p style="color:#ffcc99;font-size:11px;margin-bottom:8px;">Загрузите изображение или сфотографируйте — AI деградирует дизайн!!!</p>
+    <div class="star-divider">- - - - - - - - - - -</div>
+    <div class="era-title">[ ВЫБЕРИТЕ ЭПОХУ ]</div>
+    <table class="era-table" cellspacing="2"><tr>
+      <td class="era-cell selected" id="pe-2000" onclick="selectEra('photo','2000')"><b>2000–03</b><br><span style="font-size:9px">Ранний Рунет</span></td>
+      <td class="era-cell" id="pe-2005" onclick="selectEra('photo','2005')"><b>2004–07</b><br><span style="font-size:9px">ЖЖ / аська</span></td>
+      <td class="era-cell" id="pe-2010" onclick="selectEra('photo','2010')"><b>2008–12</b><br><span style="font-size:9px">Первый iPhone</span></td>
+      <td class="era-cell" id="pe-2015" onclick="selectEra('photo','2015')"><b>2013–17</b><br><span style="font-size:9px">Instagram / Flat</span></td>
+    </tr></table>
+    <div class="era-title">[ ЗАГРУЗИТЬ ФАЙЛ ]</div>
+    <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
+      <div style="font-size:24px;margin-bottom:6px;">📁</div>
+      <div style="color:#99ccff;font-size:12px;">Нажмите для выбора файла<br><span style="font-size:10px;color:#6666cc;">(JPG, PNG — логотип, визитка, скриншот)</span></div>
+      <input type="file" id="fileInput" accept="image/*" onchange="handleFile(event)">
+    </div>
+    <img id="filePreview" style="display:none;max-width:100%;max-height:120px;border:2px inset #999900;margin:4px 0;">
+    <div class="star-divider">- - - ИЛИ - - -</div>
+    <div class="era-title">[ СФОТОГРАФИРОВАТЬ ]</div>
+    <div style="text-align:center;">
+      <video id="cameraFeed" style="width:100%;max-height:140px;background:#000;border:2px inset #333399;display:none;" autoplay playsinline></video>
+      <canvas id="cameraCanvas" style="display:none;"></canvas>
+      <img id="camPreview" style="max-width:100%;max-height:120px;display:none;border:2px inset #999900;margin:4px 0;">
+      <br>
+      <button class="cam-btn" onclick="startCamera()">📷 ВКЛЮЧИТЬ КАМЕРУ</button>
+      <button class="cam-btn" id="snapBtn" onclick="snapPhoto()" style="display:none;">📸 СФОТОГРАФИРОВАТЬ</button>
+      <button class="cam-btn" id="stopCamBtn" onclick="stopCamera()" style="display:none;">✕ ВЫКЛЮЧИТЬ</button>
+    </div>
+    <button class="go-button" id="photoBtn" onclick="runPhoto()">⟲ ДЕГРАДИРОВАТЬ !!!</button>
+    <div class="loading-gif" id="photoLoading">*** AI АНАЛИЗИРУЕТ ИЗОБРАЖЕНИЕ... ***</div>
+    <div class="status-bar" id="photoStatus">Статус: Загрузите файл или сфотографируйте.</div>
+    <div class="star-divider">- - - - - - - - - - -</div>
+    <div class="era-title">[ РЕЗУЛЬТАТ ]</div>
+    <div class="output-box" id="photoOutput">Здесь появится ретро-описание вашего дизайна...</div>
+    <div class="copy-link" id="photoCopy" onclick="copyText('photoOutput')">[ СКОПИРОВАТЬ ]</div>
+  </div>
+
+  <div class="tab-content tool-block" id="content-url">
+    <div class="tool-title">!!! ДЕГРАДАЦИЯ САЙТА ПО ССЫЛКЕ !!!</div>
+    <p style="color:#ffcc99;font-size:11px;margin-bottom:8px;">Вставьте адрес любого сайта — AI опишет как он выглядел в прошлом!!!</p>
+    <div class="star-divider">- - - - - - - - - - -</div>
+    <div class="era-title">[ ВЫБЕРИТЕ ЭПОХУ ]</div>
+    <table class="era-table" cellspacing="2"><tr>
+      <td class="era-cell selected" id="ue-2000" onclick="selectEra('url','2000')"><b>2000–03</b><br><span style="font-size:9px">Ранний Рунет</span></td>
+      <td class="era-cell" id="ue-2005" onclick="selectEra('url','2005')"><b>2004–07</b><br><span style="font-size:9px">ЖЖ / аська</span></td>
+      <td class="era-cell" id="ue-2010" onclick="selectEra('url','2010')"><b>2008–12</b><br><span style="font-size:9px">Первый iPhone</span></td>
+      <td class="era-cell" id="ue-2015" onclick="selectEra('url','2015')"><b>2013–17</b><br><span style="font-size:9px">Instagram / Flat</span></td>
+    </tr></table>
+    <div class="era-title">[ АДРЕС САЙТА ]</div>
+    <input class="retro-input" type="text" id="urlInput" placeholder="https://notion.so">
+    <p style="color:#9999cc;font-size:10px;margin-bottom:8px;">* AI представит как выглядел этот сайт в выбранную эпоху</p>
+    <button class="go-button" id="urlBtn" onclick="runUrl()">⟲ ДЕГРАДИРОВАТЬ САЙТ !!!</button>
+    <div class="loading-gif" id="urlLoading">*** ЗАГРУЗКА САЙТА... ПОДОЖДИТЕ... ***</div>
+    <div class="status-bar" id="urlStatus">Статус: Введите адрес сайта.</div>
+    <div class="star-divider">- - - - - - - - - - -</div>
+    <div class="era-title">[ РЕЗУЛЬТАТ ]</div>
+    <div class="output-box" id="urlOutput">Здесь появится описание ретро-версии сайта...</div>
+    <div class="copy-link" id="urlCopy" onclick="copyText('urlOutput')">[ СКОПИРОВАТЬ ]</div>
+  </div>
+</div>
+
+<div class="right-col">
+  <div class="side-block">
+    <div class="side-title">:: ОПРОС ::</div>
+    <div class="side-text">
+      Какой год лучший?<br><br>
+      <input type="radio" name="poll"> 2001<br>
+      <input type="radio" name="poll"> 2005<br>
+      <input type="radio" name="poll"> 2010<br>
+      <input type="radio" name="poll"> 2015<br><br>
+      <button style="font-size:9px;padding:2px 6px;background:#003399;color:#fff;border:1px outset #6699ff;">ГОЛОСОВАТЬ</button>
+    </div>
+  </div>
+  <div class="side-block">
+    <div class="side-title">:: БАНЕРЫ ::</div>
+    <div style="background:linear-gradient(90deg,#ff0000,#0000ff);padding:4px;text-align:center;font-size:9px;color:#fff;border:1px solid #ffff00;margin-bottom:4px;font-weight:bold;">88×31<br>НАШ БАНЕР!!!</div>
+    <div style="background:#000;padding:4px;text-align:center;font-size:9px;color:#00ff00;border:1px solid #009900;margin-bottom:4px;">IE 6.0<br>ОПТИМИЗИРОВАНО</div>
+    <div style="background:linear-gradient(90deg,#ff6600,#cc0000);padding:4px;text-align:center;font-size:9px;color:#fff;border:1px solid #ff9900;">Flash 5.0<br>ТРЕБУЕТСЯ!!!</div>
+  </div>
+  <div class="side-block">
+    <div class="side-title">:: ДРУЗЬЯ ::</div>
+    <div class="side-text">
+      <a href="#">narod.ru</a><br>
+      <a href="#">ucoz.ru</a><br>
+      <a href="#">mail.ru</a><br>
+      <a href="#">livejournal.ru</a><br>
+      <a href="#">vkontakte.ru</a>
+    </div>
+  </div>
+  <div class="side-block">
+    <div class="side-title">:: ICQ ::</div>
+    <div class="side-text" style="text-align:center;">
+      Пишите в аську!<br>
+      <b style="color:#ffff00;font-size:14px;">12345678</b><br>
+      <span style="font-size:9px;">всегда онлайн =)</span>
+    </div>
+  </div>
+  <div class="side-block">
+    <div class="side-title">:: ТАРИФ ::</div>
+    <div class="side-text" style="text-align:center;">
+      <span style="color:#ffff00;font-weight:bold;">PRO версия</span><br>
+      всего $9/мес!!!<br><br>
+      <a href="#" style="background:#ff6600;color:#fff;padding:3px 8px;font-size:10px;font-weight:bold;text-decoration:none;">КУПИТЬ!!!</a>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="footer-bar">
+  &copy; 2001-2002 REWIND.AI :: rewindai.co :: Все права защищены ::
+  Сайт создан в Блокноте :: Лучший вид в IE 6.0 при 800x600 ::
+  <a href="#">Написать вебмастеру</a> ::
+  Сегодня: <span id="footerCount">42</span> посетителей
+</div>
+
+</div>
+
+<script>
+const eras = { text: '2000', photo: '2000', url: '2000' };
+let photoImageBase64 = null;
+let cameraStream = null;
+
+function switchTab(tab) {
+  ['text','photo','url'].forEach(t => {
+    document.getElementById('tab-'+t).classList.toggle('active', t===tab);
+    document.getElementById('content-'+t).classList.toggle('active', t===tab);
+  });
+}
+
+function selectEra(tab, era) {
+  eras[tab] = era;
+  ['2000','2005','2010','2015'].forEach(e => {
+    const el = document.getElementById(tab[0]+'e-'+e);
+    if(el) el.classList.toggle('selected', e===era);
+  });
+}
+
+function fillAndSwitch(text) {
+  document.getElementById('textInput').value = text;
+  switchTab('text');
+}
+
+function copyText(id) {
+  navigator.clipboard.writeText(document.getElementById(id).textContent).then(() => {
+    const el = document.getElementById(id.replace('Output','Copy'));
+    if(el){ const old=el.textContent; el.textContent='[ СКОПИРОВАНО!!! :) ]'; setTimeout(()=>el.textContent=old,2000); }
+  });
+}
+
+let count = 1337;
+setInterval(()=>{ count++; document.getElementById('visitorCount').textContent=String(count).padStart(7,'0'); },5000);
+
+const eraSystemPrompts = {
+  '2000': `Ты веб-мастер 2001 года. Пиши в стиле раннего Рунета: ЗАГЛАВНЫЕ БУКВЫ для важного, смайлики :) :D ;-), "Уважаемые посетители нашего веб-ресурса!!!", восклицательные знаки, слова "данный", "посему", "нижеследующий". Упомяни IE6 или Flash если уместно.`,
+  '2005': `Ты блогер 2005-2007 на ЖЖ или раннем ВКонтакте. Пиши от первого лица: "короч", "вобщем", "ваще", "зачот", смайлики =) ^_^ o_O, многоточие... везде..., слова "народ", "камрады", "плиз". Упомяни аську или ЖЖ.`,
+  '2010': `Ты пользователь 2009-2012. Используй "лайкнуть", "репостнуть", "топчик", "зачот", "красава", хэштеги #вотэтода #топ. Упомяни ВКонтакте или iPhone 4.`,
+  '2015': `Ты контент-менеджер Instagram 2013-2017. Стиль: минималистичный, вдохновляющий, плоский дизайн iOS 7. Используй короткие предложения. Хэштеги в конце #motivation #lifestyle #design #minimal #flatdesign. Эмодзи ✨🙌💫🔥👌. Фразы типа "Live. Love. Create." "Less is more." "Good vibes only 🙌". Упомяни Stories, фильтры, лайки. Текст лёгкий и позитивный.`
+};
+
+async function callClaude(system, userMsg) {
+  const r = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 1000,
+      system,
+      messages: [{ role: 'user', content: userMsg }]
+    })
+  });
+  const d = await r.json();
+  return d.content?.[0]?.text || 'Ошибка!!!';
+}
+
+async function callClaudeVision(system, text, imageBase64, mediaType) {
+  const r = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 1000,
+      system,
+      messages: [{
+        role: 'user',
+        content: [
+          { type: 'image', source: { type: 'base64', media_type: mediaType, data: imageBase64 } },
+          { type: 'text', text }
+        ]
+      }]
+    })
+  });
+  const d = await r.json();
+  return d.content?.[0]?.text || 'Ошибка!!!';
+}
+
+function setUI(prefix, loading, status, btnText, disabled) {
+  document.getElementById(prefix+'Loading').style.display = loading ? 'block' : 'none';
+  document.getElementById(prefix+'Status').textContent = 'Статус: ' + status;
+  document.getElementById(prefix+'Btn').disabled = disabled;
+  document.getElementById(prefix+'Btn').textContent = btnText;
+}
+
+async function runText() {
+  const input = document.getElementById('textInput').value.trim();
+  if(!input){ document.getElementById('textStatus').textContent='Статус: ОШИБКА! Введите текст!!!'; return; }
+  setUI('text', true, 'Деградирую текст...', '... ЗАГРУЗКА ...', true);
+  document.getElementById('textCopy').style.display='none';
+  const out = document.getElementById('textOutput');
+  out.className = 'output-box'; out.textContent = '';
+  try {
+    const result = await callClaude(eraSystemPrompts[eras.text], 'Перепиши в стиле своей эпохи. Только результат:\n\n'+input);
+    out.textContent = result;
+    out.className = 'output-box era-'+eras.text;
+    document.getElementById('textCopy').style.display='block';
+    setUI('text', false, 'Готово!!! Текст деградирован =)', '⟲ ДЕГРАДИРОВАТЬ !!!', false);
+  } catch(e) {
+    out.textContent = 'ОШИБКА СОЕДИНЕНИЯ!!!';
+    setUI('text', false, 'Ошибка!!! :(', '⟲ ДЕГРАДИРОВАТЬ !!!', false);
+  }
+}
+
+function handleFile(e) {
+  const file = e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    const dataUrl = ev.target.result;
+    document.getElementById('filePreview').src = dataUrl;
+    document.getElementById('filePreview').style.display = 'block';
+    document.getElementById('camPreview').style.display = 'none';
+    photoImageBase64 = dataUrl.split(',')[1];
+    window.photoMediaType = file.type || 'image/jpeg';
+    document.getElementById('photoStatus').textContent = 'Статус: Файл загружен — нажмите кнопку!!!';
+  };
+  reader.readAsDataURL(file);
+}
+
+async function startCamera() {
+  try {
+    cameraStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
+    const video = document.getElementById('cameraFeed');
+    video.srcObject = cameraStream;
+    video.style.display = 'block';
+    document.getElementById('snapBtn').style.display = 'inline';
+    document.getElementById('stopCamBtn').style.display = 'inline';
+    document.getElementById('photoStatus').textContent = 'Статус: Камера включена!!!';
+  } catch(e) {
+    document.getElementById('photoStatus').textContent = 'Статус: Ошибка камеры — используйте загрузку файла!!!';
+  }
+}
+
+function snapPhoto() {
+  const video = document.getElementById('cameraFeed');
+  const canvas = document.getElementById('cameraCanvas');
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  canvas.getContext('2d').drawImage(video, 0, 0);
+  const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
+  document.getElementById('camPreview').src = dataUrl;
+  document.getElementById('camPreview').style.display = 'block';
+  document.getElementById('filePreview').style.display = 'none';
+  photoImageBase64 = dataUrl.split(',')[1];
+  window.photoMediaType = 'image/jpeg';
+  stopCamera();
+  document.getElementById('photoStatus').textContent = 'Статус: Фото сделано — нажмите кнопку!!!';
+}
+
+function stopCamera() {
+  if(cameraStream) { cameraStream.getTracks().forEach(t=>t.stop()); cameraStream=null; }
+  document.getElementById('cameraFeed').style.display = 'none';
+  document.getElementById('snapBtn').style.display = 'none';
+  document.getElementById('stopCamBtn').style.display = 'none';
+}
+
+async function runPhoto() {
+  if(!photoImageBase64){ document.getElementById('photoStatus').textContent='Статус: ОШИБКА! Загрузите файл или сфотографируйте!!!'; return; }
+  setUI('photo', true, 'AI анализирует изображение...', '... АНАЛИЗИРУЮ ...', true);
+  document.getElementById('photoCopy').style.display='none';
+  const out = document.getElementById('photoOutput');
+  out.className='output-box'; out.textContent='';
+  const system = eraSystemPrompts[eras.photo];
+  const prompt = `Ты смотришь на это изображение (логотип, визитка, дизайн или скриншот сайта). Опиши подробно как бы выглядел ЭТОТ ЖЕ дизайн если бы его делали в стиле своей эпохи: какие цвета, шрифты, элементы. Пиши в стиле своей эпохи.`;
+  try {
+    const result = await callClaudeVision(system, prompt, photoImageBase64, window.photoMediaType || 'image/jpeg');
+    out.textContent = result;
+    out.className = 'output-box era-'+eras.photo;
+    document.getElementById('photoCopy').style.display='block';
+    setUI('photo', false, 'Готово!!! Дизайн деградирован =)', '⟲ ДЕГРАДИРОВАТЬ !!!', false);
+  } catch(e) {
+    out.textContent = 'ОШИБКА!!!';
+    setUI('photo', false, 'Ошибка!!! :(', '⟲ ДЕГРАДИРОВАТЬ !!!', false);
+  }
+}
+
+async function runUrl() {
+  const url = document.getElementById('urlInput').value.trim();
+  if(!url){ document.getElementById('urlStatus').textContent='Статус: ОШИБКА! Введите адрес сайта!!!'; return; }
+  setUI('url', true, 'Загружаю и анализирую сайт...', '... ЗАГРУЗКА ...', true);
+  document.getElementById('urlCopy').style.display='none';
+  const out = document.getElementById('urlOutput');
+  out.className='output-box'; out.textContent='';
+  const system = eraSystemPrompts[eras.url];
+  const prompt = `Представь что ты видишь современный сайт по адресу: ${url}. Опиши подробно как бы выглядел ЭТОТ сайт если бы он был сделан в стиле своей эпохи: структура, цвета, шрифты, элементы, текст на главной. Пиши живо и с характерной лексикой своей эпохи!!!`;
+  try {
+    const result = await callClaude(system, prompt);
+    out.textContent = result;
+    out.className = 'output-box era-'+eras.url;
+    document.getElementById('urlCopy').style.display='block';
+    setUI('url', false, 'Готово!!! Сайт деградирован =)', '⟲ ДЕГРАДИРОВАТЬ !!!', false);
+  } catch(e) {
+    out.textContent = 'ОШИБКА СОЕДИНЕНИЯ!!!';
+    setUI('url', false, 'Ошибка!!! :(', '⟲ ДЕГРАДИРОВАТЬ !!!', false);
+  }
+}
+</script>
+
+</body>
+</html>
