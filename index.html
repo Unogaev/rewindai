@@ -305,7 +305,9 @@ document.getElementById('urlCopy').style.display='block';document.getElementById
 setUI('url',false,tr('uSD'),tr('uB'),false);
 }catch(e){out.textContent=tr('eC');setUI('url',false,'Error :(',tr('uB'),false);}
 }
-applyLang();
+setTimeout(()=>{
+  alert('ДОБРО ПОЖАЛОВАТЬ НА REWIND.AI!!!\n\nВы являетесь посетителем номер ' + Math.floor(Math.random()*9000+1000) + '!!!\n\nДля наилучшего просмотра используйте Internet Explorer 6.0\nПри разрешении экрана 800x600 пикселей =)');
+},500);applyLang();
 </script>
 </body>
 </html>
