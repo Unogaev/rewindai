@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>REWIND.AI - Time Machine for Design!!!</title>
 <style>
 body{background-color:#000080;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='2' height='2' fill='%23000066'/%3E%3Crect x='2' y='2' width='2' height='2' fill='%23000066'/%3E%3C/svg%3E");margin:0;padding:0;font-family:"Comic Sans MS","Arial",sans-serif;font-size:12px;color:#ffffff}
@@ -12,9 +13,9 @@ a{color:#ffff00;text-decoration:underline}a:hover{color:#ff0000;text-decoration:
 .site-subtitle{font-family:"Comic Sans MS",sans-serif;font-size:13px;color:#ffff99;margin:2px 0 0 0}
 .marquee-bar{background:#000;border-top:2px solid #ffcc00;border-bottom:2px solid #ffcc00;padding:3px 0;color:#00ff00;font-family:"Courier New",monospace;font-size:11px;overflow:hidden;white-space:nowrap}
 .marquee-inner{display:inline-block;animation:marquee 20s linear infinite}
-@keyframes marquee{0%{transform:translateX(800px)}100%{transform:translateX(-100%)}}
+@keyframes marquee{0%{transform:translateX(780px)}100%{transform:translateX(-100%)}}
 .nav-bar{background:linear-gradient(180deg,#003399 0%,#000066 100%);border:2px outset #6699ff;text-align:center;padding:3px}
-.nav-btn{display:inline-block;background:linear-gradient(180deg,#3366cc 0%,#001166 100%);border:2px outset #6699ff;color:#fff;font-family:"Comic Sans MS",sans-serif;font-size:11px;font-weight:bold;padding:4px 12px;margin:3px 2px;cursor:pointer;text-decoration:none}
+.nav-btn{display:inline-block;background:linear-gradient(180deg,#3366cc 0%,#001166 100%);border:2px outset #6699ff;color:#fff;font-family:"Comic Sans MS",sans-serif;font-size:11px;font-weight:bold;padding:4px 8px;margin:2px 1px;cursor:pointer;text-decoration:none}
 .nav-btn:hover{background:linear-gradient(180deg,#ff6600 0%,#cc3300 100%);border:2px inset #ff9900;color:#ffff00}
 .layout{display:table;width:100%;border-collapse:collapse}
 .left-col{display:table-cell;width:150px;background:#000033;border:1px inset #3333cc;vertical-align:top;padding:6px}
@@ -43,7 +44,7 @@ a{color:#ffff00;text-decoration:underline}a:hover{color:#ff0000;text-decoration:
 .output-box.era-2005{font-family:"Tahoma",sans-serif;font-size:12px;color:#333300;background:#f5f5e0}
 .output-box.era-2010{font-family:"Verdana",sans-serif;font-size:11px;color:#1a1a2e;background:#e8f0ff}
 .output-box.era-2015{font-family:"Arial",sans-serif;font-size:13px;color:#262626;background:#fafafa;border:1px solid #dbdbdb;padding:12px}
-.go-button{background:linear-gradient(180deg,#ff6600 0%,#cc3300 50%,#ff6600 100%);border:3px outset #ff9900;color:#fff;font-family:"Impact","Arial Black",sans-serif;font-size:15px;letter-spacing:2px;padding:6px 20px;cursor:pointer;display:block;margin:8px auto;text-shadow:1px 1px 2px #000}
+.go-button{background:linear-gradient(180deg,#ff6600 0%,#cc3300 50%,#ff6600 100%);border:3px outset #ff9900;color:#fff;font-family:"Impact","Arial Black",sans-serif;font-size:15px;letter-spacing:2px;padding:6px 20px;cursor:pointer;display:block;margin:8px auto;text-shadow:1px 1px 2px #000;width:100%;box-sizing:border-box}
 .go-button:hover{background:linear-gradient(180deg,#ffcc00 0%,#ff6600 50%,#ffcc00 100%);border:3px inset #ff9900;color:#000}
 .go-button:disabled{background:#666;border-color:#999;cursor:default}
 .status-bar{background:#000033;border:1px inset #333399;color:#00ff00;font-family:"Courier New",monospace;font-size:10px;padding:2px 6px;margin-top:6px}
@@ -63,8 +64,27 @@ a{color:#ffff00;text-decoration:underline}a:hover{color:#ff0000;text-decoration:
 .cam-btn:hover{background:linear-gradient(180deg,#009900 0%,#006600 100%)}
 .lang-btn{background:linear-gradient(180deg,#333300 0%,#111100 100%);border:2px outset #999900;color:#ffff00;font-family:"Comic Sans MS",sans-serif;font-size:10px;padding:2px 8px;cursor:pointer;margin:2px}
 .lang-btn.active{background:linear-gradient(180deg,#666600 0%,#333300 100%);border:2px inset #ffff00}
-.surprise-btn{background:linear-gradient(180deg,#660066 0%,#330033 100%);border:3px outset #cc00cc;color:#ff99ff;font-family:"Comic Sans MS",sans-serif;font-size:11px;font-weight:bold;padding:5px 10px;cursor:pointer;margin:4px auto;display:block;width:100%;text-align:center}
+.surprise-btn{background:linear-gradient(180deg,#660066 0%,#330033 100%);border:3px outset #cc00cc;color:#ff99ff;font-family:"Comic Sans MS",sans-serif;font-size:11px;font-weight:bold;padding:5px 10px;cursor:pointer;margin:4px auto;display:block;width:100%;text-align:center;box-sizing:border-box}
 .surprise-btn:hover{background:linear-gradient(180deg,#cc00cc 0%,#660066 100%);color:#ffff00}
+.visual-frame{width:100%;height:400px;border:2px inset #999900;background:#fff;margin-top:8px;display:none}
+
+/* МОБИЛЬНАЯ ВЕРСИЯ */
+@media (max-width:600px){
+  .wrap{width:100%;padding:0}
+  .site-title{font-size:28px;letter-spacing:3px}
+  .layout{display:block}
+  .left-col{display:none}
+  .right-col{display:none}
+  .center-col{display:block;width:100%;padding:6px;box-sizing:border-box}
+  .nav-bar{overflow-x:auto;white-space:nowrap;text-align:left}
+  .nav-btn{font-size:10px;padding:3px 6px}
+  .era-cell{font-size:9px;padding:3px 2px}
+  .go-button{font-size:13px}
+  .tool-title{font-size:13px;letter-spacing:1px}
+  .visual-frame{height:300px}
+  .tabs-row{gap:2px}
+  .tab-btn{font-size:10px;padding:4px 4px}
+}
 </style>
 </head>
 <body>
@@ -73,7 +93,7 @@ a{color:#ffff00;text-decoration:underline}a:hover{color:#ff0000;text-decoration:
   <p class="site-title">⟲ REWIND.AI</p>
   <p class="site-subtitle" id="headerSubtitle">:: Time Machine for Design :: rewindai.co ::</p>
 </div>
-<div class="marquee-bar"><span class="marquee-inner" id="marqueeText">&nbsp;&nbsp;&nbsp;*** WELCOME TO REWIND.AI *** Degrade your text, photos and websites!!! *** Optimized for IE 6.0 *** Resolution 800x600 *** Visitor counter: 0001337 *** NEW: now 4 eras!!! =) &nbsp;&nbsp;&nbsp;</span></div>
+<div class="marquee-bar"><span class="marquee-inner" id="marqueeText">&nbsp;&nbsp;&nbsp;*** WELCOME TO REWIND.AI *** Degrade your text, photos and websites!!! *** Optimized for IE 6.0 *** Resolution 800x600 *** NEW: now 4 eras!!! =) &nbsp;&nbsp;&nbsp;</span></div>
 <div class="nav-bar">
   <a href="#" class="nav-btn" id="nav1">[ HOME ]</a>
   <a href="#" class="nav-btn" id="nav2" onclick="switchTab('text')">[ TEXT ]</a>
@@ -120,6 +140,13 @@ a{color:#ffff00;text-decoration:underline}a:hover{color:#ff0000;text-decoration:
   <div class="webring">&lt;&lt; <a href="#">BACK</a> &nbsp;<a href="#">WEBRING</a> &nbsp;<a href="#">NEXT</a> &gt;&gt;</div>
 </div>
 <div class="center-col">
+  <!-- МОБИЛЬНОЕ МЕНЮ -->
+  <div style="display:none" id="mobileLang">
+    <div style="text-align:center;margin-bottom:6px;">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('ru')">RU</button>
+    </div>
+  </div>
   <div class="tabs-row">
     <div class="tab-btn active" id="tab-text" onclick="switchTab('text')">[ TEXT ]</div>
     <div class="tab-btn" id="tab-photo" onclick="switchTab('photo')">[ PHOTO ]</div>
@@ -136,7 +163,7 @@ a{color:#ffff00;text-decoration:underline}a:hover{color:#ff0000;text-decoration:
       <td class="era-cell" id="te-2010" onclick="selectEra('text','2010')"><b>2008–12</b><br><span style="font-size:9px" id="tEra3">First iPhone</span></td>
       <td class="era-cell" id="te-2015" onclick="selectEra('text','2015')"><b>2013–17</b><br><span style="font-size:9px" id="tEra4">Instagram / Flat</span></td>
     </tr></table>
-    <button class="surprise-btn" id="surpriseTextBtn" onclick="surpriseMe('text')">🎲 УДИВИ МЕНЯ!!!</button>
+    <button class="surprise-btn" id="surpriseTextBtn" onclick="surpriseMe('text')">🎲 SURPRISE ME!!!</button>
     <div class="era-title" id="yourTextLabel">[ YOUR TEXT ]</div>
     <textarea class="retro-textarea" id="textInput" placeholder="Paste your text here..."></textarea>
     <button class="go-button" id="textBtn" onclick="runText()">⟲ DEGRADE !!!</button>
@@ -146,7 +173,7 @@ a{color:#ffff00;text-decoration:underline}a:hover{color:#ff0000;text-decoration:
     <div class="era-title" id="resultLabelText">[ RESULT ]</div>
     <div class="output-box" id="textOutput">Result will appear here...</div>
     <div class="copy-link" id="textCopy" onclick="copyText('textOutput')">[ COPY ]</div>
-    <div class="share-link" id="textShare" onclick="shareResult('textOutput')">[ ✈ ПОДЕЛИТЬСЯ В TELEGRAM ]</div>
+    <div class="share-link" id="textShare" onclick="shareResult('textOutput')">[ ✈ SHARE TO TELEGRAM ]</div>
   </div>
   <div class="tab-content tool-block" id="content-photo">
     <div class="tool-title" id="toolTitlePhoto">!!! PHOTO & FILE DEGRADATION !!!</div>
@@ -159,7 +186,7 @@ a{color:#ffff00;text-decoration:underline}a:hover{color:#ff0000;text-decoration:
       <td class="era-cell" id="pe-2010" onclick="selectEra('photo','2010')"><b>2008–12</b><br><span style="font-size:9px" id="pEra3">First iPhone</span></td>
       <td class="era-cell" id="pe-2015" onclick="selectEra('photo','2015')"><b>2013–17</b><br><span style="font-size:9px" id="pEra4">Instagram / Flat</span></td>
     </tr></table>
-    <button class="surprise-btn" onclick="surpriseMe('photo')">🎲 УДИВИ МЕНЯ!!!</button>
+    <button class="surprise-btn" onclick="surpriseMe('photo')">🎲 SURPRISE ME!!!</button>
     <div class="era-title" id="uploadLabel">[ UPLOAD FILE ]</div>
     <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
       <div style="font-size:24px;margin-bottom:6px;">📁</div>
@@ -184,11 +211,11 @@ a{color:#ffff00;text-decoration:underline}a:hover{color:#ff0000;text-decoration:
     <div class="era-title" id="resultLabelPhoto">[ RESULT ]</div>
     <div class="output-box" id="photoOutput">Result will appear here...</div>
     <div class="copy-link" id="photoCopy" onclick="copyText('photoOutput')">[ COPY ]</div>
-    <div class="share-link" id="photoShare" onclick="shareResult('photoOutput')">[ ✈ ПОДЕЛИТЬСЯ В TELEGRAM ]</div>
+    <div class="share-link" id="photoShare" onclick="shareResult('photoOutput')">[ ✈ SHARE TO TELEGRAM ]</div>
   </div>
   <div class="tab-content tool-block" id="content-url">
-    <div class="tool-title" id="toolTitleUrl">!!! WEBSITE DEGRADATION !!!</div>
-    <p style="color:#ffcc99;font-size:11px;margin-bottom:8px;" id="toolDescUrl">Paste any URL — AI will describe how it looked!!!</p>
+    <div class="tool-title" id="toolTitleUrl">!!! WEBSITE VISUAL DEGRADATION !!!</div>
+    <p style="color:#ffcc99;font-size:11px;margin-bottom:8px;" id="toolDescUrl">Paste any URL — get a REAL retro version of the site!!!</p>
     <div class="star-divider">- - - - - - - - - - -</div>
     <div class="era-title" id="eraLabelUrl">[ SELECT ERA ]</div>
     <table class="era-table" cellspacing="2"><tr>
@@ -197,18 +224,19 @@ a{color:#ffff00;text-decoration:underline}a:hover{color:#ff0000;text-decoration:
       <td class="era-cell" id="ue-2010" onclick="selectEra('url','2010')"><b>2008–12</b><br><span style="font-size:9px" id="uEra3">First iPhone</span></td>
       <td class="era-cell" id="ue-2015" onclick="selectEra('url','2015')"><b>2013–17</b><br><span style="font-size:9px" id="uEra4">Instagram / Flat</span></td>
     </tr></table>
-    <button class="surprise-btn" onclick="surpriseMe('url')">🎲 УДИВИ МЕНЯ!!!</button>
+    <button class="surprise-btn" onclick="surpriseMe('url')">🎲 SURPRISE ME!!!</button>
     <div class="era-title" id="urlLabel">[ WEBSITE URL ]</div>
     <input class="retro-input" type="text" id="urlInput" placeholder="https://notion.so">
-    <p style="color:#9999cc;font-size:10px;margin-bottom:8px;" id="urlHint">* AI will describe how this site looked</p>
+    <p style="color:#9999cc;font-size:10px;margin-bottom:8px;" id="urlHint">* AI generates a REAL retro HTML version of the site!</p>
     <button class="go-button" id="urlBtn" onclick="runUrl()">⟲ DEGRADE WEBSITE !!!</button>
-    <div class="loading-gif" id="urlLoading">*** LOADING... ***</div>
+    <div class="loading-gif" id="urlLoading">*** GENERATING RETRO SITE... ***</div>
     <div class="status-bar" id="urlStatus">Status: Enter URL.</div>
     <div class="star-divider">- - - - - - - - - - -</div>
-    <div class="era-title" id="resultLabelUrl">[ RESULT ]</div>
-    <div class="output-box" id="urlOutput">Result will appear here...</div>
-    <div class="copy-link" id="urlCopy" onclick="copyText('urlOutput')">[ COPY ]</div>
-    <div class="share-link" id="urlShare" onclick="shareResult('urlOutput')">[ ✈ ПОДЕЛИТЬСЯ В TELEGRAM ]</div>
+    <div class="era-title" id="resultLabelUrl">[ RETRO VERSION ]</div>
+    <div class="output-box" id="urlOutput" style="display:none"></div>
+    <iframe id="urlVisual" class="visual-frame"></iframe>
+    <div class="copy-link" id="urlCopy" onclick="copyText('urlOutput')">[ COPY HTML ]</div>
+    <div class="share-link" id="urlShare" onclick="shareResult('urlOutput')">[ ✈ SHARE TO TELEGRAM ]</div>
   </div>
 </div>
 <div class="right-col">
@@ -232,9 +260,11 @@ const eras={text:'2000',photo:'2000',url:'2000'};
 let photoImageBase64=null,cameraStream=null;
 const isRU=navigator.language.startsWith('ru');
 let lang=isRU?'ru':'en';
-const T={en:{hS:':: Time Machine for Design :: rewindai.co ::',mq:'*** WELCOME TO REWIND.AI *** Degrade your text, photos and websites!!! *** Optimized for IE 6.0 *** Resolution 800x600 *** NEW: now 4 eras!!! =)',n1:'[ HOME ]',n2:'[ TEXT ]',n3:'[ PHOTO ]',n4:'[ SITES ]',n5:'[ GUESTBOOK ]',n6:'[ CONTACTS ]',mT:':: MENU ::',mTx:'Text',mPh:'Photo / File',mUr:'Website URL',mGu:'Guestbook',mAb:'About',cT:':: COUNTER ::',cL:'site visitors',eT:':: EXAMPLES ::',x1:'» Startup',x2:'» Website',x3:'» App',x4:'» AI product',rT:':: ERAS ::',e1:'Early Internet',e2:'Blogs & ICQ',e3:'First iPhone',e4:'Instagram / Flat',nT:':: NEWS ::',nTx:'<b>2002.03.20</b><br>Added era!!!<br><br><b>2002.03.01</b><br>Site launched!!!',tb1:'[ TEXT ]',tb2:'[ PHOTO ]',tb3:'[ URL ]',ttT:'!!! TEXT DEGRADATION !!!',tdT:'Paste modern text — get a version from the past!!!',elT:'[ SELECT ERA ]',ytL:'[ YOUR TEXT ]',rlT:'[ RESULT ]',te1:'Early Internet',te2:'Blogs / ICQ',te3:'First iPhone',te4:'Instagram / Flat',tPl:'Paste your text here...',tB:'⟲ DEGRADE !!!',tLd:'*** LOADING... ***',tSR:'Status: Ready.',tSE:'Status: ERROR! Enter text!!!',tSL:'Degrading...',tSD:'Done!!! =)',ttP:'!!! PHOTO DEGRADATION !!!',tdP:'Upload image — AI will degrade the design!!!',elP:'[ SELECT ERA ]',uL:'[ UPLOAD FILE ]',uTx:'Click to select file<br><span style="font-size:10px;color:#6666cc;">(JPG, PNG)</span>',cL2:'[ TAKE A PHOTO ]',csB:'📷 ENABLE CAMERA',rlP:'[ RESULT ]',pB:'⟲ DEGRADE !!!',pLd:'*** ANALYZING... ***',pSR:'Status: Upload a file.',pSLd:'Status: File loaded!!!',pSSn:'Status: Photo taken!!!',pSCm:'Status: Camera on!!!',pSCE:'Status: Camera error!!!',pSL:'Analyzing...',pSD:'Done!!! =)',pe1:'Early Internet',pe2:'Blogs / ICQ',pe3:'First iPhone',pe4:'Instagram / Flat',ttU:'!!! WEBSITE DEGRADATION !!!',tdU:'Paste any URL — AI will describe how it looked!!!',elU:'[ SELECT ERA ]',urL:'[ WEBSITE URL ]',uH:'* AI will describe how this site looked',uB:'⟲ DEGRADE WEBSITE !!!',uLd:'*** LOADING... ***',uSR:'Status: Enter URL.',uSE:'Status: ERROR! Enter URL!!!',uSL:'Loading...',uSD:'Done!!! =)',ue1:'Early Internet',ue2:'Blogs / ICQ',ue3:'First iPhone',ue4:'Instagram / Flat',rlU:'[ RESULT ]',cp:'[ COPY ]',cpd:'[ COPIED!!! :) ]',sh:'[ ✈ SHARE TO TELEGRAM ]',pT:':: POLL ::',vB:'VOTE',bT:':: BANNERS ::',fT:':: FRIENDS ::',plT:':: PLAN ::',prL:'PRO version',byB:'BUY NOW!!!',snB:'📸 SNAP',stB:'✕ STOP',eC:'CONNECTION ERROR!!!',eG:'ERROR!!!',sb:'🎲 SURPRISE ME!!!'},ru:{hS:':: Машина времени для дизайна :: rewindai.co ::',mq:'*** ДОБРО ПОЖАЛОВАТЬ НА REWIND.AI *** Деградируй текст, фото и сайты!!! *** Оптимизировано для IE 6.0 *** Разрешение 800x600 *** НОВИНКА: теперь 4 эпохи!!! =)',n1:'[ ГЛАВНАЯ ]',n2:'[ ТЕКСТ ]',n3:'[ ФОТО ]',n4:'[ САЙТЫ ]',n5:'[ ГОСТЕВАЯ ]',n6:'[ КОНТАКТЫ ]',mT:':: МЕНЮ ::',mTx:'Текст',mPh:'Фото / Файл',mUr:'Ссылка на сайт',mGu:'Гостевая',mAb:'О проекте',cT:':: СЧЁТЧИК ::',cL:'посетителей сайта',eT:':: ПРИМЕРЫ ::',x1:'» Стартап',x2:'» Сайт',x3:'» Приложение',x4:'» AI-продукт',rT:':: ЭПОХИ ::',e1:'Ранний Рунет',e2:'ЖЖ и аська',e3:'Первый iPhone',e4:'Instagram / Flat',nT:':: НОВОСТИ ::',nTx:'<b>2002.03.20</b><br>Добавили эпоху!!!<br><br><b>2002.03.01</b><br>Сайт открылся!!!',tb1:'[ ТЕКСТ ]',tb2:'[ ФОТО ]',tb3:'[ ССЫЛКА ]',ttT:'!!! ДЕГРАДАЦИЯ ТЕКСТА !!!',tdT:'Вставьте современный текст — получите версию из прошлого!!!',elT:'[ ВЫБЕРИТЕ ЭПОХУ ]',ytL:'[ ВАШ ТЕКСТ ]',rlT:'[ РЕЗУЛЬТАТ ]',te1:'Ранний Рунет',te2:'ЖЖ / аська',te3:'Первый iPhone',te4:'Instagram / Flat',tPl:'Вставьте текст здесь...',tB:'⟲ ДЕГРАДИРОВАТЬ !!!',tLd:'*** ЗАГРУЗКА... ***',tSR:'Статус: Готов.',tSE:'Статус: ОШИБКА! Введите текст!!!',tSL:'Деградирую...',tSD:'Готово!!! =)',ttP:'!!! ДЕГРАДАЦИЯ ФОТО !!!',tdP:'Загрузите изображение — AI деградирует дизайн!!!',elP:'[ ВЫБЕРИТЕ ЭПОХУ ]',uL:'[ ЗАГРУЗИТЬ ФАЙЛ ]',uTx:'Нажмите для выбора файла<br><span style="font-size:10px;color:#6666cc;">(JPG, PNG)</span>',cL2:'[ СФОТОГРАФИРОВАТЬ ]',csB:'📷 ВКЛЮЧИТЬ КАМЕРУ',rlP:'[ РЕЗУЛЬТАТ ]',pB:'⟲ ДЕГРАДИРОВАТЬ !!!',pLd:'*** АНАЛИЗИРУЮ... ***',pSR:'Статус: Загрузите файл.',pSLd:'Статус: Файл загружен!!!',pSSn:'Статус: Фото сделано!!!',pSCm:'Статус: Камера включена!!!',pSCE:'Статус: Ошибка камеры!!!',pSL:'Анализирую...',pSD:'Готово!!! =)',pe1:'Ранний Рунет',pe2:'ЖЖ / аська',pe3:'Первый iPhone',pe4:'Instagram / Flat',ttU:'!!! ДЕГРАДАЦИЯ САЙТА !!!',tdU:'Вставьте адрес сайта — AI опишет как он выглядел!!!',elU:'[ ВЫБЕРИТЕ ЭПОХУ ]',urL:'[ АДРЕС САЙТА ]',uH:'* AI представит как выглядел этот сайт',uB:'⟲ ДЕГРАДИРОВАТЬ САЙТ !!!',uLd:'*** ЗАГРУЗКА... ***',uSR:'Статус: Введите адрес.',uSE:'Статус: ОШИБКА! Введите адрес!!!',uSL:'Загружаю...',uSD:'Готово!!! =)',ue1:'Ранний Рунет',ue2:'ЖЖ / аська',ue3:'Первый iPhone',ue4:'Instagram / Flat',rlU:'[ РЕЗУЛЬТАТ ]',cp:'[ СКОПИРОВАТЬ ]',cpd:'[ СКОПИРОВАНО!!! ]',sh:'[ ✈ ПОДЕЛИТЬСЯ В TELEGRAM ]',pT:':: ОПРОС ::',vB:'ГОЛОСОВАТЬ',bT:':: БАНЕРЫ ::',fT:':: ДРУЗЬЯ ::',plT:':: ТАРИФ ::',prL:'PRO версия',byB:'КУПИТЬ!!!',snB:'📸 СФОТОГРАФИРОВАТЬ',stB:'✕ ВЫКЛЮЧИТЬ',eC:'ОШИБКА СОЕДИНЕНИЯ!!!',eG:'ОШИБКА!!!',sb:'🎲 УДИВИ МЕНЯ!!!'}};
-const epEN={'2000':'You are a webmaster from 2001. Rewrite in early 2000s style: CAPITAL LETTERS, emoticons :) :D ;-), "Dear visitors!!!", exclamation marks, mention IE6 or Flash.','2005':'You are a blogger 2005-2007 on MySpace. First person: "lol","omg","rofl", emoticons =) ^_^ o_O, lots of ellipsis..., mention AIM or MySpace.','2010':'Internet user 2009-2012. Use "like","epic win","fail", hashtags #awesome #winning, mention Facebook or iPhone.','2015':'Instagram content manager 2013-2017. Minimalist iOS 7 style. Short sentences. Hashtags #motivation #lifestyle #minimal. Emojis ✨🙌💫🔥👌. "Good vibes only 🙌".'};
-const epRU={'2000':'Ты веб-мастер 2001 года. Пиши в стиле раннего Рунета: ЗАГЛАВНЫЕ БУКВЫ, смайлики :) :D ;-), "Уважаемые посетители!!!", восклицательные знаки, упомяни IE6 или Flash.','2005':'Ты блогер 2005-2007 на ЖЖ. Пиши от первого лица: "короч","вобщем","зачот", смайлики =) ^_^ o_O, многоточие... везде..., упомяни аську.','2010':'Пользователь 2009-2012. Используй "лайкнуть","топчик","зачот", хэштеги #вотэтода #топ, упомяни ВКонтакте или iPhone 4.','2015':'Контент-менеджер Instagram 2013-2017. Минималистичный стиль iOS 7. Короткие предложения. Хэштеги #motivation #lifestyle #minimal. Эмодзи ✨🙌💫🔥👌. "Good vibes only 🙌".'};
+const T={en:{hS:':: Time Machine for Design :: rewindai.co ::',mq:'*** WELCOME TO REWIND.AI *** Degrade your text, photos and websites!!! *** Optimized for IE 6.0 *** NEW: now 4 eras!!! =)',n1:'[ HOME ]',n2:'[ TEXT ]',n3:'[ PHOTO ]',n4:'[ SITES ]',n5:'[ GUESTBOOK ]',n6:'[ CONTACTS ]',mT:':: MENU ::',mTx:'Text',mPh:'Photo / File',mUr:'Website URL',mGu:'Guestbook',mAb:'About',cT:':: COUNTER ::',cL:'site visitors',eT:':: EXAMPLES ::',x1:'» Startup',x2:'» Website',x3:'» App',x4:'» AI product',rT:':: ERAS ::',e1:'Early Internet',e2:'Blogs & ICQ',e3:'First iPhone',e4:'Instagram / Flat',nT:':: NEWS ::',nTx:'<b>2002.03.20</b><br>Visual retro!!!<br><br><b>2002.03.01</b><br>Site launched!!!',tb1:'[ TEXT ]',tb2:'[ PHOTO ]',tb3:'[ SITES ]',ttT:'!!! TEXT DEGRADATION !!!',tdT:'Paste modern text — get a version from the past!!!',elT:'[ SELECT ERA ]',ytL:'[ YOUR TEXT ]',rlT:'[ RESULT ]',te1:'Early Internet',te2:'Blogs / ICQ',te3:'First iPhone',te4:'Instagram / Flat',tPl:'Paste your text here...',tB:'⟲ DEGRADE !!!',tLd:'*** LOADING... ***',tSR:'Status: Ready.',tSE:'Status: ERROR! Enter text!!!',tSL:'Degrading...',tSD:'Done!!! =)',ttP:'!!! PHOTO DEGRADATION !!!',tdP:'Upload image — AI will degrade the design!!!',elP:'[ SELECT ERA ]',uL:'[ UPLOAD FILE ]',uTx:'Click to select file<br><span style="font-size:10px;color:#6666cc;">(JPG, PNG)</span>',cL2:'[ TAKE A PHOTO ]',csB:'📷 ENABLE CAMERA',rlP:'[ RESULT ]',pB:'⟲ DEGRADE !!!',pLd:'*** ANALYZING... ***',pSR:'Status: Upload a file.',pSLd:'Status: File loaded!!!',pSSn:'Status: Photo taken!!!',pSCm:'Status: Camera on!!!',pSCE:'Status: Camera error!!!',pSL:'Analyzing...',pSD:'Done!!! =)',pe1:'Early Internet',pe2:'Blogs / ICQ',pe3:'First iPhone',pe4:'Instagram / Flat',ttU:'!!! WEBSITE VISUAL DEGRADATION !!!',tdU:'Paste any URL — get a REAL retro version!!!',elU:'[ SELECT ERA ]',urL:'[ WEBSITE URL ]',uH:'* AI generates a REAL retro HTML version!',uB:'⟲ DEGRADE WEBSITE !!!',uLd:'*** GENERATING RETRO SITE... ***',uSR:'Status: Enter URL.',uSE:'Status: ERROR! Enter URL!!!',uSL:'Generating retro version...',uSD:'Done!!! Retro site ready =)',ue1:'Early Internet',ue2:'Blogs / ICQ',ue3:'First iPhone',ue4:'Instagram / Flat',rlU:'[ RETRO VERSION ]',cp:'[ COPY HTML ]',cpd:'[ COPIED!!! :) ]',sh:'[ ✈ SHARE TO TELEGRAM ]',pT:':: POLL ::',vB:'VOTE',bT:':: BANNERS ::',fT:':: FRIENDS ::',plT:':: PLAN ::',prL:'PRO version',byB:'BUY NOW!!!',snB:'📸 SNAP',stB:'✕ STOP',eC:'CONNECTION ERROR!!!',eG:'ERROR!!!',sb:'🎲 SURPRISE ME!!!'},ru:{hS:':: Машина времени для дизайна :: rewindai.co ::',mq:'*** ДОБРО ПОЖАЛОВАТЬ НА REWIND.AI *** Деградируй текст, фото и сайты!!! *** НОВИНКА: визуальная деградация сайтов!!! =)',n1:'[ ГЛАВНАЯ ]',n2:'[ ТЕКСТ ]',n3:'[ ФОТО ]',n4:'[ САЙТЫ ]',n5:'[ ГОСТЕВАЯ ]',n6:'[ КОНТАКТЫ ]',mT:':: МЕНЮ ::',mTx:'Текст',mPh:'Фото / Файл',mUr:'Ссылка на сайт',mGu:'Гостевая',mAb:'О проекте',cT:':: СЧЁТЧИК ::',cL:'посетителей сайта',eT:':: ПРИМЕРЫ ::',x1:'» Стартап',x2:'» Сайт',x3:'» Приложение',x4:'» AI-продукт',rT:':: ЭПОХИ ::',e1:'Ранний Рунет',e2:'ЖЖ и аська',e3:'Первый iPhone',e4:'Instagram / Flat',nT:':: НОВОСТИ ::',nTx:'<b>2002.03.20</b><br>Визуальная деградация!!!<br><br><b>2002.03.01</b><br>Сайт открылся!!!',tb1:'[ ТЕКСТ ]',tb2:'[ ФОТО ]',tb3:'[ САЙТЫ ]',ttT:'!!! ДЕГРАДАЦИЯ ТЕКСТА !!!',tdT:'Вставьте современный текст — получите версию из прошлого!!!',elT:'[ ВЫБЕРИТЕ ЭПОХУ ]',ytL:'[ ВАШ ТЕКСТ ]',rlT:'[ РЕЗУЛЬТАТ ]',te1:'Ранний Рунет',te2:'ЖЖ / аська',te3:'Первый iPhone',te4:'Instagram / Flat',tPl:'Вставьте текст здесь...',tB:'⟲ ДЕГРАДИРОВАТЬ !!!',tLd:'*** ЗАГРУЗКА... ***',tSR:'Статус: Готов.',tSE:'Статус: ОШИБКА! Введите текст!!!',tSL:'Деградирую...',tSD:'Готово!!! =)',ttP:'!!! ДЕГРАДАЦИЯ ФОТО !!!',tdP:'Загрузите изображение — AI деградирует дизайн!!!',elP:'[ ВЫБЕРИТЕ ЭПОХУ ]',uL:'[ ЗАГРУЗИТЬ ФАЙЛ ]',uTx:'Нажмите для выбора файла<br><span style="font-size:10px;color:#6666cc;">(JPG, PNG)</span>',cL2:'[ СФОТОГРАФИРОВАТЬ ]',csB:'📷 ВКЛЮЧИТЬ КАМЕРУ',rlP:'[ РЕЗУЛЬТАТ ]',pB:'⟲ ДЕГРАДИРОВАТЬ !!!',pLd:'*** АНАЛИЗИРУЮ... ***',pSR:'Статус: Загрузите файл.',pSLd:'Статус: Файл загружен!!!',pSSn:'Статус: Фото сделано!!!',pSCm:'Статус: Камера включена!!!',pSCE:'Статус: Ошибка камеры!!!',pSL:'Анализирую...',pSD:'Готово!!! =)',pe1:'Ранний Рунет',pe2:'ЖЖ / аська',pe3:'Первый iPhone',pe4:'Instagram / Flat',ttU:'!!! ВИЗУАЛЬНАЯ ДЕГРАДАЦИЯ САЙТА !!!',tdU:'Вставьте адрес — получите РЕАЛЬНУЮ ретро-версию сайта!!!',elU:'[ ВЫБЕРИТЕ ЭПОХУ ]',urL:'[ АДРЕС САЙТА ]',uH:'* AI генерирует НАСТОЯЩИЙ ретро-HTML сайта!',uB:'⟲ ДЕГРАДИРОВАТЬ САЙТ !!!',uLd:'*** ГЕНЕРИРУЮ РЕТРО-САЙТ... ***',uSR:'Статус: Введите адрес.',uSE:'Статус: ОШИБКА! Введите адрес!!!',uSL:'Генерирую ретро-версию...',uSD:'Готово!!! Ретро-сайт готов =)',ue1:'Ранний Рунет',ue2:'ЖЖ / аська',ue3:'Первый iPhone',ue4:'Instagram / Flat',rlU:'[ РЕТРО ВЕРСИЯ ]',cp:'[ СКОПИРОВАТЬ HTML ]',cpd:'[ СКОПИРОВАНО!!! ]',sh:'[ ✈ ПОДЕЛИТЬСЯ В TELEGRAM ]',pT:':: ОПРОС ::',vB:'ГОЛОСОВАТЬ',bT:':: БАНЕРЫ ::',fT:':: ДРУЗЬЯ ::',plT:':: ТАРИФ ::',prL:'PRO версия',byB:'КУПИТЬ!!!',snB:'📸 СФОТОГРАФИРОВАТЬ',stB:'✕ ВЫКЛЮЧИТЬ',eC:'ОШИБКА СОЕДИНЕНИЯ!!!',eG:'ОШИБКА!!!',sb:'🎲 УДИВИ МЕНЯ!!!'}};
+const epEN={'2000':'You are a webmaster from 2001. Rewrite in early 2000s style: CAPITAL LETTERS, emoticons :) :D ;-), "Dear visitors!!!", exclamation marks, mention IE6 or Flash.','2005':'You are a blogger 2005-2007 on MySpace. First person: "lol","omg","rofl", emoticons =) ^_^ o_O, lots of ellipsis..., mention AIM or MySpace.','2010':'Internet user 2009-2012. Use "like","epic win","fail", hashtags #awesome #winning, mention Facebook or iPhone.','2015':'Instagram content manager 2013-2017. Minimalist iOS 7 style. Short sentences. Hashtags #motivation #lifestyle #minimal. Emojis ✨🙌💫🔥👌.'};
+const epRU={'2000':'Ты веб-мастер 2001 года. Пиши в стиле раннего Рунета: ЗАГЛАВНЫЕ БУКВЫ, смайлики :) :D ;-), "Уважаемые посетители!!!", восклицательные знаки, упомяни IE6 или Flash.','2005':'Ты блогер 2005-2007 на ЖЖ. Пиши от первого лица: "короч","вобщем","зачот", смайлики =) ^_^ o_O, многоточие... везде..., упомяни аську.','2010':'Пользователь 2009-2012. Используй "лайкнуть","топчик","зачот", хэштеги #вотэтода #топ, упомяни ВКонтакте или iPhone 4.','2015':'Контент-менеджер Instagram 2013-2017. Минималистичный стиль iOS 7. Короткие предложения. Хэштеги #motivation #lifestyle #minimal. Эмодзи ✨🙌💫🔥👌.'};
+const visualPromptsEN={'2000':`Generate a complete HTML page that looks like the website {URL} if it was built in 2001. Use: dark blue background (#000080), yellow links, Comic Sans font, table-based layout with 3 columns (left nav, center content, right banners), gradient header red-orange-yellow, green marquee scrolling text, visitor counter, "Optimized for IE 6.0" badge, Flash required notice, guestbook link. Include actual content about what the site does but written in 2001 style with CAPS and exclamation marks. Return ONLY the HTML code, nothing else.`,'2005':`Generate a complete HTML page that looks like the website {URL} if it was a LiveJournal/early social media page in 2005-2007. Use: light gray/white background, small fonts, lots of emoticons =) ^_^, personal diary style writing, sidebar with friends list, mood indicator, music playing indicator, lots of ellipsis... Include actual content about the site written in 2005 blog style. Return ONLY the HTML code, nothing else.`,'2010':`Generate a complete HTML page that looks like the website {URL} if it was built in 2009-2012. Use: glossy buttons, gradient backgrounds, iPhone-style icons, Facebook/Twitter share buttons, "Like" counters, hashtags, rounded corners. Include actual content about the site written in 2010 social media style. Return ONLY the HTML code, nothing else.`,'2015':`Generate a complete HTML page that looks like the website {URL} if it was built in 2013-2017 Instagram/flat design era. Use: white background, Helvetica font, minimal design, large hero image placeholder, Instagram-style grid, hashtags, emoji, "double tap to like" elements. Include actual content about the site written in 2015 Instagram caption style. Return ONLY the HTML code, nothing else.`};
+const visualPromptsRU={'2000':`Сгенерируй полную HTML страницу которая выглядит как сайт {URL} если бы его сделали в 2001 году. Используй: тёмно-синий фон (#000080), жёлтые ссылки, шрифт Comic Sans, табличная вёрстка 3 колонки (левое меню, центр, правые банеры), градиентная шапка красно-оранжево-жёлтая, зелёная бегущая строка, счётчик посетителей, значок "Оптимизировано для IE 6.0", требование Flash, гостевая книга. Включи реальный контент о том что делает сайт но написанный в стиле 2001 года с ЗАГЛАВНЫМИ БУКВАМИ и восклицательными знаками. Верни ТОЛЬКО HTML код, ничего больше.`,'2005':`Сгенерируй полную HTML страницу которая выглядит как сайт {URL} если бы это был ЖЖ/ранний ВКонтакте в 2005-2007. Используй: светло-серый фон, мелкие шрифты, много смайликов =) ^_^, стиль личного дневника, сайдбар со списком друзей, индикатор настроения, что играет музыка, многоточие... Включи реальный контент о сайте в стиле блога 2005 года. Верни ТОЛЬКО HTML код.`,'2010':`Сгенерируй полную HTML страницу которая выглядит как сайт {URL} если бы его сделали в 2009-2012. Используй: глянцевые кнопки, градиентные фоны, иконки в стиле iPhone, кнопки Facebook/ВКонтакте, счётчики лайков, хэштеги, скруглённые углы. Включи реальный контент в стиле соцсетей 2010 года. Верни ТОЛЬКО HTML код.`,'2015':`Сгенерируй полную HTML страницу которая выглядит как сайт {URL} если бы его сделали в 2013-2017 в стиле Instagram/flat design. Используй: белый фон, шрифт Helvetica/Arial, минималистичный дизайн, большой hero-баннер, сетка в стиле Instagram, хэштеги, эмодзи. Включи реальный контент в стиле подписи Instagram 2015 года. Верни ТОЛЬКО HTML код.`};
 function tr(k){return T[lang][k]||k;}
 function applyLang(){
 const L=T[lang];
@@ -254,6 +284,10 @@ document.getElementById('photoShare').textContent=L.sh;
 document.getElementById('urlShare').textContent=L.sh;
 document.getElementById('btnEN').classList.toggle('active',lang==='en');
 document.getElementById('btnRU').classList.toggle('active',lang==='ru');
+if(window.innerWidth<=600){
+  const ml=document.getElementById('mobileLang');
+  if(ml)ml.style.display='block';
+}
 const exRU=['Мы создаём умные инструменты для современных команд.','Добро пожаловать на наш сайт!','Скачай приложение и экономь время.','Наш AI автоматизирует рутину.'];
 const exEN=['We build smart tools for modern teams.','Welcome to our website!','Download the app and save time.','Our AI automates routine tasks.'];
 const exArr=lang==='ru'?exRU:exEN;
@@ -265,22 +299,14 @@ const allEras=['2000','2005','2010','2015'];
 const random=allEras[Math.floor(Math.random()*4)];
 selectEra(tab,random);
 const names={en:{'2000':'Early Internet 2000-2003!','2005':'Blogs & ICQ 2004-2007!','2010':'First iPhone 2008-2012!','2015':'Instagram Flat 2013-2017!'},ru:{'2000':'Ранний Рунет 2000-2003!','2005':'ЖЖ и аська 2004-2007!','2010':'Первый iPhone 2008-2012!','2015':'Instagram Flat 2013-2017!'}};
-const msg=lang==='ru'?'🎲 Выбрана эпоха: '+names.ru[random]:'🎲 Era selected: '+names.en[random];
-alert(msg);
+alert((lang==='ru'?'🎲 Выбрана эпоха: ':'🎲 Era selected: ')+names[lang][random]);
 }
 function shareResult(id){
 const text=document.getElementById(id).textContent;
-if(!text||text.includes('appear here')||text.includes('появится')){
-  alert(lang==='ru'?'Сначала получите результат!!!':'Get a result first!!!');return;
-}
-const shareText=(lang==='ru'?'🕹 Я деградировал текст на REWIND.AI!\n\n':'🕹 I degraded text on REWIND.AI!\n\n')+text.substring(0,300)+'...\n\n'+(lang==='ru'?'Попробуй сам: ':'Try it: ')+'rewindai.co';
-if(navigator.share){
-  navigator.share({title:'REWIND.AI',text:shareText,url:'https://rewindai.co'});
-}else{
-  navigator.clipboard.writeText(shareText).then(()=>{
-    alert(lang==='ru'?'Скопировано!!! Вставляй в Telegram =) 🎉':'Copied!!! Paste to Telegram =) 🎉');
-  });
-}
+if(!text||text.length<10){alert(lang==='ru'?'Сначала получите результат!!!':'Get a result first!!!');return;}
+const shareText=(lang==='ru'?'🕹 Я деградировал сайт на REWIND.AI!\n\n':'🕹 I degraded a website on REWIND.AI!\n\n')+text.substring(0,200)+'...\n\n'+(lang==='ru'?'Попробуй сам: ':'Try it: ')+'rewindai.co';
+if(navigator.share){navigator.share({title:'REWIND.AI',text:shareText,url:'https://rewindai.co'});}
+else{navigator.clipboard.writeText(shareText).then(()=>{alert(lang==='ru'?'Скопировано!!! Вставляй в Telegram =) 🎉':'Copied!!! Paste to Telegram =) 🎉');});}
 }
 function switchTab(tab){['text','photo','url'].forEach(t=>{document.getElementById('tab-'+t).classList.toggle('active',t===tab);document.getElementById('content-'+t).classList.toggle('active',t===tab);});}
 function selectEra(tab,era){eras[tab]=era;['2000','2005','2010','2015'].forEach(e=>{const el=document.getElementById(tab[0]+'e-'+e);if(el)el.classList.toggle('selected',e===era);});}
@@ -289,12 +315,7 @@ function copyText(id){navigator.clipboard.writeText(document.getElementById(id).
 let count=1337;
 setInterval(()=>{count++;const el=document.getElementById('visitorCount');if(el)el.textContent=String(count).padStart(7,'0');},5000);
 function gP(){return lang==='ru'?epRU:epEN;}
-function playModem(){
-const ctx=new AudioContext();
-const times=[0,0.1,0.3,0.5,0.7,0.9,1.1,1.3];
-const freqs=[1209,2450,1633,941,1336,800,1200,2100];
-times.forEach((t,i)=>{const o=ctx.createOscillator();const g=ctx.createGain();o.connect(g);g.connect(ctx.destination);o.frequency.value=freqs[i];g.gain.setValueAtTime(0.3,ctx.currentTime+t);g.gain.setValueAtTime(0,ctx.currentTime+t+0.15);o.start(ctx.currentTime+t);o.stop(ctx.currentTime+t+0.2);});
-}
+function gV(){return lang==='ru'?visualPromptsRU:visualPromptsEN;}
 async function callAPI(body){
 const r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
 const d=await r.json();
@@ -310,7 +331,6 @@ document.getElementById(prefix+'Share').textContent=tr('sh');
 async function runText(){
 const input=document.getElementById('textInput').value.trim();
 if(!input){document.getElementById('textStatus').textContent=tr('tSE');return;}
-playModem();
 setUI('text',true,tr('tSL'),tr('tB'),true);
 document.getElementById('textCopy').style.display='none';
 document.getElementById('textShare').style.display='none';
@@ -329,7 +349,6 @@ function snapPhoto(){const video=document.getElementById('cameraFeed');const can
 function stopCamera(){if(cameraStream){cameraStream.getTracks().forEach(t=>t.stop());cameraStream=null;}document.getElementById('cameraFeed').style.display='none';document.getElementById('snapBtn').style.display='none';document.getElementById('stopCamBtn').style.display='none';}
 async function runPhoto(){
 if(!photoImageBase64){document.getElementById('photoStatus').textContent=tr('pSR');return;}
-playModem();
 setUI('photo',true,tr('pSL'),tr('pB'),true);
 document.getElementById('photoCopy').style.display='none';
 document.getElementById('photoShare').style.display='none';
@@ -345,18 +364,26 @@ setUI('photo',false,tr('pSD'),tr('pB'),false);
 async function runUrl(){
 const url=document.getElementById('urlInput').value.trim();
 if(!url){document.getElementById('urlStatus').textContent=tr('uSE');return;}
-playModem();
 setUI('url',true,tr('uSL'),tr('uB'),true);
 document.getElementById('urlCopy').style.display='none';
 document.getElementById('urlShare').style.display='none';
-const out=document.getElementById('urlOutput');out.className='output-box';out.textContent='';
-const prompt=lang==='ru'?`Представь современный сайт: ${url}. Опиши как бы он выглядел в стиле своей эпохи: структура, цвета, шрифты, элементы, текст. Пиши с характерной лексикой своей эпохи!!!`:`Imagine a modern website at: ${url}. Describe how it would look in the style of your era: layout, colors, fonts, elements, text. Write with characteristic language of your era!!!`;
+const iframe=document.getElementById('urlVisual');
+const out=document.getElementById('urlOutput');
+iframe.style.display='none';
+out.style.display='none';
+out.textContent='';
+const promptTemplate=gV()[eras.url];
+const prompt=promptTemplate.replace('{URL}',url);
 try{
-const result=await callAPI({model:'claude-haiku-4-5',max_tokens:1000,system:gP()[eras.url],messages:[{role:'user',content:prompt}]});
-out.textContent=result;out.className='output-box era-'+eras.url;
+const result=await callAPI({model:'claude-haiku-4-5',max_tokens:4000,system:'You are a web developer. Generate complete HTML pages. Return ONLY raw HTML code starting with <!DOCTYPE or <html. No explanations, no markdown, no backticks.',messages:[{role:'user',content:prompt}]});
+let html=result.trim();
+if(html.startsWith('```')){html=html.replace(/```html?\n?/,'').replace(/```$/,'').trim();}
+out.textContent=html;
+iframe.srcdoc=html;
+iframe.style.display='block';
 showShare('url');
 setUI('url',false,tr('uSD'),tr('uB'),false);
-}catch(e){out.textContent=tr('eC');setUI('url',false,'Error :(',tr('uB'),false);}
+}catch(e){out.textContent=tr('eC');out.style.display='block';setUI('url',false,'Error :(',tr('uB'),false);}
 }
 setTimeout(()=>{
 alert('ДОБРО ПОЖАЛОВАТЬ НА REWIND.AI!!!\n\nВы являетесь посетителем номер '+Math.floor(Math.random()*9000+1000)+'!!!\n\nДля наилучшего просмотра используйте Internet Explorer 6.0\nПри разрешении экрана 800x600 пикселей =)');
