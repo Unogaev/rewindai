@@ -1,386 +1,75 @@
-html<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>REWIND.AI - Time Machine for Design!!!</title>
-<style>
-body {
-  background-color: #000080;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='2' height='2' fill='%23000066'/%3E%3Crect x='2' y='2' width='2' height='2' fill='%23000066'/%3E%3C/svg%3E");
-  margin: 0; padding: 0;
-  font-family: "Comic Sans MS", "Arial", sans-serif;
-  font-size: 12px; color: #ffffff;
-}
-a { color: #ffff00; text-decoration: underline; }
-a:hover { color: #ff0000; text-decoration: none; }
-.wrap { width: 780px; margin: 0 auto; }
-.header-bg { background: linear-gradient(180deg, #cc0000 0%, #ff6600 40%, #ffcc00 100%); padding: 4px; border: 3px ridge #ffcc00; text-align: center; }
-.site-title { font-family: "Impact", "Arial Black", sans-serif; font-size: 48px; color: #ffffff; text-shadow: 3px 3px 0px #000000; letter-spacing: 8px; margin: 0; }
-.site-subtitle { font-family: "Comic Sans MS", sans-serif; font-size: 13px; color: #ffff99; margin: 2px 0 0 0; }
-.marquee-bar { background: #000000; border-top: 2px solid #ffcc00; border-bottom: 2px solid #ffcc00; padding: 3px 0; color: #00ff00; font-family: "Courier New", monospace; font-size: 11px; overflow: hidden; white-space: nowrap; }
-.marquee-inner { display: inline-block; animation: marquee 20s linear infinite; }
-@keyframes marquee { 0% { transform: translateX(800px); } 100% { transform: translateX(-100%); } }
-.nav-bar { background: linear-gradient(180deg, #003399 0%, #000066 100%); border: 2px outset #6699ff; text-align: center; padding: 3px; }
-.nav-btn { display: inline-block; background: linear-gradient(180deg, #3366cc 0%, #001166 100%); border: 2px outset #6699ff; color: #ffffff; font-family: "Comic Sans MS", sans-serif; font-size: 11px; font-weight: bold; padding: 4px 12px; margin: 3px 2px; cursor: pointer; text-decoration: none; }
-.nav-btn:hover { background: linear-gradient(180deg, #ff6600 0%, #cc3300 100%); border: 2px inset #ff9900; color: #ffff00; }
-.layout { display: table; width: 100%; border-collapse: collapse; }
-.left-col { display: table-cell; width: 150px; background: #000033; border: 1px inset #3333cc; vertical-align: top; padding: 6px; }
-.center-col { display: table-cell; background: #0a0a2a; border: 1px inset #3333cc; vertical-align: top; padding: 10px; }
-.right-col { display: table-cell; width: 140px; background: #000033; border: 1px inset #3333cc; vertical-align: top; padding: 6px; }
-.side-block { background: linear-gradient(180deg, #003399 0%, #000066 100%); border: 2px outset #6699ff; margin-bottom: 8px; padding: 4px; }
-.side-title { background: linear-gradient(90deg, #cc0000, #ff6600); color: #ffffff; font-weight: bold; font-size: 11px; text-align: center; padding: 2px 4px; margin: -4px -4px 6px -4px; border-bottom: 1px solid #ffcc00; }
-.side-text { font-size: 10px; color: #99ccff; line-height: 1.5; }
-.tabs-row { display: flex; gap: 3px; margin-bottom: 0; }
-.tab-btn { background: linear-gradient(180deg, #222266 0%, #000033 100%); border: 2px outset #6699ff; border-bottom: none; color: #9999cc; font-family: "Comic Sans MS", sans-serif; font-size: 11px; font-weight: bold; padding: 5px 8px; cursor: pointer; flex: 1; text-align: center; }
-.tab-btn:hover { color: #ffffff; }
-.tab-btn.active { background: linear-gradient(180deg, #003399 0%, #000066 100%); color: #ffff00; border-color: #ffcc00; }
-.tab-content { display: none; }
-.tab-content.active { display: block; }
-.tool-block { background: #000022; border: 3px ridge #6600cc; padding: 10px; margin-bottom: 10px; border-top: 3px solid #ffcc00; }
-.tool-title { background: linear-gradient(90deg, #6600cc, #cc00cc, #6600cc); color: #ffff00; font-family: "Impact", sans-serif; font-size: 16px; text-align: center; padding: 4px; margin: -10px -10px 10px -10px; border-bottom: 2px solid #cc00cc; letter-spacing: 2px; }
-.era-title { color: #ffcc00; font-weight: bold; font-size: 11px; margin-bottom: 4px; }
-.era-table { width: 100%; border-collapse: collapse; margin-bottom: 10px; }
-.era-cell { padding: 4px 4px; border: 1px solid #333366; cursor: pointer; font-size: 10px; color: #ccccff; background: #000033; text-align: center; }
-.era-cell:hover, .era-cell.selected { background: linear-gradient(180deg, #330066, #110033); border-color: #cc00cc; color: #ff99ff; }
-.retro-textarea { width: 100%; background: #ffffcc; border: 2px inset #999900; color: #000033; font-family: "Courier New", monospace; font-size: 12px; padding: 6px; resize: none; height: 90px; box-sizing: border-box; }
-.upload-zone { border: 3px dashed #6699ff; background: #000033; padding: 20px; text-align: center; cursor: pointer; margin-bottom: 8px; }
-.upload-zone:hover { background: #000055; border-color: #ffcc00; }
-.upload-zone input[type=file] { display: none; }
-.retro-input { width: 100%; background: #ffffcc; border: 2px inset #999900; color: #000033; font-family: "Courier New", monospace; font-size: 12px; padding: 6px; box-sizing: border-box; margin-bottom: 8px; }
-.output-box { width: 100%; background: #ffffdd; border: 2px inset #999900; color: #000033; font-family: "Courier New", monospace; font-size: 12px; padding: 6px; min-height: 90px; box-sizing: border-box; white-space: pre-wrap; word-wrap: break-word; }
-.output-box.era-2000 { font-family: "Times New Roman", serif; font-size: 13px; color: #000080; background: #ffffd0; }
-.output-box.era-2005 { font-family: "Tahoma", sans-serif; font-size: 12px; color: #333300; background: #f5f5e0; }
-.output-box.era-2010 { font-family: "Verdana", sans-serif; font-size: 11px; color: #1a1a2e; background: #e8f0ff; }
-.output-box.era-2015 { font-family: "Arial", sans-serif; font-size: 13px; color: #262626; background: #fafafa; border: 1px solid #dbdbdb; padding: 12px; }
-.go-button { background: linear-gradient(180deg, #ff6600 0%, #cc3300 50%, #ff6600 100%); border: 3px outset #ff9900; color: #ffffff; font-family: "Impact", "Arial Black", sans-serif; font-size: 15px; letter-spacing: 2px; padding: 6px 20px; cursor: pointer; display: block; margin: 8px auto; text-shadow: 1px 1px 2px #000000; }
-.go-button:hover { background: linear-gradient(180deg, #ffcc00 0%, #ff6600 50%, #ffcc00 100%); border: 3px inset #ff9900; color: #000000; }
-.go-button:disabled { background: #666666; border-color: #999999; cursor: default; }
-.status-bar { background: #000033; border: 1px inset #333399; color: #00ff00; font-family: "Courier New", monospace; font-size: 10px; padding: 2px 6px; margin-top: 6px; }
-.blink { animation: blink 1s step-end infinite; }
-@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-.star-divider { text-align: center; color: #ffcc00; font-size: 10px; margin: 4px 0; letter-spacing: 2px; }
-.counter-box { background: #000000; border: 2px inset #009900; color: #00ff00; font-family: "Courier New", monospace; font-size: 14px; text-align: center; padding: 4px 8px; letter-spacing: 4px; margin: 4px 0; }
-.example-link { color: #ffff00; font-size: 10px; cursor: pointer; display: block; margin: 2px 0; text-decoration: underline; }
-.example-link:hover { color: #ff0000; }
-.copy-link { color: #00ffff; font-size: 10px; cursor: pointer; text-decoration: underline; display: none; text-align: right; margin-top: 3px; }
-.webring { border: 1px dashed #ff6600; padding: 4px; font-size: 10px; color: #ff9966; text-align: center; margin-top: 6px; }
-.loading-gif { display: none; text-align: center; color: #ffff00; font-size: 11px; animation: blink 0.5s infinite; }
-.footer-bar { background: linear-gradient(180deg, #000033 0%, #000000 100%); border-top: 2px solid #ffcc00; text-align: center; padding: 6px; font-size: 10px; color: #999999; }
-.cam-btn { background: linear-gradient(180deg, #006600 0%, #003300 100%); border: 2px outset #009900; color: #00ff00; font-family: "Comic Sans MS", sans-serif; font-size: 11px; padding: 4px 12px; cursor: pointer; margin: 3px; }
-.cam-btn:hover { background: linear-gradient(180deg, #009900 0%, #006600 100%); }
-.lang-btn { background: linear-gradient(180deg, #333300 0%, #111100 100%); border: 2px outset #999900; color: #ffff00; font-family: "Comic Sans MS", sans-serif; font-size: 10px; padding: 2px 8px; cursor: pointer; margin: 2px; }
-.lang-btn.active { background: linear-gradient(180deg, #666600 0%, #333300 100%); border: 2px inset #ffff00; }
-</style>
-</head>
-<body>
-<div class="wrap">
-
-<div class="header-bg">
-  <p class="site-title">⟲ REWIND.AI</p>
-  <p class="site-subtitle" id="headerSubtitle">:: Time Machine for Design :: rewindai.co ::</p>
-</div>
-
-<div class="marquee-bar">
-  <span class="marquee-inner" id="marqueeText">&nbsp;&nbsp;&nbsp;*** WELCOME TO REWIND.AI *** Degrade your text, photos and websites!!! *** Optimized for IE 6.0 *** Resolution 800x600 *** Visitor counter: 0001337 *** NEW: now 4 eras!!! =) &nbsp;&nbsp;&nbsp;</span>
-</div>
-
-<div class="nav-bar">
-  <a href="#" class="nav-btn" id="nav1">[ HOME ]</a>
-  <a href="#" class="nav-btn" id="nav2" onclick="switchTab('text')">[ TEXT ]</a>
-  <a href="#" class="nav-btn" id="nav3" onclick="switchTab('photo')">[ PHOTO ]</a>
-  <a href="#" class="nav-btn" id="nav4" onclick="switchTab('url')">[ SITES ]</a>
-  <a href="#" class="nav-btn" id="nav5">[ GUESTBOOK ]</a>
-  <a href="#" class="nav-btn" id="nav6">[ CONTACTS ]</a>
-</div>
-
-<div class="layout">
-
-<div class="left-col">
-  <div class="side-block">
-    <div class="side-title" id="menuTitle">:: MENU ::</div>
-    <div class="side-text">
-      &raquo; <a href="#" onclick="switchTab('text')" id="menuText">Text</a><br>
-      &raquo; <a href="#" onclick="switchTab('photo')" id="menuPhoto">Photo / File</a><br>
-      &raquo; <a href="#" onclick="switchTab('url')" id="menuUrl">Website URL</a><br>
-      &raquo; <a href="#" id="menuGuest">Guestbook</a><br>
-      &raquo; <a href="#" id="menuAbout">About</a>
-    </div>
-  </div>
-  <div class="side-block">
-    <div class="side-title" id="counterTitle">:: COUNTER ::</div>
-    <div class="counter-box" id="visitorCount">0001337</div>
-    <div class="side-text" style="text-align:center;font-size:9px;" id="counterLabel">site visitors</div>
-  </div>
-  <div class="side-block">
-    <div class="side-title" id="examplesTitle">:: EXAMPLES ::</div>
-    <a class="example-link" id="ex1" onclick="fillAndSwitch('We build smart tools for modern teams.')">» Startup</a>
-    <a class="example-link" id="ex2" onclick="fillAndSwitch('Welcome to our website! Here you will find everything.')">» Website</a>
-    <a class="example-link" id="ex3" onclick="fillAndSwitch('Download the app and start saving time today.')">» App</a>
-    <a class="example-link" id="ex4" onclick="fillAndSwitch('Our AI automates routine and boosts productivity.')">» AI product</a>
-  </div>
-  <div class="star-divider">* * * * * * *</div>
-  <div class="side-block">
-    <div class="side-title" id="erasTitle">:: ERAS ::</div>
-    <div class="side-text">
-      <b style="color:#ffff00;">2000–2003</b><br><span id="era1label">Early Internet</span><br><br>
-      <b style="color:#ffff00;">2004–2007</b><br><span id="era2label">Blogs & ICQ</span><br><br>
-      <b style="color:#ffff00;">2008–2012</b><br><span id="era3label">First iPhone</span><br><br>
-      <b style="color:#ffff00;">2013–2017</b><br><span id="era4label">Instagram / Flat</span>
-    </div>
-  </div>
-  <div class="side-block">
-    <div class="side-title">:: LANGUAGE ::</div>
-    <div style="text-align:center;">
-      <button class="lang-btn active" id="btnEN" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" id="btnRU" onclick="setLang('ru')">RU</button>
-    </div>
-  </div>
-  <div class="side-block">
-    <div class="side-title" id="newsTitle">:: NEWS ::</div>
-    <div class="side-text" id="newsText">
-      <b>2002.03.20</b><br>Added 2013-2017 era!!!<br><br>
-      <b>2002.03.15</b><br>Photo mode!!!<br><br>
-      <b>2002.03.01</b><br>Site launched!!!
-    </div>
-  </div>
-  <div class="webring">
-    &lt;&lt; <a href="#">BACK</a> &nbsp;<a href="#">WEBRING</a> &nbsp;<a href="#">NEXT</a> &gt;&gt;
-  </div>
-</div>
-
-<div class="center-col">
-  <div class="tabs-row">
-    <div class="tab-btn active" id="tab-text" onclick="switchTab('text')">[ TEXT ]</div>
-    <div class="tab-btn" id="tab-photo" onclick="switchTab('photo')">[ PHOTO ]</div>
-    <div class="tab-btn" id="tab-url" onclick="switchTab('url')">[ URL ]</div>
-  </div>
-
-  <div class="tab-content active tool-block" id="content-text">
-    <div class="tool-title" id="toolTitleText">!!! TEXT DEGRADATION !!!</div>
-    <p style="color:#ffcc99;font-size:11px;margin-bottom:8px;" id="toolDescText">Paste modern text — get a version from the past!!!</p>
-    <div class="star-divider">- - - - - - - - - - -</div>
-    <div class="era-title" id="eraLabelText">[ SELECT ERA ]</div>
-    <table class="era-table" cellspacing="2"><tr>
-      <td class="era-cell selected" id="te-2000" onclick="selectEra('text','2000')"><b>2000–03</b><br><span style="font-size:9px" id="tEra1">Early Internet</span></td>
-      <td class="era-cell" id="te-2005" onclick="selectEra('text','2005')"><b>2004–07</b><br><span style="font-size:9px" id="tEra2">Blogs / ICQ</span></td>
-      <td class="era-cell" id="te-2010" onclick="selectEra('text','2010')"><b>2008–12</b><br><span style="font-size:9px" id="tEra3">First iPhone</span></td>
-      <td class="era-cell" id="te-2015" onclick="selectEra('text','2015')"><b>2013–17</b><br><span style="font-size:9px" id="tEra4">Instagram / Flat</span></td>
-    </tr></table>
-    <div class="era-title" id="yourTextLabel">[ YOUR TEXT ]</div>
-    <textarea class="retro-textarea" id="textInput" placeholder="Paste your text here..."></textarea>
-    <button class="go-button" id="textBtn" onclick="runText()">⟲ DEGRADE !!!</button>
-    <div class="loading-gif" id="textLoading">*** LOADING... PLEASE WAIT... ***</div>
-    <div class="status-bar" id="textStatus">Status: Ready.</div>
-    <div class="star-divider">- - - - - - - - - - -</div>
-    <div class="era-title" id="resultLabelText">[ RESULT ]</div>
-    <div class="output-box" id="textOutput">Result will appear here...</div>
-    <div class="copy-link" id="textCopy" onclick="copyText('textOutput')">[ COPY ]</div>
-  </div>
-
-  <div class="tab-content tool-block" id="content-photo">
-    <div class="tool-title" id="toolTitlePhoto">!!! PHOTO & FILE DEGRADATION !!!</div>
-    <p style="color:#ffcc99;font-size:11px;margin-bottom:8px;" id="toolDescPhoto">Upload an image or take a photo — AI will degrade the design!!!</p>
-    <div class="star-divider">- - - - - - - - - - -</div>
-    <div class="era-title" id="eraLabelPhoto">[ SELECT ERA ]</div>
-    <table class="era-table" cellspacing="2"><tr>
-      <td class="era-cell selected" id="pe-2000" onclick="selectEra('photo','2000')"><b>2000–03</b><br><span style="font-size:9px" id="pEra1">Early Internet</span></td>
-      <td class="era-cell" id="pe-2005" onclick="selectEra('photo','2005')"><b>2004–07</b><br><span style="font-size:9px" id="pEra2">Blogs / ICQ</span></td>
-      <td class="era-cell" id="pe-2010" onclick="selectEra('photo','2010')"><b>2008–12</b><br><span style="font-size:9px" id="pEra3">First iPhone</span></td>
-      <td class="era-cell" id="pe-2015" onclick="selectEra('photo','2015')"><b>2013–17</b><br><span style="font-size:9px" id="pEra4">Instagram / Flat</span></td>
-    </tr></table>
-    <div class="era-title" id="uploadLabel">[ UPLOAD FILE ]</div>
-    <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
-      <div style="font-size:24px;margin-bottom:6px;">📁</div>
-      <div style="color:#99ccff;font-size:12px;" id="uploadText">Click to select file<br><span style="font-size:10px;color:#6666cc;">(JPG, PNG — logo, business card, screenshot)</span></div>
-      <input type="file" id="fileInput" accept="image/*" onchange="handleFile(event)">
-    </div>
-    <img id="filePreview" style="display:none;max-width:100%;max-height:120px;border:2px inset #999900;margin:4px 0;">
-    <div class="star-divider">- - - OR - - -</div>
-    <div class="era-title" id="cameraLabel">[ TAKE A PHOTO ]</div>
-    <div style="text-align:center;">
-      <video id="cameraFeed" style="width:100%;max-height:140px;background:#000;border:2px inset #333399;display:none;" autoplay playsinline></video>
-      <canvas id="cameraCanvas" style="display:none;"></canvas>
-      <img id="camPreview" style="max-width:100%;max-height:120px;display:none;border:2px inset #999900;margin:4px 0;">
-      <br>
-      <button class="cam-btn" id="camStartBtn" onclick="startCamera()">📷 ENABLE CAMERA</button>
-      <button class="cam-btn" id="snapBtn" onclick="snapPhoto()" style="display:none;">📸 SNAP PHOTO</button>
-      <button class="cam-btn" id="stopCamBtn" onclick="stopCamera()" style="display:none;">✕ STOP</button>
-    </div>
-    <button class="go-button" id="photoBtn" onclick="runPhoto()">⟲ DEGRADE !!!</button>
-    <div class="loading-gif" id="photoLoading">*** AI ANALYZING IMAGE... ***</div>
-    <div class="status-bar" id="photoStatus">Status: Upload a file or take a photo.</div>
-    <div class="star-divider">- - - - - - - - - - -</div>
-    <div class="era-title" id="resultLabelPhoto">[ RESULT ]</div>
-    <div class="output-box" id="photoOutput">Retro design description will appear here...</div>
-    <div class="copy-link" id="photoCopy" onclick="copyText('photoOutput')">[ COPY ]</div>
-  </div>
-
-  <div class="tab-content tool-block" id="content-url">
-    <div class="tool-title" id="toolTitleUrl">!!! WEBSITE DEGRADATION BY URL !!!</div>
-    <p style="color:#ffcc99;font-size:11px;margin-bottom:8px;" id="toolDescUrl">Paste any website URL — AI will describe how it looked in the past!!!</p>
-    <div class="star-divider">- - - - - - - - - - -</div>
-    <div class="era-title" id="eraLabelUrl">[ SELECT ERA ]</div>
-    <table class="era-table" cellspacing="2"><tr>
-      <td class="era-cell selected" id="ue-2000" onclick="selectEra('url','2000')"><b>2000–03</b><br><span style="font-size:9px" id="uEra1">Early Internet</span></td>
-      <td class="era-cell" id="ue-2005" onclick="selectEra('url','2005')"><b>2004–07</b><br><span style="font-size:9px" id="uEra2">Blogs / ICQ</span></td>
-      <td class="era-cell" id="ue-2010" onclick="selectEra('url','2010')"><b>2008–12</b><br><span style="font-size:9px" id="uEra3">First iPhone</span></td>
-      <td class="era-cell" id="ue-2015" onclick="selectEra('url','2015')"><b>2013–17</b><br><span style="font-size:9px" id="uEra4">Instagram / Flat</span></td>
-    </tr></table>
-    <div class="era-title" id="urlLabel">[ WEBSITE URL ]</div>
-    <input class="retro-input" type="text" id="urlInput" placeholder="https://notion.so">
-    <p style="color:#9999cc;font-size:10px;margin-bottom:8px;" id="urlHint">* AI will describe how this site looked in the selected era</p>
-    <button class="go-button" id="urlBtn" onclick="runUrl()">⟲ DEGRADE WEBSITE !!!</button>
-    <div class="loading-gif" id="urlLoading">*** LOADING WEBSITE... PLEASE WAIT... ***</div>
-    <div class="status-bar" id="urlStatus">Status: Enter website URL.</div>
-    <div class="star-divider">- - - - - - - - - - -</div>
-    <div class="era-title" id="resultLabelUrl">[ RESULT ]</div>
-    <div class="output-box" id="urlOutput">Retro website description will appear here...</div>
-    <div class="copy-link" id="urlCopy" onclick="copyText('urlOutput')">[ COPY ]</div>
-  </div>
-</div>
-
-<div class="right-col">
-  <div class="side-block">
-    <div class="side-title" id="pollTitle">:: POLL ::</div>
-    <div class="side-text" id="pollText">
-      Best year?<br><br>
-      <input type="radio" name="poll"> 2001<br>
-      <input type="radio" name="poll"> 2005<br>
-      <input type="radio" name="poll"> 2010<br>
-      <input type="radio" name="poll"> 2015<br><br>
-      <button style="font-size:9px;padding:2px 6px;background:#003399;color:#fff;border:1px outset #6699ff;" id="voteBtn">VOTE</button>
-    </div>
-  </div>
-  <div class="side-block">
-    <div class="side-title" id="bannersTitle">:: BANNERS ::</div>
-    <div style="background:linear-gradient(90deg,#ff0000,#0000ff);padding:4px;text-align:center;font-size:9px;color:#fff;border:1px solid #ffff00;margin-bottom:4px;font-weight:bold;">88×31<br>OUR BANNER!!!</div>
-    <div style="background:#000;padding:4px;text-align:center;font-size:9px;color:#00ff00;border:1px solid #009900;margin-bottom:4px;">IE 6.0<br>OPTIMIZED</div>
-    <div style="background:linear-gradient(90deg,#ff6600,#cc0000);padding:4px;text-align:center;font-size:9px;color:#fff;border:1px solid #ff9900;">Flash 5.0<br>REQUIRED!!!</div>
-  </div>
-  <div class="side-block">
-    <div class="side-title" id="friendsTitle">:: FRIENDS ::</div>
-    <div class="side-text">
-      <a href="#">geocities.com</a><br>
-      <a href="#">myspace.com</a><br>
-      <a href="#">aim.com</a><br>
-      <a href="#">napster.com</a><br>
-      <a href="#">angelfire.com</a>
-    </div>
-  </div>
-  <div class="side-block">
-    <div class="side-title">:: AIM ::</div>
-    <div class="side-text" style="text-align:center;">
-      Chat with us!<br>
-      <b style="color:#ffff00;font-size:14px;">rewindai</b><br>
-      <span style="font-size:9px;">always online =)</span>
-    </div>
-  </div>
-  <div class="side-block">
-    <div class="side-title" id="planTitle">:: PLAN ::</div>
-    <div class="side-text" style="text-align:center;">
-      <span style="color:#ffff00;font-weight:bold;" id="proLabel">PRO version</span><br>
-      only $9/mo!!!<br><br>
-      <a href="#" style="background:#ff6600;color:#fff;padding:3px 8px;font-size:10px;font-weight:bold;text-decoration:none;" id="buyBtn">BUY NOW!!!</a>
-    </div>
-  </div>
-</div>
-
-</div>
-
-<div class="footer-bar" id="footerBar">
-  &copy; 2001-2002 REWIND.AI :: rewindai.co :: All rights reserved ::
-  Built in Notepad :: Best viewed in IE 6.0 at 800x600 ::
-  <a href="#">Email webmaster</a> ::
-  Today: <span id="footerCount">42</span> visitors
-</div>
-
-</div>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>REWIND.AI - Time Machine for Design!!!</title>
 <style>
-body {
-  background-color: #000080;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='2' height='2' fill='%23000066'/%3E%3Crect x='2' y='2' width='2' height='2' fill='%23000066'/%3E%3C/svg%3E");
-  margin: 0; padding: 0;
-  font-family: "Comic Sans MS", "Arial", sans-serif;
-  font-size: 12px; color: #ffffff;
-}
-a { color: #ffff00; text-decoration: underline; }
-a:hover { color: #ff0000; text-decoration: none; }
-.wrap { width: 780px; margin: 0 auto; }
-.header-bg { background: linear-gradient(180deg, #cc0000 0%, #ff6600 40%, #ffcc00 100%); padding: 4px; border: 3px ridge #ffcc00; text-align: center; }
-.site-title { font-family: "Impact", "Arial Black", sans-serif; font-size: 48px; color: #ffffff; text-shadow: 3px 3px 0px #000000; letter-spacing: 8px; margin: 0; }
-.site-subtitle { font-family: "Comic Sans MS", sans-serif; font-size: 13px; color: #ffff99; margin: 2px 0 0 0; }
-.marquee-bar { background: #000000; border-top: 2px solid #ffcc00; border-bottom: 2px solid #ffcc00; padding: 3px 0; color: #00ff00; font-family: "Courier New", monospace; font-size: 11px; overflow: hidden; white-space: nowrap; }
-.marquee-inner { display: inline-block; animation: marquee 20s linear infinite; }
-@keyframes marquee { 0% { transform: translateX(800px); } 100% { transform: translateX(-100%); } }
-.nav-bar { background: linear-gradient(180deg, #003399 0%, #000066 100%); border: 2px outset #6699ff; text-align: center; padding: 3px; }
-.nav-btn { display: inline-block; background: linear-gradient(180deg, #3366cc 0%, #001166 100%); border: 2px outset #6699ff; color: #ffffff; font-family: "Comic Sans MS", sans-serif; font-size: 11px; font-weight: bold; padding: 4px 12px; margin: 3px 2px; cursor: pointer; text-decoration: none; }
-.nav-btn:hover { background: linear-gradient(180deg, #ff6600 0%, #cc3300 100%); border: 2px inset #ff9900; color: #ffff00; }
-.layout { display: table; width: 100%; border-collapse: collapse; }
-.left-col { display: table-cell; width: 150px; background: #000033; border: 1px inset #3333cc; vertical-align: top; padding: 6px; }
-.center-col { display: table-cell; background: #0a0a2a; border: 1px inset #3333cc; vertical-align: top; padding: 10px; }
-.right-col { display: table-cell; width: 140px; background: #000033; border: 1px inset #3333cc; vertical-align: top; padding: 6px; }
-.side-block { background: linear-gradient(180deg, #003399 0%, #000066 100%); border: 2px outset #6699ff; margin-bottom: 8px; padding: 4px; }
-.side-title { background: linear-gradient(90deg, #cc0000, #ff6600); color: #ffffff; font-weight: bold; font-size: 11px; text-align: center; padding: 2px 4px; margin: -4px -4px 6px -4px; border-bottom: 1px solid #ffcc00; }
-.side-text { font-size: 10px; color: #99ccff; line-height: 1.5; }
-.tabs-row { display: flex; gap: 3px; margin-bottom: 0; }
-.tab-btn { background: linear-gradient(180deg, #222266 0%, #000033 100%); border: 2px outset #6699ff; border-bottom: none; color: #9999cc; font-family: "Comic Sans MS", sans-serif; font-size: 11px; font-weight: bold; padding: 5px 8px; cursor: pointer; flex: 1; text-align: center; }
-.tab-btn:hover { color: #ffffff; }
-.tab-btn.active { background: linear-gradient(180deg, #003399 0%, #000066 100%); color: #ffff00; border-color: #ffcc00; }
-.tab-content { display: none; }
-.tab-content.active { display: block; }
-.tool-block { background: #000022; border: 3px ridge #6600cc; padding: 10px; margin-bottom: 10px; border-top: 3px solid #ffcc00; }
-.tool-title { background: linear-gradient(90deg, #6600cc, #cc00cc, #6600cc); color: #ffff00; font-family: "Impact", sans-serif; font-size: 16px; text-align: center; padding: 4px; margin: -10px -10px 10px -10px; border-bottom: 2px solid #cc00cc; letter-spacing: 2px; }
-.era-title { color: #ffcc00; font-weight: bold; font-size: 11px; margin-bottom: 4px; }
-.era-table { width: 100%; border-collapse: collapse; margin-bottom: 10px; }
-.era-cell { padding: 4px 4px; border: 1px solid #333366; cursor: pointer; font-size: 10px; color: #ccccff; background: #000033; text-align: center; }
-.era-cell:hover, .era-cell.selected { background: linear-gradient(180deg, #330066, #110033); border-color: #cc00cc; color: #ff99ff; }
-.retro-textarea { width: 100%; background: #ffffcc; border: 2px inset #999900; color: #000033; font-family: "Courier New", monospace; font-size: 12px; padding: 6px; resize: none; height: 90px; box-sizing: border-box; }
-.upload-zone { border: 3px dashed #6699ff; background: #000033; padding: 20px; text-align: center; cursor: pointer; margin-bottom: 8px; }
-.upload-zone:hover { background: #000055; border-color: #ffcc00; }
-.upload-zone input[type=file] { display: none; }
-.retro-input { width: 100%; background: #ffffcc; border: 2px inset #999900; color: #000033; font-family: "Courier New", monospace; font-size: 12px; padding: 6px; box-sizing: border-box; margin-bottom: 8px; }
-.output-box { width: 100%; background: #ffffdd; border: 2px inset #999900; color: #000033; font-family: "Courier New", monospace; font-size: 12px; padding: 6px; min-height: 90px; box-sizing: border-box; white-space: pre-wrap; word-wrap: break-word; }
-.output-box.era-2000 { font-family: "Times New Roman", serif; font-size: 13px; color: #000080; background: #ffffd0; }
-.output-box.era-2005 { font-family: "Tahoma", sans-serif; font-size: 12px; color: #333300; background: #f5f5e0; }
-.output-box.era-2010 { font-family: "Verdana", sans-serif; font-size: 11px; color: #1a1a2e; background: #e8f0ff; }
-.output-box.era-2015 { font-family: "Arial", sans-serif; font-size: 13px; color: #262626; background: #fafafa; border: 1px solid #dbdbdb; padding: 12px; }
-.go-button { background: linear-gradient(180deg, #ff6600 0%, #cc3300 50%, #ff6600 100%); border: 3px outset #ff9900; color: #ffffff; font-family: "Impact", "Arial Black", sans-serif; font-size: 15px; letter-spacing: 2px; padding: 6px 20px; cursor: pointer; display: block; margin: 8px auto; text-shadow: 1px 1px 2px #000000; }
-.go-button:hover { background: linear-gradient(180deg, #ffcc00 0%, #ff6600 50%, #ffcc00 100%); border: 3px inset #ff9900; color: #000000; }
-.go-button:disabled { background: #666666; border-color: #999999; cursor: default; }
-.status-bar { background: #000033; border: 1px inset #333399; color: #00ff00; font-family: "Courier New", monospace; font-size: 10px; padding: 2px 6px; margin-top: 6px; }
-.blink { animation: blink 1s step-end infinite; }
-@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-.star-divider { text-align: center; color: #ffcc00; font-size: 10px; margin: 4px 0; letter-spacing: 2px; }
-.counter-box { background: #000000; border: 2px inset #009900; color: #00ff00; font-family: "Courier New", monospace; font-size: 14px; text-align: center; padding: 4px 8px; letter-spacing: 4px; margin: 4px 0; }
-.example-link { color: #ffff00; font-size: 10px; cursor: pointer; display: block; margin: 2px 0; text-decoration: underline; }
-.example-link:hover { color: #ff0000; }
-.copy-link { color: #00ffff; font-size: 10px; cursor: pointer; text-decoration: underline; display: none; text-align: right; margin-top: 3px; }
-.webring { border: 1px dashed #ff6600; padding: 4px; font-size: 10px; color: #ff9966; text-align: center; margin-top: 6px; }
-.loading-gif { display: none; text-align: center; color: #ffff00; font-size: 11px; animation: blink 0.5s infinite; }
-.footer-bar { background: linear-gradient(180deg, #000033 0%, #000000 100%); border-top: 2px solid #ffcc00; text-align: center; padding: 6px; font-size: 10px; color: #999999; }
-.cam-btn { background: linear-gradient(180deg, #006600 0%, #003300 100%); border: 2px outset #009900; color: #00ff00; font-family: "Comic Sans MS", sans-serif; font-size: 11px; padding: 4px 12px; cursor: pointer; margin: 3px; }
-.cam-btn:hover { background: linear-gradient(180deg, #009900 0%, #006600 100%); }
-.lang-btn { background: linear-gradient(180deg, #333300 0%, #111100 100%); border: 2px outset #999900; color: #ffff00; font-family: "Comic Sans MS", sans-serif; font-size: 10px; padding: 2px 8px; cursor: pointer; margin: 2px; }
-.lang-btn.active { background: linear-gradient(180deg, #666600 0%, #333300 100%); border: 2px inset #ffff00; }
+body{background-color:#000080;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='2' height='2' fill='%23000066'/%3E%3Crect x='2' y='2' width='2' height='2' fill='%23000066'/%3E%3C/svg%3E");margin:0;padding:0;font-family:"Comic Sans MS","Arial",sans-serif;font-size:12px;color:#ffffff}
+a{color:#ffff00;text-decoration:underline}a:hover{color:#ff0000;text-decoration:none}
+.wrap{width:780px;margin:0 auto}
+.header-bg{background:linear-gradient(180deg,#cc0000 0%,#ff6600 40%,#ffcc00 100%);padding:4px;border:3px ridge #ffcc00;text-align:center}
+.site-title{font-family:"Impact","Arial Black",sans-serif;font-size:48px;color:#fff;text-shadow:3px 3px 0px #000;letter-spacing:8px;margin:0}
+.site-subtitle{font-family:"Comic Sans MS",sans-serif;font-size:13px;color:#ffff99;margin:2px 0 0 0}
+.marquee-bar{background:#000;border-top:2px solid #ffcc00;border-bottom:2px solid #ffcc00;padding:3px 0;color:#00ff00;font-family:"Courier New",monospace;font-size:11px;overflow:hidden;white-space:nowrap}
+.marquee-inner{display:inline-block;animation:marquee 20s linear infinite}
+@keyframes marquee{0%{transform:translateX(800px)}100%{transform:translateX(-100%)}}
+.nav-bar{background:linear-gradient(180deg,#003399 0%,#000066 100%);border:2px outset #6699ff;text-align:center;padding:3px}
+.nav-btn{display:inline-block;background:linear-gradient(180deg,#3366cc 0%,#001166 100%);border:2px outset #6699ff;color:#fff;font-family:"Comic Sans MS",sans-serif;font-size:11px;font-weight:bold;padding:4px 12px;margin:3px 2px;cursor:pointer;text-decoration:none}
+.nav-btn:hover{background:linear-gradient(180deg,#ff6600 0%,#cc3300 100%);border:2px inset #ff9900;color:#ffff00}
+.layout{display:table;width:100%;border-collapse:collapse}
+.left-col{display:table-cell;width:150px;background:#000033;border:1px inset #3333cc;vertical-align:top;padding:6px}
+.center-col{display:table-cell;background:#0a0a2a;border:1px inset #3333cc;vertical-align:top;padding:10px}
+.right-col{display:table-cell;width:140px;background:#000033;border:1px inset #3333cc;vertical-align:top;padding:6px}
+.side-block{background:linear-gradient(180deg,#003399 0%,#000066 100%);border:2px outset #6699ff;margin-bottom:8px;padding:4px}
+.side-title{background:linear-gradient(90deg,#cc0000,#ff6600);color:#fff;font-weight:bold;font-size:11px;text-align:center;padding:2px 4px;margin:-4px -4px 6px -4px;border-bottom:1px solid #ffcc00}
+.side-text{font-size:10px;color:#99ccff;line-height:1.5}
+.tabs-row{display:flex;gap:3px;margin-bottom:0}
+.tab-btn{background:linear-gradient(180deg,#222266 0%,#000033 100%);border:2px outset #6699ff;border-bottom:none;color:#9999cc;font-family:"Comic Sans MS",sans-serif;font-size:11px;font-weight:bold;padding:5px 8px;cursor:pointer;flex:1;text-align:center}
+.tab-btn:hover{color:#fff}.tab-btn.active{background:linear-gradient(180deg,#003399 0%,#000066 100%);color:#ffff00;border-color:#ffcc00}
+.tab-content{display:none}.tab-content.active{display:block}
+.tool-block{background:#000022;border:3px ridge #6600cc;padding:10px;margin-bottom:10px;border-top:3px solid #ffcc00}
+.tool-title{background:linear-gradient(90deg,#6600cc,#cc00cc,#6600cc);color:#ffff00;font-family:"Impact",sans-serif;font-size:16px;text-align:center;padding:4px;margin:-10px -10px 10px -10px;border-bottom:2px solid #cc00cc;letter-spacing:2px}
+.era-title{color:#ffcc00;font-weight:bold;font-size:11px;margin-bottom:4px}
+.era-table{width:100%;border-collapse:collapse;margin-bottom:10px}
+.era-cell{padding:4px;border:1px solid #333366;cursor:pointer;font-size:10px;color:#ccccff;background:#000033;text-align:center}
+.era-cell:hover,.era-cell.selected{background:linear-gradient(180deg,#330066,#110033);border-color:#cc00cc;color:#ff99ff}
+.retro-textarea{width:100%;background:#ffffcc;border:2px inset #999900;color:#000033;font-family:"Courier New",monospace;font-size:12px;padding:6px;resize:none;height:90px;box-sizing:border-box}
+.upload-zone{border:3px dashed #6699ff;background:#000033;padding:20px;text-align:center;cursor:pointer;margin-bottom:8px}
+.upload-zone:hover{background:#000055;border-color:#ffcc00}
+.upload-zone input[type=file]{display:none}
+.retro-input{width:100%;background:#ffffcc;border:2px inset #999900;color:#000033;font-family:"Courier New",monospace;font-size:12px;padding:6px;box-sizing:border-box;margin-bottom:8px}
+.output-box{width:100%;background:#ffffdd;border:2px inset #999900;color:#000033;font-family:"Courier New",monospace;font-size:12px;padding:6px;min-height:90px;box-sizing:border-box;white-space:pre-wrap;word-wrap:break-word}
+.output-box.era-2000{font-family:"Times New Roman",serif;font-size:13px;color:#000080;background:#ffffd0}
+.output-box.era-2005{font-family:"Tahoma",sans-serif;font-size:12px;color:#333300;background:#f5f5e0}
+.output-box.era-2010{font-family:"Verdana",sans-serif;font-size:11px;color:#1a1a2e;background:#e8f0ff}
+.output-box.era-2015{font-family:"Arial",sans-serif;font-size:13px;color:#262626;background:#fafafa;border:1px solid #dbdbdb;padding:12px}
+.go-button{background:linear-gradient(180deg,#ff6600 0%,#cc3300 50%,#ff6600 100%);border:3px outset #ff9900;color:#fff;font-family:"Impact","Arial Black",sans-serif;font-size:15px;letter-spacing:2px;padding:6px 20px;cursor:pointer;display:block;margin:8px auto;text-shadow:1px 1px 2px #000}
+.go-button:hover{background:linear-gradient(180deg,#ffcc00 0%,#ff6600 50%,#ffcc00 100%);border:3px inset #ff9900;color:#000}
+.go-button:disabled{background:#666;border-color:#999;cursor:default}
+.status-bar{background:#000033;border:1px inset #333399;color:#00ff00;font-family:"Courier New",monospace;font-size:10px;padding:2px 6px;margin-top:6px}
+.blink{animation:blink 1s step-end infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.star-divider{text-align:center;color:#ffcc00;font-size:10px;margin:4px 0;letter-spacing:2px}
+.counter-box{background:#000;border:2px inset #009900;color:#00ff00;font-family:"Courier New",monospace;font-size:14px;text-align:center;padding:4px 8px;letter-spacing:4px;margin:4px 0}
+.example-link{color:#ffff00;font-size:10px;cursor:pointer;display:block;margin:2px 0;text-decoration:underline}
+.example-link:hover{color:#ff0000}
+.copy-link{color:#00ffff;font-size:10px;cursor:pointer;text-decoration:underline;display:none;text-align:right;margin-top:3px}
+.webring{border:1px dashed #ff6600;padding:4px;font-size:10px;color:#ff9966;text-align:center;margin-top:6px}
+.loading-gif{display:none;text-align:center;color:#ffff00;font-size:11px;animation:blink 0.5s infinite}
+.footer-bar{background:linear-gradient(180deg,#000033 0%,#000 100%);border-top:2px solid #ffcc00;text-align:center;padding:6px;font-size:10px;color:#999}
+.cam-btn{background:linear-gradient(180deg,#006600 0%,#003300 100%);border:2px outset #009900;color:#00ff00;font-family:"Comic Sans MS",sans-serif;font-size:11px;padding:4px 12px;cursor:pointer;margin:3px}
+.cam-btn:hover{background:linear-gradient(180deg,#009900 0%,#006600 100%)}
+.lang-btn{background:linear-gradient(180deg,#333300 0%,#111100 100%);border:2px outset #999900;color:#ffff00;font-family:"Comic Sans MS",sans-serif;font-size:10px;padding:2px 8px;cursor:pointer;margin:2px}
+.lang-btn.active{background:linear-gradient(180deg,#666600 0%,#333300 100%);border:2px inset #ffff00}
 </style>
 </head>
 <body>
 <div class="wrap">
-
 <div class="header-bg">
   <p class="site-title">⟲ REWIND.AI</p>
   <p class="site-subtitle" id="headerSubtitle">:: Time Machine for Design :: rewindai.co ::</p>
 </div>
-
-<div class="marquee-bar">
-  <span class="marquee-inner" id="marqueeText">&nbsp;&nbsp;&nbsp;*** WELCOME TO REWIND.AI *** Degrade your text, photos and websites!!! *** Optimized for IE 6.0 *** Resolution 800x600 *** Visitor counter: 0001337 *** NEW: now 4 eras!!! =) &nbsp;&nbsp;&nbsp;</span>
-</div>
-
+<div class="marquee-bar"><span class="marquee-inner" id="marqueeText">&nbsp;&nbsp;&nbsp;*** WELCOME TO REWIND.AI *** Degrade your text, photos and websites!!! *** Optimized for IE 6.0 *** Resolution 800x600 *** Visitor counter: 0001337 *** NEW: now 4 eras!!! =) &nbsp;&nbsp;&nbsp;</span></div>
 <div class="nav-bar">
   <a href="#" class="nav-btn" id="nav1">[ HOME ]</a>
   <a href="#" class="nav-btn" id="nav2" onclick="switchTab('text')">[ TEXT ]</a>
@@ -389,69 +78,49 @@ a:hover { color: #ff0000; text-decoration: none; }
   <a href="#" class="nav-btn" id="nav5">[ GUESTBOOK ]</a>
   <a href="#" class="nav-btn" id="nav6">[ CONTACTS ]</a>
 </div>
-
 <div class="layout">
-
 <div class="left-col">
-  <div class="side-block">
-    <div class="side-title" id="menuTitle">:: MENU ::</div>
-    <div class="side-text">
-      &raquo; <a href="#" onclick="switchTab('text')" id="menuText">Text</a><br>
-      &raquo; <a href="#" onclick="switchTab('photo')" id="menuPhoto">Photo / File</a><br>
-      &raquo; <a href="#" onclick="switchTab('url')" id="menuUrl">Website URL</a><br>
-      &raquo; <a href="#" id="menuGuest">Guestbook</a><br>
-      &raquo; <a href="#" id="menuAbout">About</a>
-    </div>
-  </div>
-  <div class="side-block">
-    <div class="side-title" id="counterTitle">:: COUNTER ::</div>
+  <div class="side-block"><div class="side-title" id="menuTitle">:: MENU ::</div><div class="side-text">
+    &raquo; <a href="#" onclick="switchTab('text')" id="menuText">Text</a><br>
+    &raquo; <a href="#" onclick="switchTab('photo')" id="menuPhoto">Photo / File</a><br>
+    &raquo; <a href="#" onclick="switchTab('url')" id="menuUrl">Website URL</a><br>
+    &raquo; <a href="#" id="menuGuest">Guestbook</a><br>
+    &raquo; <a href="#" id="menuAbout">About</a>
+  </div></div>
+  <div class="side-block"><div class="side-title" id="counterTitle">:: COUNTER ::</div>
     <div class="counter-box" id="visitorCount">0001337</div>
     <div class="side-text" style="text-align:center;font-size:9px;" id="counterLabel">site visitors</div>
   </div>
-  <div class="side-block">
-    <div class="side-title" id="examplesTitle">:: EXAMPLES ::</div>
-    <a class="example-link" id="ex1" onclick="fillAndSwitch('We build smart tools for modern teams.')">» Startup</a>
-    <a class="example-link" id="ex2" onclick="fillAndSwitch('Welcome to our website! Here you will find everything.')">» Website</a>
-    <a class="example-link" id="ex3" onclick="fillAndSwitch('Download the app and start saving time today.')">» App</a>
-    <a class="example-link" id="ex4" onclick="fillAndSwitch('Our AI automates routine and boosts productivity.')">» AI product</a>
+  <div class="side-block"><div class="side-title" id="examplesTitle">:: EXAMPLES ::</div>
+    <a class="example-link" id="ex1">» Startup</a>
+    <a class="example-link" id="ex2">» Website</a>
+    <a class="example-link" id="ex3">» App</a>
+    <a class="example-link" id="ex4">» AI product</a>
   </div>
   <div class="star-divider">* * * * * * *</div>
-  <div class="side-block">
-    <div class="side-title" id="erasTitle">:: ERAS ::</div>
-    <div class="side-text">
-      <b style="color:#ffff00;">2000–2003</b><br><span id="era1label">Early Internet</span><br><br>
-      <b style="color:#ffff00;">2004–2007</b><br><span id="era2label">Blogs & ICQ</span><br><br>
-      <b style="color:#ffff00;">2008–2012</b><br><span id="era3label">First iPhone</span><br><br>
-      <b style="color:#ffff00;">2013–2017</b><br><span id="era4label">Instagram / Flat</span>
-    </div>
-  </div>
-  <div class="side-block">
-    <div class="side-title">:: LANGUAGE ::</div>
+  <div class="side-block"><div class="side-title" id="erasTitle">:: ERAS ::</div><div class="side-text">
+    <b style="color:#ffff00;">2000–2003</b><br><span id="era1label">Early Internet</span><br><br>
+    <b style="color:#ffff00;">2004–2007</b><br><span id="era2label">Blogs & ICQ</span><br><br>
+    <b style="color:#ffff00;">2008–2012</b><br><span id="era3label">First iPhone</span><br><br>
+    <b style="color:#ffff00;">2013–2017</b><br><span id="era4label">Instagram / Flat</span>
+  </div></div>
+  <div class="side-block"><div class="side-title">:: LANGUAGE ::</div>
     <div style="text-align:center;">
       <button class="lang-btn active" id="btnEN" onclick="setLang('en')">EN</button>
       <button class="lang-btn" id="btnRU" onclick="setLang('ru')">RU</button>
     </div>
   </div>
-  <div class="side-block">
-    <div class="side-title" id="newsTitle">:: NEWS ::</div>
-    <div class="side-text" id="newsText">
-      <b>2002.03.20</b><br>Added 2013-2017 era!!!<br><br>
-      <b>2002.03.15</b><br>Photo mode!!!<br><br>
-      <b>2002.03.01</b><br>Site launched!!!
-    </div>
+  <div class="side-block"><div class="side-title" id="newsTitle">:: NEWS ::</div>
+    <div class="side-text" id="newsText"><b>2002.03.20</b><br>Added 2013-2017 era!!!<br><br><b>2002.03.15</b><br>Photo mode!!!<br><br><b>2002.03.01</b><br>Site launched!!!</div>
   </div>
-  <div class="webring">
-    &lt;&lt; <a href="#">BACK</a> &nbsp;<a href="#">WEBRING</a> &nbsp;<a href="#">NEXT</a> &gt;&gt;
-  </div>
+  <div class="webring">&lt;&lt; <a href="#">BACK</a> &nbsp;<a href="#">WEBRING</a> &nbsp;<a href="#">NEXT</a> &gt;&gt;</div>
 </div>
-
 <div class="center-col">
   <div class="tabs-row">
     <div class="tab-btn active" id="tab-text" onclick="switchTab('text')">[ TEXT ]</div>
     <div class="tab-btn" id="tab-photo" onclick="switchTab('photo')">[ PHOTO ]</div>
     <div class="tab-btn" id="tab-url" onclick="switchTab('url')">[ URL ]</div>
   </div>
-
   <div class="tab-content active tool-block" id="content-text">
     <div class="tool-title" id="toolTitleText">!!! TEXT DEGRADATION !!!</div>
     <p style="color:#ffcc99;font-size:11px;margin-bottom:8px;" id="toolDescText">Paste modern text — get a version from the past!!!</p>
@@ -473,7 +142,6 @@ a:hover { color: #ff0000; text-decoration: none; }
     <div class="output-box" id="textOutput">Result will appear here...</div>
     <div class="copy-link" id="textCopy" onclick="copyText('textOutput')">[ COPY ]</div>
   </div>
-
   <div class="tab-content tool-block" id="content-photo">
     <div class="tool-title" id="toolTitlePhoto">!!! PHOTO & FILE DEGRADATION !!!</div>
     <p style="color:#ffcc99;font-size:11px;margin-bottom:8px;" id="toolDescPhoto">Upload an image or take a photo — AI will degrade the design!!!</p>
@@ -497,8 +165,7 @@ a:hover { color: #ff0000; text-decoration: none; }
     <div style="text-align:center;">
       <video id="cameraFeed" style="width:100%;max-height:140px;background:#000;border:2px inset #333399;display:none;" autoplay playsinline></video>
       <canvas id="cameraCanvas" style="display:none;"></canvas>
-      <img id="camPreview" style="max-width:100%;max-height:120px;display:none;border:2px inset #999900;margin:4px 0;">
-      <br>
+      <img id="camPreview" style="max-width:100%;max-height:120px;display:none;border:2px inset #999900;margin:4px 0;"><br>
       <button class="cam-btn" id="camStartBtn" onclick="startCamera()">📷 ENABLE CAMERA</button>
       <button class="cam-btn" id="snapBtn" onclick="snapPhoto()" style="display:none;">📸 SNAP PHOTO</button>
       <button class="cam-btn" id="stopCamBtn" onclick="stopCamera()" style="display:none;">✕ STOP</button>
@@ -511,7 +178,6 @@ a:hover { color: #ff0000; text-decoration: none; }
     <div class="output-box" id="photoOutput">Retro design description will appear here...</div>
     <div class="copy-link" id="photoCopy" onclick="copyText('photoOutput')">[ COPY ]</div>
   </div>
-
   <div class="tab-content tool-block" id="content-url">
     <div class="tool-title" id="toolTitleUrl">!!! WEBSITE DEGRADATION BY URL !!!</div>
     <p style="color:#ffcc99;font-size:11px;margin-bottom:8px;" id="toolDescUrl">Paste any website URL — AI will describe how it looked in the past!!!</p>
@@ -535,300 +201,101 @@ a:hover { color: #ff0000; text-decoration: none; }
     <div class="copy-link" id="urlCopy" onclick="copyText('urlOutput')">[ COPY ]</div>
   </div>
 </div>
-
 <div class="right-col">
-  <div class="side-block">
-    <div class="side-title" id="pollTitle">:: POLL ::</div>
-    <div class="side-text" id="pollText">
-      Best year?<br><br>
-      <input type="radio" name="poll"> 2001<br>
-      <input type="radio" name="poll"> 2005<br>
-      <input type="radio" name="poll"> 2010<br>
-      <input type="radio" name="poll"> 2015<br><br>
-      <button style="font-size:9px;padding:2px 6px;background:#003399;color:#fff;border:1px outset #6699ff;" id="voteBtn">VOTE</button>
-    </div>
-  </div>
-  <div class="side-block">
-    <div class="side-title" id="bannersTitle">:: BANNERS ::</div>
+  <div class="side-block"><div class="side-title" id="pollTitle">:: POLL ::</div><div class="side-text" id="pollText">Best year?<br><br><input type="radio" name="poll"> 2001<br><input type="radio" name="poll"> 2005<br><input type="radio" name="poll"> 2010<br><input type="radio" name="poll"> 2015<br><br><button style="font-size:9px;padding:2px 6px;background:#003399;color:#fff;border:1px outset #6699ff;" id="voteBtn">VOTE</button></div></div>
+  <div class="side-block"><div class="side-title" id="bannersTitle">:: BANNERS ::</div>
     <div style="background:linear-gradient(90deg,#ff0000,#0000ff);padding:4px;text-align:center;font-size:9px;color:#fff;border:1px solid #ffff00;margin-bottom:4px;font-weight:bold;">88×31<br>OUR BANNER!!!</div>
     <div style="background:#000;padding:4px;text-align:center;font-size:9px;color:#00ff00;border:1px solid #009900;margin-bottom:4px;">IE 6.0<br>OPTIMIZED</div>
     <div style="background:linear-gradient(90deg,#ff6600,#cc0000);padding:4px;text-align:center;font-size:9px;color:#fff;border:1px solid #ff9900;">Flash 5.0<br>REQUIRED!!!</div>
   </div>
-  <div class="side-block">
-    <div class="side-title" id="friendsTitle">:: FRIENDS ::</div>
-    <div class="side-text">
-      <a href="#">geocities.com</a><br>
-      <a href="#">myspace.com</a><br>
-      <a href="#">aim.com</a><br>
-      <a href="#">napster.com</a><br>
-      <a href="#">angelfire.com</a>
-    </div>
-  </div>
-  <div class="side-block">
-    <div class="side-title">:: AIM ::</div>
-    <div class="side-text" style="text-align:center;">
-      Chat with us!<br>
-      <b style="color:#ffff00;font-size:14px;">rewindai</b><br>
-      <span style="font-size:9px;">always online =)</span>
-    </div>
-  </div>
-  <div class="side-block">
-    <div class="side-title" id="planTitle">:: PLAN ::</div>
-    <div class="side-text" style="text-align:center;">
-      <span style="color:#ffff00;font-weight:bold;" id="proLabel">PRO version</span><br>
-      only $9/mo!!!<br><br>
-      <a href="#" style="background:#ff6600;color:#fff;padding:3px 8px;font-size:10px;font-weight:bold;text-decoration:none;" id="buyBtn">BUY NOW!!!</a>
-    </div>
-  </div>
+  <div class="side-block"><div class="side-title" id="friendsTitle">:: FRIENDS ::</div><div class="side-text">
+    <a href="#">geocities.com</a><br><a href="#">myspace.com</a><br><a href="#">aim.com</a><br><a href="#">napster.com</a><br><a href="#">angelfire.com</a>
+  </div></div>
+  <div class="side-block"><div class="side-title">:: AIM ::</div><div class="side-text" style="text-align:center;">Chat with us!<br><b style="color:#ffff00;font-size:14px;">rewindai</b><br><span style="font-size:9px;">always online =)</span></div></div>
+  <div class="side-block"><div class="side-title" id="planTitle">:: PLAN ::</div><div class="side-text" style="text-align:center;"><span style="color:#ffff00;font-weight:bold;" id="proLabel">PRO version</span><br>only $9/mo!!!<br><br><a href="#" style="background:#ff6600;color:#fff;padding:3px 8px;font-size:10px;font-weight:bold;text-decoration:none;" id="buyBtn">BUY NOW!!!</a></div></div>
 </div>
-
 </div>
-
-<div class="footer-bar" id="footerBar">
-  &copy; 2001-2002 REWIND.AI :: rewindai.co :: All rights reserved ::
-  Built in Notepad :: Best viewed in IE 6.0 at 800x600 ::
-  <a href="#">Email webmaster</a> ::
-  Today: <span id="footerCount">42</span> visitors
+<div class="footer-bar" id="footerBar">&copy; 2001-2002 REWIND.AI :: rewindai.co :: All rights reserved :: Built in Notepad :: Best viewed in IE 6.0 at 800x600 :: <a href="#">Email webmaster</a> :: Today: <span id="footerCount">42</span> visitors</div>
 </div>
-
-</div>
-Скопировал? Пиши — дам ЧАСТЬ 2 (JavaScript)!You said: давай втору частьдавай втору часть16:38ЧАСТЬ 2 — вставляй сразу после первой части:html<script>
-const API_KEY = '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';
-
-const eras = { text: '2000', photo: '2000', url: '2000' };
-let photoImageBase64 = null;
-let cameraStream = null;
-
-const isRU = navigator.language.startsWith('ru');
-let lang = isRU ? 'ru' : 'en';
-
-const translations = {
-  en: {
-    headerSubtitle:':: Time Machine for Design :: rewindai.co ::',
-    marquee:'*** WELCOME TO REWIND.AI *** Degrade your text, photos and websites!!! *** Optimized for IE 6.0 *** Resolution 800x600 *** Visitor counter: 0001337 *** NEW: now 4 eras!!! =)',
-    nav1:'[ HOME ]',nav2:'[ TEXT ]',nav3:'[ PHOTO ]',nav4:'[ SITES ]',nav5:'[ GUESTBOOK ]',nav6:'[ CONTACTS ]',
-    menuTitle:':: MENU ::',menuText:'Text',menuPhoto:'Photo / File',menuUrl:'Website URL',menuGuest:'Guestbook',menuAbout:'About',
-    counterTitle:':: COUNTER ::',counterLabel:'site visitors',
-    examplesTitle:':: EXAMPLES ::',ex1:'» Startup',ex2:'» Website',ex3:'» App',ex4:'» AI product',
-    erasTitle:':: ERAS ::',era1label:'Early Internet',era2label:'Blogs & ICQ',era3label:'First iPhone',era4label:'Instagram / Flat',
-    newsTitle:':: NEWS ::',newsText:'<b>2002.03.20</b><br>Added 2013-2017 era!!!<br><br><b>2002.03.15</b><br>Photo mode!!!<br><br><b>2002.03.01</b><br>Site launched!!!',
-    tabText:'[ TEXT ]',tabPhoto:'[ PHOTO ]',tabUrl:'[ URL ]',
-    toolTitleText:'!!! TEXT DEGRADATION !!!',toolDescText:'Paste modern text — get a version from the past!!!',
-    eraLabelText:'[ SELECT ERA ]',yourTextLabel:'[ YOUR TEXT ]',resultLabelText:'[ RESULT ]',
-    tEra1:'Early Internet',tEra2:'Blogs / ICQ',tEra3:'First iPhone',tEra4:'Instagram / Flat',
-    textPlaceholder:'Paste your text here...',
-    textBtn:'⟲ DEGRADE !!!',textLoading:'*** LOADING... PLEASE WAIT... ***',
-    textStatusReady:'Status: Ready.',textStatusError:'Status: ERROR! Enter text!!!',
-    textStatusLoading:'Degrading text...',textStatusDone:'Done!!! Text degraded =)',
-    toolTitlePhoto:'!!! PHOTO & FILE DEGRADATION !!!',toolDescPhoto:'Upload an image or take a photo — AI will degrade the design!!!',
-    eraLabelPhoto:'[ SELECT ERA ]',uploadLabel:'[ UPLOAD FILE ]',
-    uploadText:'Click to select file<br><span style="font-size:10px;color:#6666cc;">(JPG, PNG — logo, business card, screenshot)</span>',
-    cameraLabel:'[ TAKE A PHOTO ]',camStartBtn:'📷 ENABLE CAMERA',resultLabelPhoto:'[ RESULT ]',
-    photoBtn:'⟲ DEGRADE !!!',photoLoading:'*** AI ANALYZING IMAGE... ***',
-    photoStatusReady:'Status: Upload a file or take a photo.',
-    photoStatusLoaded:'Status: File loaded — press button!!!',
-    photoStatusSnapped:'Status: Photo taken — press button!!!',
-    photoStatusCam:'Status: Camera enabled!!!',
-    photoStatusCamErr:'Status: Camera error — use file upload!!!',
-    photoStatusLoading:'AI analyzing image...',photoStatusDone:'Done!!! Design degraded =)',
-    pEra1:'Early Internet',pEra2:'Blogs / ICQ',pEra3:'First iPhone',pEra4:'Instagram / Flat',
-    toolTitleUrl:'!!! WEBSITE DEGRADATION BY URL !!!',toolDescUrl:'Paste any website URL — AI will describe how it looked in the past!!!',
-    eraLabelUrl:'[ SELECT ERA ]',urlLabel:'[ WEBSITE URL ]',
-    urlHint:'* AI will describe how this site looked in the selected era',
-    urlBtn:'⟲ DEGRADE WEBSITE !!!',urlLoading:'*** LOADING WEBSITE... PLEASE WAIT... ***',
-    urlStatusReady:'Status: Enter website URL.',urlStatusError:'Status: ERROR! Enter website URL!!!',
-    urlStatusLoading:'Loading and analyzing website...',urlStatusDone:'Done!!! Website degraded =)',
-    uEra1:'Early Internet',uEra2:'Blogs / ICQ',uEra3:'First iPhone',uEra4:'Instagram / Flat',
-    resultLabelUrl:'[ RESULT ]',
-    copyLink:'[ COPY ]',copiedLink:'[ COPIED!!! :) ]',
-    pollTitle:':: POLL ::',voteBtn:'VOTE',bannersTitle:':: BANNERS ::',friendsTitle:':: FRIENDS ::',
-    planTitle:':: PLAN ::',proLabel:'PRO version',buyBtn:'BUY NOW!!!',
-    snapBtn:'📸 SNAP PHOTO',stopCamBtn:'✕ STOP',
-    errConn:'CONNECTION ERROR!!!',errGeneric:'ERROR!!!'
-  },
-  ru: {
-    headerSubtitle:':: Машина времени для дизайна :: rewindai.co ::',
-    marquee:'*** ДОБРО ПОЖАЛОВАТЬ НА REWIND.AI *** Деградируй текст, фото и сайты!!! *** Оптимизировано для IE 6.0 *** Разрешение 800x600 *** Счётчик: 0001337 *** НОВИНКА: теперь 4 эпохи!!! =)',
-    nav1:'[ ГЛАВНАЯ ]',nav2:'[ ТЕКСТ ]',nav3:'[ ФОТО ]',nav4:'[ САЙТЫ ]',nav5:'[ ГОСТЕВАЯ ]',nav6:'[ КОНТАКТЫ ]',
-    menuTitle:':: МЕНЮ ::',menuText:'Текст',menuPhoto:'Фото / Файл',menuUrl:'Ссылка на сайт',menuGuest:'Гостевая',menuAbout:'О проекте',
-    counterTitle:':: СЧЁТЧИК ::',counterLabel:'посетителей сайта',
-    examplesTitle:':: ПРИМЕРЫ ::',ex1:'» Стартап',ex2:'» Сайт',ex3:'» Приложение',ex4:'» AI-продукт',
-    erasTitle:':: ЭПОХИ ::',era1label:'Ранний Рунет',era2label:'ЖЖ и аська',era3label:'Первый iPhone',era4label:'Instagram / Flat',
-    newsTitle:':: НОВОСТИ ::',newsText:'<b>2002.03.20</b><br>Добавили эпоху 2013-2017!!!<br><br><b>2002.03.15</b><br>Фото режим!!!<br><br><b>2002.03.01</b><br>Сайт открылся!!!',
-    tabText:'[ ТЕКСТ ]',tabPhoto:'[ ФОТО ]',tabUrl:'[ ССЫЛКА ]',
-    toolTitleText:'!!! ДЕГРАДАЦИЯ ТЕКСТА !!!',toolDescText:'Вставьте современный текст — получите версию из прошлого!!!',
-    eraLabelText:'[ ВЫБЕРИТЕ ЭПОХУ ]',yourTextLabel:'[ ВАШ ТЕКСТ ]',resultLabelText:'[ РЕЗУЛЬТАТ ]',
-    tEra1:'Ранний Рунет',tEra2:'ЖЖ / аська',tEra3:'Первый iPhone',tEra4:'Instagram / Flat',
-    textPlaceholder:'Вставьте текст здесь...',
-    textBtn:'⟲ ДЕГРАДИРОВАТЬ !!!',textLoading:'*** ЗАГРУЗКА... ПОДОЖДИТЕ... ***',
-    textStatusReady:'Статус: Готов к работе.',textStatusError:'Статус: ОШИБКА! Введите текст!!!',
-    textStatusLoading:'Деградирую текст...',textStatusDone:'Готово!!! Текст деградирован =)',
-    toolTitlePhoto:'!!! ДЕГРАДАЦИЯ ФОТО И ФАЙЛОВ !!!',toolDescPhoto:'Загрузите изображение или сфотографируйте — AI деградирует дизайн!!!',
-    eraLabelPhoto:'[ ВЫБЕРИТЕ ЭПОХУ ]',uploadLabel:'[ ЗАГРУЗИТЬ ФАЙЛ ]',
-    uploadText:'Нажмите для выбора файла<br><span style="font-size:10px;color:#6666cc;">(JPG, PNG — логотип, визитка, скриншот)</span>',
-    cameraLabel:'[ СФОТОГРАФИРОВАТЬ ]',camStartBtn:'📷 ВКЛЮЧИТЬ КАМЕРУ',resultLabelPhoto:'[ РЕЗУЛЬТАТ ]',
-    photoBtn:'⟲ ДЕГРАДИРОВАТЬ !!!',photoLoading:'*** AI АНАЛИЗИРУЕТ ИЗОБРАЖЕНИЕ... ***',
-    photoStatusReady:'Статус: Загрузите файл или сфотографируйте.',
-    photoStatusLoaded:'Статус: Файл загружен — нажмите кнопку!!!',
-    photoStatusSnapped:'Статус: Фото сделано — нажмите кнопку!!!',
-    photoStatusCam:'Статус: Камера включена!!!',
-    photoStatusCamErr:'Статус: Ошибка камеры — используйте загрузку файла!!!',
-    photoStatusLoading:'AI анализирует изображение...',photoStatusDone:'Готово!!! Дизайн деградирован =)',
-    pEra1:'Ранний Рунет',pEra2:'ЖЖ / аська',pEra3:'Первый iPhone',pEra4:'Instagram / Flat',
-    toolTitleUrl:'!!! ДЕГРАДАЦИЯ САЙТА ПО ССЫЛКЕ !!!',toolDescUrl:'Вставьте адрес любого сайта — AI опишет как он выглядел в прошлом!!!',
-    eraLabelUrl:'[ ВЫБЕРИТЕ ЭПОХУ ]',urlLabel:'[ АДРЕС САЙТА ]',
-    urlHint:'* AI представит как выглядел этот сайт в выбранную эпоху',
-    urlBtn:'⟲ ДЕГРАДИРОВАТЬ САЙТ !!!',urlLoading:'*** ЗАГРУЗКА САЙТА... ПОДОЖДИТЕ... ***',
-    urlStatusReady:'Статус: Введите адрес сайта.',urlStatusError:'Статус: ОШИБКА! Введите адрес!!!',
-    urlStatusLoading:'Загружаю и анализирую сайт...',urlStatusDone:'Готово!!! Сайт деградирован =)',
-    uEra1:'Ранний Рунет',uEra2:'ЖЖ / аська',uEra3:'Первый iPhone',uEra4:'Instagram / Flat',
-    resultLabelUrl:'[ РЕЗУЛЬТАТ ]',
-    copyLink:'[ СКОПИРОВАТЬ ]',copiedLink:'[ СКОПИРОВАНО!!! :) ]',
-    pollTitle:':: ОПРОС ::',voteBtn:'ГОЛОСОВАТЬ',bannersTitle:':: БАНЕРЫ ::',friendsTitle:':: ДРУЗЬЯ ::',
-    planTitle:':: ТАРИФ ::',proLabel:'PRO версия',buyBtn:'КУПИТЬ!!!',
-    snapBtn:'📸 СФОТОГРАФИРОВАТЬ',stopCamBtn:'✕ ВЫКЛЮЧИТЬ',
-    errConn:'ОШИБКА СОЕДИНЕНИЯ!!!',errGeneric:'ОШИБКА!!!'
-  }
-};
-
-const eraPromptsEN = {
-  '2000':'You are a webmaster from 2001. Rewrite in early 2000s internet style: CAPITAL LETTERS for important things, emoticons :) :D ;-), "Dear visitors of our website!!!", exclamation marks, words like "herewith", "aforementioned". Mention IE6 or Flash if relevant.',
-  '2005':'You are a blogger from 2005-2007 on MySpace. Write in first person: "lol", "omg", "rofl", emoticons =) ^_^ o_O xD, lots of ellipsis..., "peeps", "plz", "thx", "ur". Mention AIM or MySpace.',
-  '2010':'You are an internet user from 2009-2012. Use "like", "epic win", "fail", hashtags #awesome #winning. Mention Facebook or first iPhone.',
-  '2015':'You are an Instagram content manager 2013-2017. Minimalist, inspiring, iOS 7 flat style. Short sentences. Hashtags #motivation #lifestyle #minimal #flatdesign. Emojis ✨🙌💫🔥👌. Phrases like "Live. Love. Create." "Less is more." "Good vibes only 🙌".'
-};
-
-const eraPromptsRU = {
-  '2000':'Ты веб-мастер 2001 года. Пиши в стиле раннего Рунета: ЗАГЛАВНЫЕ БУКВЫ для важного, смайлики :) :D ;-), "Уважаемые посетители нашего веб-ресурса!!!", восклицательные знаки, слова "данный", "посему", "нижеследующий". Упомяни IE6 или Flash если уместно.',
-  '2005':'Ты блогер 2005-2007 на ЖЖ или раннем ВКонтакте. Пиши от первого лица: "короч", "вобщем", "ваще", "зачот", смайлики =) ^_^ o_O, многоточие... везде..., "народ", "камрады", "плиз". Упомяни аську или ЖЖ.',
-  '2010':'Ты пользователь 2009-2012. Используй "лайкнуть", "репостнуть", "топчик", "зачот", "красава", хэштеги #вотэтода #топ. Упомяни ВКонтакте или iPhone 4.',
-  '2015':'Ты контент-менеджер Instagram 2013-2017. Минималистичный, вдохновляющий стиль iOS 7. Короткие предложения. Хэштеги #motivation #lifestyle #minimal #flatdesign. Эмодзи ✨🙌💫🔥👌. "Live. Love. Create." "Less is more." "Good vibes only 🙌".'
-};
-
-function t(key) { return translations[lang][key] || key; }
-
-function applyLang() {
-  const T = translations[lang];
-  ['headerSubtitle','menuTitle','menuText','menuPhoto','menuUrl','menuGuest','menuAbout',
-   'counterTitle','counterLabel','examplesTitle','ex1','ex2','ex3','ex4','erasTitle',
-   'era1label','era2label','era3label','era4label','newsTitle',
-   'toolTitleText','toolDescText','eraLabelText','yourTextLabel','resultLabelText',
-   'tEra1','tEra2','tEra3','tEra4','textBtn','textLoading',
-   'toolTitlePhoto','toolDescPhoto','eraLabelPhoto','uploadLabel','cameraLabel','resultLabelPhoto',
-   'photoBtn','photoLoading','pEra1','pEra2','pEra3','pEra4',
-   'toolTitleUrl','toolDescUrl','eraLabelUrl','urlLabel','urlHint','urlBtn','urlLoading',
-   'resultLabelUrl','uEra1','uEra2','uEra3','uEra4',
-   'pollTitle','voteBtn','bannersTitle','friendsTitle','planTitle','proLabel','buyBtn',
-   'nav1','nav2','nav3','nav4','nav5','nav6','camStartBtn','snapBtn','stopCamBtn'
-  ].forEach(id => {
-    const el = document.getElementById(id);
-    if(el && T[id]) el.innerHTML = T[id];
-  });
-  document.getElementById('marqueeText').textContent = '   ' + T.marquee + '   ';
-  document.getElementById('newsText').innerHTML = T.newsText;
-  document.getElementById('uploadText').innerHTML = T.uploadText;
-  document.getElementById('tab-text').textContent = T.tabText;
-  document.getElementById('tab-photo').textContent = T.tabPhoto;
-  document.getElementById('tab-url').textContent = T.tabUrl;
-  document.getElementById('textInput').placeholder = T.textPlaceholder;
-  document.getElementById('textStatus').textContent = T.textStatusReady;
-  document.getElementById('photoStatus').textContent = T.photoStatusReady;
-  document.getElementById('urlStatus').textContent = T.urlStatusReady;
-  document.getElementById('btnEN').classList.toggle('active', lang==='en');
-  document.getElementById('btnRU').classList.toggle('active', lang==='ru');
-  const exTexts = lang==='ru'
-    ? ['Мы создаём умные инструменты для современных команд.','Добро пожаловать на наш сайт! Здесь вы найдёте всё.','Скачай приложение и экономь время уже сегодня.','Наш AI автоматизирует рутину и поднимает продуктивность.']
-    : ['We build smart tools for modern teams. Work faster, think clearer.','Welcome to our website! Here you will find everything you need.','Download the app and start saving time today.','Our AI automates routine tasks and boosts your team productivity.'];
-  ['ex1','ex2','ex3','ex4'].forEach((id,i) => {
-    const el = document.getElementById(id);
-    if(el) el.onclick = () => fillAndSwitch(exTexts[i]);
-  });
+<script>
+const API_KEY='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';
+const eras={text:'2000',photo:'2000',url:'2000'};
+let photoImageBase64=null,cameraStream=null;
+const isRU=navigator.language.startsWith('ru');
+let lang=isRU?'ru':'en';
+const T={en:{hS:':: Time Machine for Design :: rewindai.co ::',mq:'*** WELCOME TO REWIND.AI *** Degrade your text, photos and websites!!! *** Optimized for IE 6.0 *** Resolution 800x600 *** NEW: now 4 eras!!! =)',n1:'[ HOME ]',n2:'[ TEXT ]',n3:'[ PHOTO ]',n4:'[ SITES ]',n5:'[ GUESTBOOK ]',n6:'[ CONTACTS ]',mT:':: MENU ::',mTx:'Text',mPh:'Photo / File',mUr:'Website URL',mGu:'Guestbook',mAb:'About',cT:':: COUNTER ::',cL:'site visitors',eT:':: EXAMPLES ::',x1:'» Startup',x2:'» Website',x3:'» App',x4:'» AI product',rT:':: ERAS ::',e1:'Early Internet',e2:'Blogs & ICQ',e3:'First iPhone',e4:'Instagram / Flat',nT:':: NEWS ::',nTx:'<b>2002.03.20</b><br>Added 2013-2017 era!!!<br><br><b>2002.03.15</b><br>Photo mode!!!<br><br><b>2002.03.01</b><br>Site launched!!!',tb1:'[ TEXT ]',tb2:'[ PHOTO ]',tb3:'[ URL ]',ttT:'!!! TEXT DEGRADATION !!!',tdT:'Paste modern text — get a version from the past!!!',elT:'[ SELECT ERA ]',ytL:'[ YOUR TEXT ]',rlT:'[ RESULT ]',te1:'Early Internet',te2:'Blogs / ICQ',te3:'First iPhone',te4:'Instagram / Flat',tPl:'Paste your text here...',tB:'⟲ DEGRADE !!!',tLd:'*** LOADING... PLEASE WAIT... ***',tSR:'Status: Ready.',tSE:'Status: ERROR! Enter text!!!',tSL:'Degrading text...',tSD:'Done!!! Text degraded =)',ttP:'!!! PHOTO & FILE DEGRADATION !!!',tdP:'Upload an image or take a photo — AI will degrade the design!!!',elP:'[ SELECT ERA ]',uL:'[ UPLOAD FILE ]',uTx:'Click to select file<br><span style="font-size:10px;color:#6666cc;">(JPG, PNG — logo, business card, screenshot)</span>',cL2:'[ TAKE A PHOTO ]',csB:'📷 ENABLE CAMERA',rlP:'[ RESULT ]',pB:'⟲ DEGRADE !!!',pLd:'*** AI ANALYZING IMAGE... ***',pSR:'Status: Upload a file or take a photo.',pSLd:'Status: File loaded — press button!!!',pSSn:'Status: Photo taken — press button!!!',pSCm:'Status: Camera enabled!!!',pSCE:'Status: Camera error — use file upload!!!',pSL:'AI analyzing image...',pSD:'Done!!! Design degraded =)',pe1:'Early Internet',pe2:'Blogs / ICQ',pe3:'First iPhone',pe4:'Instagram / Flat',ttU:'!!! WEBSITE DEGRADATION BY URL !!!',tdU:'Paste any website URL — AI will describe how it looked in the past!!!',elU:'[ SELECT ERA ]',urL:'[ WEBSITE URL ]',uH:'* AI will describe how this site looked in the selected era',uB:'⟲ DEGRADE WEBSITE !!!',uLd:'*** LOADING WEBSITE... PLEASE WAIT... ***',uSR:'Status: Enter website URL.',uSE:'Status: ERROR! Enter website URL!!!',uSL:'Loading and analyzing...',uSD:'Done!!! Website degraded =)',ue1:'Early Internet',ue2:'Blogs / ICQ',ue3:'First iPhone',ue4:'Instagram / Flat',rlU:'[ RESULT ]',cp:'[ COPY ]',cpd:'[ COPIED!!! :) ]',pT:':: POLL ::',vB:'VOTE',bT:':: BANNERS ::',fT:':: FRIENDS ::',plT:':: PLAN ::',prL:'PRO version',byB:'BUY NOW!!!',snB:'📸 SNAP PHOTO',stB:'✕ STOP',eC:'CONNECTION ERROR!!!',eG:'ERROR!!!'},ru:{hS:':: Машина времени для дизайна :: rewindai.co ::',mq:'*** ДОБРО ПОЖАЛОВАТЬ НА REWIND.AI *** Деградируй текст, фото и сайты!!! *** Оптимизировано для IE 6.0 *** Разрешение 800x600 *** НОВИНКА: теперь 4 эпохи!!! =)',n1:'[ ГЛАВНАЯ ]',n2:'[ ТЕКСТ ]',n3:'[ ФОТО ]',n4:'[ САЙТЫ ]',n5:'[ ГОСТЕВАЯ ]',n6:'[ КОНТАКТЫ ]',mT:':: МЕНЮ ::',mTx:'Текст',mPh:'Фото / Файл',mUr:'Ссылка на сайт',mGu:'Гостевая',mAb:'О проекте',cT:':: СЧЁТЧИК ::',cL:'посетителей сайта',eT:':: ПРИМЕРЫ ::',x1:'» Стартап',x2:'» Сайт',x3:'» Приложение',x4:'» AI-продукт',rT:':: ЭПОХИ ::',e1:'Ранний Рунет',e2:'ЖЖ и аська',e3:'Первый iPhone',e4:'Instagram / Flat',nT:':: НОВОСТИ ::',nTx:'<b>2002.03.20</b><br>Добавили эпоху 2013-2017!!!<br><br><b>2002.03.15</b><br>Фото режим!!!<br><br><b>2002.03.01</b><br>Сайт открылся!!!',tb1:'[ ТЕКСТ ]',tb2:'[ ФОТО ]',tb3:'[ ССЫЛКА ]',ttT:'!!! ДЕГРАДАЦИЯ ТЕКСТА !!!',tdT:'Вставьте современный текст — получите версию из прошлого!!!',elT:'[ ВЫБЕРИТЕ ЭПОХУ ]',ytL:'[ ВАШ ТЕКСТ ]',rlT:'[ РЕЗУЛЬТАТ ]',te1:'Ранний Рунет',te2:'ЖЖ / аська',te3:'Первый iPhone',te4:'Instagram / Flat',tPl:'Вставьте текст здесь...',tB:'⟲ ДЕГРАДИРОВАТЬ !!!',tLd:'*** ЗАГРУЗКА... ПОДОЖДИТЕ... ***',tSR:'Статус: Готов к работе.',tSE:'Статус: ОШИБКА! Введите текст!!!',tSL:'Деградирую текст...',tSD:'Готово!!! Текст деградирован =)',ttP:'!!! ДЕГРАДАЦИЯ ФОТО И ФАЙЛОВ !!!',tdP:'Загрузите изображение или сфотографируйте — AI деградирует дизайн!!!',elP:'[ ВЫБЕРИТЕ ЭПОХУ ]',uL:'[ ЗАГРУЗИТЬ ФАЙЛ ]',uTx:'Нажмите для выбора файла<br><span style="font-size:10px;color:#6666cc;">(JPG, PNG — логотип, визитка, скриншот)</span>',cL2:'[ СФОТОГРАФИРОВАТЬ ]',csB:'📷 ВКЛЮЧИТЬ КАМЕРУ',rlP:'[ РЕЗУЛЬТАТ ]',pB:'⟲ ДЕГРАДИРОВАТЬ !!!',pLd:'*** AI АНАЛИЗИРУЕТ ИЗОБРАЖЕНИЕ... ***',pSR:'Статус: Загрузите файл или сфотографируйте.',pSLd:'Статус: Файл загружен — нажмите кнопку!!!',pSSn:'Статус: Фото сделано — нажмите кнопку!!!',pSCm:'Статус: Камера включена!!!',pSCE:'Статус: Ошибка камеры — используйте загрузку файла!!!',pSL:'AI анализирует изображение...',pSD:'Готово!!! Дизайн деградирован =)',pe1:'Ранний Рунет',pe2:'ЖЖ / аська',pe3:'Первый iPhone',pe4:'Instagram / Flat',ttU:'!!! ДЕГРАДАЦИЯ САЙТА ПО ССЫЛКЕ !!!',tdU:'Вставьте адрес любого сайта — AI опишет как он выглядел в прошлом!!!',elU:'[ ВЫБЕРИТЕ ЭПОХУ ]',urL:'[ АДРЕС САЙТА ]',uH:'* AI представит как выглядел этот сайт в выбранную эпоху',uB:'⟲ ДЕГРАДИРОВАТЬ САЙТ !!!',uLd:'*** ЗАГРУЗКА САЙТА... ПОДОЖДИТЕ... ***',uSR:'Статус: Введите адрес сайта.',uSE:'Статус: ОШИБКА! Введите адрес!!!',uSL:'Загружаю и анализирую сайт...',uSD:'Готово!!! Сайт деградирован =)',ue1:'Ранний Рунет',ue2:'ЖЖ / аська',ue3:'Первый iPhone',ue4:'Instagram / Flat',rlU:'[ РЕЗУЛЬТАТ ]',cp:'[ СКОПИРОВАТЬ ]',cpd:'[ СКОПИРОВАНО!!! :) ]',pT:':: ОПРОС ::',vB:'ГОЛОСОВАТЬ',bT:':: БАНЕРЫ ::',fT:':: ДРУЗЬЯ ::',plT:':: ТАРИФ ::',prL:'PRO версия',byB:'КУПИТЬ!!!',snB:'📸 СФОТОГРАФИРОВАТЬ',stB:'✕ ВЫКЛЮЧИТЬ',eC:'ОШИБКА СОЕДИНЕНИЯ!!!',eG:'ОШИБКА!!!'}};
+const epEN={'2000':'You are a webmaster from 2001. Rewrite in early 2000s style: CAPITAL LETTERS, emoticons :) :D ;-), "Dear visitors of our website!!!", exclamation marks, words like "herewith","aforementioned". Mention IE6 or Flash if relevant.','2005':'You are a blogger from 2005-2007 on MySpace. Write in first person: "lol","omg","rofl", emoticons =) ^_^ o_O xD, lots of ellipsis..., "peeps","plz","thx". Mention AIM or MySpace.','2010':'You are an internet user from 2009-2012. Use "like","epic win","fail", hashtags #awesome #winning. Mention Facebook or first iPhone.','2015':'You are an Instagram content manager 2013-2017. Minimalist, inspiring, iOS 7 flat style. Short sentences. Hashtags #motivation #lifestyle #minimal. Emojis ✨🙌💫🔥👌. "Live. Love. Create." "Good vibes only 🙌".'};
+const epRU={'2000':'Ты веб-мастер 2001 года. Пиши в стиле раннего Рунета: ЗАГЛАВНЫЕ БУКВЫ, смайлики :) :D ;-), "Уважаемые посетители нашего веб-ресурса!!!", восклицательные знаки, слова "данный","посему","нижеследующий". Упомяни IE6 или Flash если уместно.','2005':'Ты блогер 2005-2007 на ЖЖ или раннем ВКонтакте. Пиши от первого лица: "короч","вобщем","ваще","зачот", смайлики =) ^_^ o_O, многоточие... везде..., "народ","камрады","плиз". Упомяни аську или ЖЖ.','2010':'Ты пользователь 2009-2012. Используй "лайкнуть","репостнуть","топчик","зачот","красава", хэштеги #вотэтода #топ. Упомяни ВКонтакте или iPhone 4.','2015':'Ты контент-менеджер Instagram 2013-2017. Минималистичный вдохновляющий стиль iOS 7. Короткие предложения. Хэштеги #motivation #lifestyle #minimal. Эмодзи ✨🙌💫🔥👌. "Live. Love. Create." "Good vibes only 🙌".'};
+function tr(k){return T[lang][k]||k;}
+function applyLang(){
+const L=T[lang];
+[['headerSubtitle','hS'],['menuTitle','mT'],['menuText','mTx'],['menuPhoto','mPh'],['menuUrl','mUr'],['menuGuest','mGu'],['menuAbout','mAb'],['counterTitle','cT'],['counterLabel','cL'],['examplesTitle','eT'],['ex1','x1'],['ex2','x2'],['ex3','x3'],['ex4','x4'],['erasTitle','rT'],['era1label','e1'],['era2label','e2'],['era3label','e3'],['era4label','e4'],['newsTitle','nT'],['toolTitleText','ttT'],['toolDescText','tdT'],['eraLabelText','elT'],['yourTextLabel','ytL'],['resultLabelText','rlT'],['tEra1','te1'],['tEra2','te2'],['tEra3','te3'],['tEra4','te4'],['textBtn','tB'],['textLoading','tLd'],['toolTitlePhoto','ttP'],['toolDescPhoto','tdP'],['eraLabelPhoto','elP'],['uploadLabel','uL'],['cameraLabel','cL2'],['camStartBtn','csB'],['resultLabelPhoto','rlP'],['photoBtn','pB'],['photoLoading','pLd'],['pEra1','pe1'],['pEra2','pe2'],['pEra3','pe3'],['pEra4','pe4'],['toolTitleUrl','ttU'],['toolDescUrl','tdU'],['eraLabelUrl','elU'],['urlLabel','urL'],['urlHint','uH'],['urlBtn','uB'],['urlLoading','uLd'],['resultLabelUrl','rlU'],['uEra1','ue1'],['uEra2','ue2'],['uEra3','ue3'],['uEra4','ue4'],['pollTitle','pT'],['voteBtn','vB'],['bannersTitle','bT'],['friendsTitle','fT'],['planTitle','plT'],['proLabel','prL'],['buyBtn','byB'],['nav1','n1'],['nav2','n2'],['nav3','n3'],['nav4','n4'],['nav5','n5'],['nav6','n6'],['snapBtn','snB'],['stopCamBtn','stB']].forEach(([id,k])=>{const el=document.getElementById(id);if(el&&L[k])el.innerHTML=L[k];});
+document.getElementById('marqueeText').textContent='   '+L.mq+'   ';
+document.getElementById('newsText').innerHTML=L.nTx;
+document.getElementById('uploadText').innerHTML=L.uTx;
+document.getElementById('tab-text').textContent=L.tb1;
+document.getElementById('tab-photo').textContent=L.tb2;
+document.getElementById('tab-url').textContent=L.tb3;
+document.getElementById('textInput').placeholder=L.tPl;
+document.getElementById('textStatus').textContent=L.tSR;
+document.getElementById('photoStatus').textContent=L.pSR;
+document.getElementById('urlStatus').textContent=L.uSR;
+document.getElementById('btnEN').classList.toggle('active',lang==='en');
+document.getElementById('btnRU').classList.toggle('active',lang==='ru');
+const exRU=['Мы создаём умные инструменты для современных команд.','Добро пожаловать на наш сайт! Здесь вы найдёте всё.','Скачай приложение и экономь время уже сегодня.','Наш AI автоматизирует рутину и поднимает продуктивность.'];
+const exEN=['We build smart tools for modern teams. Work faster, think clearer.','Welcome to our website! Here you will find everything you need.','Download the app and start saving time today.','Our AI automates routine tasks and boosts your team productivity.'];
+const exArr=lang==='ru'?exRU:exEN;
+['ex1','ex2','ex3','ex4'].forEach((id,i)=>{const el=document.getElementById(id);if(el)el.onclick=()=>fillAndSwitch(exArr[i]);});
 }
-
-function setLang(l) { lang=l; applyLang(); }
-
-function switchTab(tab) {
-  ['text','photo','url'].forEach(t => {
-    document.getElementById('tab-'+t).classList.toggle('active', t===tab);
-    document.getElementById('content-'+t).classList.toggle('active', t===tab);
-  });
-}
-
-function selectEra(tab, era) {
-  eras[tab]=era;
-  ['2000','2005','2010','2015'].forEach(e => {
-    const el=document.getElementById(tab[0]+'e-'+e);
-    if(el) el.classList.toggle('selected', e===era);
-  });
-}
-
-function fillAndSwitch(text) {
-  document.getElementById('textInput').value=text;
-  switchTab('text');
-}
-
-function copyText(id) {
-  navigator.clipboard.writeText(document.getElementById(id).textContent).then(() => {
-    const el=document.getElementById(id.replace('Output','Copy'));
-    if(el){ const old=el.textContent; el.textContent=t('copiedLink'); setTimeout(()=>el.textContent=t('copyLink'),2000); }
-  });
-}
-
+function setLang(l){lang=l;applyLang();}
+function switchTab(tab){['text','photo','url'].forEach(t=>{document.getElementById('tab-'+t).classList.toggle('active',t===tab);document.getElementById('content-'+t).classList.toggle('active',t===tab);});}
+function selectEra(tab,era){eras[tab]=era;['2000','2005','2010','2015'].forEach(e=>{const el=document.getElementById(tab[0]+'e-'+e);if(el)el.classList.toggle('selected',e===era);});}
+function fillAndSwitch(text){document.getElementById('textInput').value=text;switchTab('text');}
+function copyText(id){navigator.clipboard.writeText(document.getElementById(id).textContent).then(()=>{const el=document.getElementById(id.replace('Output','Copy'));if(el){const old=el.textContent;el.textContent=tr('cpd');setTimeout(()=>el.textContent=tr('cp'),2000);}});}
 let count=1337;
-setInterval(()=>{ count++; const el=document.getElementById('visitorCount'); if(el) el.textContent=String(count).padStart(7,'0'); },5000);
-
-function getPrompts() { return lang==='ru' ? eraPromptsRU : eraPromptsEN; }
-
-async function callClaude(system, userMsg) {
-  const r = await fetch('https://api.anthropic.com/v1/messages', {
-    method:'POST',
-    headers:{
-      'Content-Type':'application/json',
-      'x-api-key': API_KEY,
-      'anthropic-version':'2023-06-01',
-      'anthropic-dangerous-direct-browser-access':'true'
-    },
-    body: JSON.stringify({
-      model:'claude-sonnet-4-20250514',
-      max_tokens:1000,
-      system,
-      messages:[{ role:'user', content:userMsg }]
-    })
-  });
-  const d=await r.json();
-  return d.content?.[0]?.text || t('errGeneric');
+setInterval(()=>{count++;const el=document.getElementById('visitorCount');if(el)el.textContent=String(count).padStart(7,'0');},5000);
+function gP(){return lang==='ru'?epRU:epEN;}
+async function callClaude(system,userMsg){
+const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':API_KEY,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system,messages:[{role:'user',content:userMsg}]})});
+const d=await r.json();return d.content?.[0]?.text||tr('eG');}
+async function callClaudeVision(system,text,imageBase64,mediaType){
+const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':API_KEY,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system,messages:[{role:'user',content:[{type:'image',source:{type:'base64',media_type:mediaType,data:imageBase64}},{type:'text',text}]}]})});
+const d=await r.json();return d.content?.[0]?.text||tr('eG');}
+function setUI(prefix,loading,status,btnTxt,disabled){document.getElementById(prefix+'Loading').style.display=loading?'block':'none';document.getElementById(prefix+'Status').textContent=status;document.getElementById(prefix+'Btn').disabled=disabled;document.getElementById(prefix+'Btn').textContent=btnTxt;}
+async function runText(){
+const input=document.getElementById('textInput').value.trim();
+if(!input){document.getElementById('textStatus').textContent=tr('tSE');return;}
+setUI('text',true,tr('tSL'),tr('tB'),true);
+document.getElementById('textCopy').style.display='none';
+const out=document.getElementById('textOutput');out.className='output-box';out.textContent='';
+const msg=lang==='ru'?'Перепиши в стиле своей эпохи. Только результат:\n\n'+input:'Rewrite in the style of your era. Only the result:\n\n'+input;
+try{const result=await callClaude(gP()[eras.text],msg);out.textContent=result;out.className='output-box era-'+eras.text;document.getElementById('textCopy').style.display='block';document.getElementById('textCopy').textContent=tr('cp');setUI('text',false,tr('tSD'),tr('tB'),false);}
+catch(e){out.textContent=tr('eC');setUI('text',false,'Error :(',tr('tB'),false);}
 }
-
-async function callClaudeVision(system, text, imageBase64, mediaType) {
-  const r = await fetch('https://api.anthropic.com/v1/messages', {
-    method:'POST',
-    headers:{
-      'Content-Type':'application/json',
-      'x-api-key': API_KEY,
-      'anthropic-version':'2023-06-01',
-      'anthropic-dangerous-direct-browser-access':'true'
-    },
-    body: JSON.stringify({
-      model:'claude-sonnet-4-20250514',
-      max_tokens:1000,
-      system,
-      messages:[{ role:'user', content:[
-        { type:'image', source:{ type:'base64', media_type:mediaType, data:imageBase64 } },
-        { type:'text', text }
-      ]}]
-    })
-  });
-  const d=await r.json();
-  return d.content?.[0]?.text || t('errGeneric');
+function handleFile(e){const file=e.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=ev=>{const dataUrl=ev.target.result;document.getElementById('filePreview').src=dataUrl;document.getElementById('filePreview').style.display='block';document.getElementById('camPreview').style.display='none';photoImageBase64=dataUrl.split(',')[1];window.photoMediaType=file.type||'image/jpeg';document.getElementById('photoStatus').textContent=tr('pSLd');};reader.readAsDataURL(file);}
+async function startCamera(){try{cameraStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'}});const video=document.getElementById('cameraFeed');video.srcObject=cameraStream;video.style.display='block';document.getElementById('snapBtn').style.display='inline';document.getElementById('stopCamBtn').style.display='inline';document.getElementById('photoStatus').textContent=tr('pSCm');}catch(e){document.getElementById('photoStatus').textContent=tr('pSCE');}}
+function snapPhoto(){const video=document.getElementById('cameraFeed');const canvas=document.getElementById('cameraCanvas');canvas.width=video.videoWidth;canvas.height=video.videoHeight;canvas.getContext('2d').drawImage(video,0,0);const dataUrl=canvas.toDataURL('image/jpeg',0.8);document.getElementById('camPreview').src=dataUrl;document.getElementById('camPreview').style.display='block';document.getElementById('filePreview').style.display='none';photoImageBase64=dataUrl.split(',')[1];window.photoMediaType='image/jpeg';stopCamera();document.getElementById('photoStatus').textContent=tr('pSSn');}
+function stopCamera(){if(cameraStream){cameraStream.getTracks().forEach(t=>t.stop());cameraStream=null;}document.getElementById('cameraFeed').style.display='none';document.getElementById('snapBtn').style.display='none';document.getElementById('stopCamBtn').style.display='none';}
+async function runPhoto(){
+if(!photoImageBase64){document.getElementById('photoStatus').textContent=tr('pSR');return;}
+setUI('photo',true,tr('pSL'),tr('pB'),true);
+document.getElementById('photoCopy').style.display='none';
+const out=document.getElementById('photoOutput');out.className='output-box';out.textContent='';
+const prompt=lang==='ru'?'Ты смотришь на это изображение. Опиши как бы выглядел ЭТОТ дизайн в стиле своей эпохи: цвета, шрифты, элементы. Пиши в стиле своей эпохи.':'You are looking at this image. Describe how THIS design would look in the style of your era: colors, fonts, elements. Write in the style of your era.';
+try{const result=await callClaudeVision(gP()[eras.photo],prompt,photoImageBase64,window.photoMediaType||'image/jpeg');out.textContent=result;out.className='output-box era-'+eras.photo;document.getElementById('photoCopy').style.display='block';document.getElementById('photoCopy').textContent=tr('cp');setUI('photo',false,tr('pSD'),tr('pB'),false);}
+catch(e){out.textContent=tr('eG');setUI('photo',false,'Error :(',tr('pB'),false);}
 }
-
-function setUI(prefix, loading, status, btnKey, disabled) {
-  document.getElementById(prefix+'Loading').style.display=loading?'block':'none';
-  document.getElementById(prefix+'Status').textContent=status;
-  document.getElementById(prefix+'Btn').disabled=disabled;
-  document.getElementById(prefix+'Btn').textContent=t(btnKey);
+async function runUrl(){
+const url=document.getElementById('urlInput').value.trim();
+if(!url){document.getElementById('urlStatus').textContent=tr('uSE');return;}
+setUI('url',true,tr('uSL'),tr('uB'),true);
+document.getElementById('urlCopy').style.display='none';
+const out=document.getElementById('urlOutput');out.className='output-box';out.textContent='';
+const prompt=lang==='ru'?`Представь современный сайт: ${url}. Опиши как бы он выглядел в стиле своей эпохи: структура, цвета, шрифты, элементы, текст. Пиши с характерной лексикой своей эпохи!!!`:`Imagine a modern website at: ${url}. Describe how it would look in the style of your era: layout, colors, fonts, elements, homepage text. Write with characteristic language of your era!!!`;
+try{const result=await callClaude(gP()[eras.url],prompt);out.textContent=result;out.className='output-box era-'+eras.url;document.getElementById('urlCopy').style.display='block';document.getElementById('urlCopy').textContent=tr('cp');setUI('url',false,tr('uSD'),tr('uB'),false);}
+catch(e){out.textContent=tr('eC');setUI('url',false,'Error :(',tr('uB'),false);}
 }
-
-async function runText() {
-  const input=document.getElementById('textInput').value.trim();
-  if(!input){ documen
+applyLang();
+</script>
+</body>
+</html>
