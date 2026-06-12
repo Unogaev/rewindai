@@ -7,6 +7,11 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') { res.status(405).json({error: 'Method not allowed'}); return; }
 
   try {
+    const body = {...req.body};
+    if (body.visualMode) {
+      body.system = 'You are a web developer. Return ONLY raw HTML code. Start your response with <!DOCTYPE html> or <html>. Do NOT use markdown. Do NOT use backticks. Do NOT add any explanation. ONLY pure HTML.';
+      delete body.visualMode;
+    }
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
@@ -14,13 +19,11 @@ export default async function handler(req, res) {
         'x-api-key': process.env.ANTHROPIC_KEY,
         'anthropic-version': '2023-06-01'
       },
-    body: JSON.stringify({...req.body, model: 'claude-haiku-4-5'})
+      body: JSON.stringify(body)
     });
     const data = await response.json();
-    console.log('Anthropic response:', JSON.stringify(data));
     res.status(200).json(data);
   } catch (error) {
-    console.log('Error:', error.message);
     res.status(500).json({error: error.message});
   }
 }
