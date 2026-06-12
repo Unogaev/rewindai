@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>REWIND.AI - Time Machine for Design!!!</title>
 <style>
-body{background-color:#000080;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='2' height='2' fill='%23000066'/%3E%3Crect x='2' y='2' width='2' height='2' fill='%23000066'/%3E%3C/svg%3E");margin:0;padding:0;font-family:"Comic Sans MS","Arial",sans-serif;font-size:12px;color:#ffffff}
+body{background-color:#000080;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='2' height='2' fill='%23000066'/%3E%3Crect x='2' y='2' width='2' height='2' fill='%23000066'/%3E%3C/svg%3E");margin:0;padding:0;font-family:"Comic Sans MS","Arial",sans-serif;font-size:12px;color:#ffffff;cursor:none}
 a{color:#ffff00;text-decoration:underline}a:hover{color:#ff0000;text-decoration:none}
 .wrap{width:780px;margin:0 auto}
 .header-bg{background:linear-gradient(180deg,#cc0000 0%,#ff6600 40%,#ffcc00 100%);padding:4px;border:3px ridge #ffcc00;text-align:center}
@@ -34,11 +34,11 @@ a{color:#ffff00;text-decoration:underline}a:hover{color:#ff0000;text-decoration:
 .era-table{width:100%;border-collapse:collapse;margin-bottom:10px}
 .era-cell{padding:4px;border:1px solid #333366;cursor:pointer;font-size:10px;color:#ccccff;background:#000033;text-align:center}
 .era-cell:hover,.era-cell.selected{background:linear-gradient(180deg,#330066,#110033);border-color:#cc00cc;color:#ff99ff}
-.retro-textarea{width:100%;background:#ffffcc;border:2px inset #999900;color:#000033;font-family:"Courier New",monospace;font-size:12px;padding:6px;resize:none;height:90px;box-sizing:border-box}
+.retro-textarea{width:100%;background:#ffffcc;border:2px inset #999900;color:#000033;font-family:"Courier New",monospace;font-size:12px;padding:6px;resize:none;height:90px;box-sizing:border-box;cursor:text}
 .upload-zone{border:3px dashed #6699ff;background:#000033;padding:20px;text-align:center;cursor:pointer;margin-bottom:8px}
 .upload-zone:hover{background:#000055;border-color:#ffcc00}
 .upload-zone input[type=file]{display:none}
-.retro-input{width:100%;background:#ffffcc;border:2px inset #999900;color:#000033;font-family:"Courier New",monospace;font-size:12px;padding:6px;box-sizing:border-box;margin-bottom:8px}
+.retro-input{width:100%;background:#ffffcc;border:2px inset #999900;color:#000033;font-family:"Courier New",monospace;font-size:12px;padding:6px;box-sizing:border-box;margin-bottom:8px;cursor:text}
 .output-box{width:100%;background:#ffffdd;border:2px inset #999900;color:#000033;font-family:"Courier New",monospace;font-size:12px;padding:6px;min-height:90px;box-sizing:border-box;white-space:pre-wrap;word-wrap:break-word}
 .output-box.era-2000{font-family:"Times New Roman",serif;font-size:13px;color:#000080;background:#ffffd0}
 .output-box.era-2005{font-family:"Tahoma",sans-serif;font-size:12px;color:#333300;background:#f5f5e0}
@@ -47,6 +47,8 @@ a{color:#ffff00;text-decoration:underline}a:hover{color:#ff0000;text-decoration:
 .go-button{background:linear-gradient(180deg,#ff6600 0%,#cc3300 50%,#ff6600 100%);border:3px outset #ff9900;color:#fff;font-family:"Impact","Arial Black",sans-serif;font-size:15px;letter-spacing:2px;padding:6px 20px;cursor:pointer;display:block;margin:8px auto;text-shadow:1px 1px 2px #000;width:100%;box-sizing:border-box}
 .go-button:hover{background:linear-gradient(180deg,#ffcc00 0%,#ff6600 50%,#ffcc00 100%);border:3px inset #ff9900;color:#000}
 .go-button:disabled{background:#666;border-color:#999;cursor:default}
+.fullscreen-btn{background:linear-gradient(180deg,#006600 0%,#003300 100%);border:3px outset #009900;color:#00ff00;font-family:"Impact","Arial Black",sans-serif;font-size:13px;letter-spacing:1px;padding:5px 16px;cursor:pointer;display:none;margin:6px auto;width:100%;box-sizing:border-box;text-align:center}
+.fullscreen-btn:hover{background:linear-gradient(180deg,#009900 0%,#006600 100%);color:#ffff00}
 .status-bar{background:#000033;border:1px inset #333399;color:#00ff00;font-family:"Courier New",monospace;font-size:10px;padding:2px 6px;margin-top:6px}
 .blink{animation:blink 1s step-end infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
@@ -57,6 +59,7 @@ a{color:#ffff00;text-decoration:underline}a:hover{color:#ff0000;text-decoration:
 .copy-link{color:#00ffff;font-size:10px;cursor:pointer;text-decoration:underline;display:none;text-align:right;margin-top:3px}
 .share-link{color:#ff99ff;font-size:10px;cursor:pointer;text-decoration:underline;display:none;text-align:right;margin-top:3px;font-weight:bold}
 .share-link:hover{color:#ff00ff}
+.watermark{color:#999966;font-size:9px;text-align:right;margin-top:2px;display:none}
 .webring{border:1px dashed #ff6600;padding:4px;font-size:10px;color:#ff9966;text-align:center;margin-top:6px}
 .loading-gif{display:none;text-align:center;color:#ffff00;font-size:11px;animation:blink 0.5s infinite}
 .footer-bar{background:linear-gradient(180deg,#000033 0%,#000 100%);border-top:2px solid #ffcc00;text-align:center;padding:6px;font-size:10px;color:#999}
@@ -67,6 +70,12 @@ a{color:#ffff00;text-decoration:underline}a:hover{color:#ff0000;text-decoration:
 .surprise-btn{background:linear-gradient(180deg,#660066 0%,#330033 100%);border:3px outset #cc00cc;color:#ff99ff;font-family:"Comic Sans MS",sans-serif;font-size:11px;font-weight:bold;padding:5px 10px;cursor:pointer;margin:4px auto;display:block;width:100%;text-align:center;box-sizing:border-box}
 .surprise-btn:hover{background:linear-gradient(180deg,#cc00cc 0%,#660066 100%);color:#ffff00}
 .visual-frame{width:100%;height:600px;border:2px inset #999900;background:#fff;margin-top:8px;display:none}
+.gen-counter{background:#000033;border:1px inset #003399;color:#ffcc00;font-family:"Courier New",monospace;font-size:10px;padding:3px 6px;text-align:center;margin-bottom:6px}
+/* CURSOR STARS */
+.star-cursor{position:fixed;pointer-events:none;z-index:9999;font-size:14px;animation:starFade 0.8s forwards}
+@keyframes starFade{0%{opacity:1;transform:scale(1) translateY(0)}100%{opacity:0;transform:scale(0.3) translateY(-20px)}}
+/* CUSTOM CURSOR */
+.custom-cursor{position:fixed;width:16px;height:16px;background:#ffff00;border:2px solid #ff0000;border-radius:50%;pointer-events:none;z-index:10000;transform:translate(-50%,-50%)}
 @media(max-width:600px){
   .wrap{width:100%;padding:0}
   .site-title{font-size:26px;letter-spacing:2px}
@@ -82,16 +91,19 @@ a{color:#ffff00;text-decoration:underline}a:hover{color:#ff0000;text-decoration:
   .tabs-row{gap:1px}
   .tab-btn{font-size:10px;padding:4px 3px}
   .mobile-lang{display:block!important}
+  body{cursor:auto}
+  .custom-cursor{display:none}
 }
 </style>
 </head>
 <body>
+<div class="custom-cursor" id="customCursor"></div>
 <div class="wrap">
 <div class="header-bg">
   <p class="site-title">⟲ REWIND.AI</p>
   <p class="site-subtitle" id="headerSubtitle">:: Time Machine for Design :: rewindai.co ::</p>
 </div>
-<div class="marquee-bar"><span class="marquee-inner" id="marqueeText">&nbsp;&nbsp;&nbsp;*** WELCOME TO REWIND.AI *** Degrade your text, photos and websites!!! *** Optimized for IE 6.0 *** NEW: VISUAL MODE!!! =) &nbsp;&nbsp;&nbsp;</span></div>
+<div class="marquee-bar"><span class="marquee-inner" id="marqueeText">&nbsp;&nbsp;&nbsp;*** WELCOME TO REWIND.AI *** Degrade your text, photos and websites!!! *** Optimized for IE 6.0 *** NEW: VISUAL MODE + FULLSCREEN!!! =) &nbsp;&nbsp;&nbsp;</span></div>
 <div class="nav-bar">
   <a href="#" class="nav-btn" id="nav1">[ HOME ]</a>
   <a href="#" class="nav-btn" id="nav2" onclick="switchTab('text')">[ TEXT ]</a>
@@ -133,11 +145,12 @@ a{color:#ffff00;text-decoration:underline}a:hover{color:#ff0000;text-decoration:
     </div>
   </div>
   <div class="side-block"><div class="side-title" id="newsTitle">:: NEWS ::</div>
-    <div class="side-text" id="newsText"><b>2002.03.21</b><br>Visual mode!!!<br><br><b>2002.03.01</b><br>Site launched!!!</div>
+    <div class="side-text" id="newsText"><b>2002.03.21</b><br>Fullscreen + stars!!!<br><br><b>2002.03.01</b><br>Site launched!!!</div>
   </div>
   <div class="webring">&lt;&lt; <a href="#">BACK</a> &nbsp;<a href="#">WEBRING</a> &nbsp;<a href="#">NEXT</a> &gt;&gt;</div>
 </div>
 <div class="center-col">
+  <div class="gen-counter" id="genCounter">⚡ Already degraded: <span id="genCount">0</span> times today!!!</div>
   <div class="mobile-lang" style="display:none;text-align:center;margin-bottom:6px;">
     <button class="lang-btn active" onclick="setLang('en')">EN</button>
     <button class="lang-btn" onclick="setLang('ru')">RU</button>
@@ -167,6 +180,7 @@ a{color:#ffff00;text-decoration:underline}a:hover{color:#ff0000;text-decoration:
     <div class="star-divider">- - - - - - - - - - -</div>
     <div class="era-title" id="resultLabelText">[ RESULT ]</div>
     <div class="output-box" id="textOutput">Result will appear here...</div>
+    <div class="watermark" id="textWatermark">made with rewindai.co ⟲</div>
     <div class="copy-link" id="textCopy" onclick="copyText('textOutput')">[ COPY ]</div>
     <div class="share-link" id="textShare" onclick="shareResult('textOutput')">[ ✈ SHARE TO TELEGRAM ]</div>
   </div>
@@ -205,6 +219,7 @@ a{color:#ffff00;text-decoration:underline}a:hover{color:#ff0000;text-decoration:
     <div class="star-divider">- - - - - - - - - - -</div>
     <div class="era-title" id="resultLabelPhoto">[ RESULT ]</div>
     <div class="output-box" id="photoOutput">Result will appear here...</div>
+    <div class="watermark" id="photoWatermark">made with rewindai.co ⟲</div>
     <div class="copy-link" id="photoCopy" onclick="copyText('photoOutput')">[ COPY ]</div>
     <div class="share-link" id="photoShare" onclick="shareResult('photoOutput')">[ ✈ SHARE TO TELEGRAM ]</div>
   </div>
@@ -230,6 +245,7 @@ a{color:#ffff00;text-decoration:underline}a:hover{color:#ff0000;text-decoration:
     <div class="era-title" id="resultLabelUrl">[ RETRO VERSION ]</div>
     <div class="output-box" id="urlOutput" style="display:none;"></div>
     <iframe id="urlVisual" class="visual-frame" sandbox="allow-same-origin allow-scripts"></iframe>
+    <button class="fullscreen-btn" id="fullscreenBtn" onclick="openFullscreen()">🖥 ОТКРЫТЬ НА ВЕСЬ ЭКРАН!!!</button>
     <div class="copy-link" id="urlCopy" onclick="copyText('urlOutput')">[ COPY HTML ]</div>
     <div class="share-link" id="urlShare" onclick="shareResult('urlOutput')">[ ✈ SHARE TO TELEGRAM ]</div>
   </div>
@@ -253,9 +269,30 @@ a{color:#ffff00;text-decoration:underline}a:hover{color:#ff0000;text-decoration:
 <script>
 const eras={text:'2000',photo:'2000',url:'2000'};
 let photoImageBase64=null,cameraStream=null,audioCtx=null;
+let genCount=0;
+let currentHtml='';
 const isRU=navigator.language.startsWith('ru');
 let lang=isRU?'ru':'en';
 
+// CUSTOM CURSOR + STARS
+const cursor=document.getElementById('customCursor');
+const stars=['✨','⭐','🌟','💫','★','✦','✧'];
+document.addEventListener('mousemove',e=>{
+  cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px';
+});
+document.addEventListener('click',e=>{
+  for(let i=0;i<5;i++){
+    const star=document.createElement('div');
+    star.className='star-cursor';
+    star.textContent=stars[Math.floor(Math.random()*stars.length)];
+    star.style.left=(e.clientX+Math.random()*30-15)+'px';
+    star.style.top=(e.clientY+Math.random()*30-15)+'px';
+    document.body.appendChild(star);
+    setTimeout(()=>star.remove(),800);
+  }
+});
+
+// SOUND
 function initAudio(){
   if(!audioCtx){try{audioCtx=new(window.AudioContext||window.webkitAudioContext)();}catch(e){}}
   if(audioCtx&&audioCtx.state==='suspended')audioCtx.resume();
@@ -275,14 +312,28 @@ function playModem(){
 }
 document.addEventListener('click',initAudio,{once:true});
 
-const T={en:{hS:':: Time Machine for Design :: rewindai.co ::',mq:'*** WELCOME TO REWIND.AI *** Degrade your text, photos and websites!!! *** Optimized for IE 6.0 *** NEW: VISUAL MODE!!! =)',n1:'[ HOME ]',n2:'[ TEXT ]',n3:'[ PHOTO ]',n4:'[ SITES ]',n5:'[ GUESTBOOK ]',n6:'[ CONTACTS ]',mT:':: MENU ::',mTx:'Text',mPh:'Photo / File',mUr:'Website URL',mGu:'Guestbook',mAb:'About',cT:':: COUNTER ::',cL:'site visitors',eT:':: EXAMPLES ::',x1:'» Startup',x2:'» Website',x3:'» App',x4:'» AI product',rT:':: ERAS ::',e1:'Early Internet',e2:'Blogs & ICQ',e3:'First iPhone',e4:'Instagram / Flat',nT:':: NEWS ::',nTx:'<b>2002.03.21</b><br>Visual mode!!!<br><br><b>2002.03.01</b><br>Site launched!!!',tb1:'[ TEXT ]',tb2:'[ PHOTO ]',tb3:'[ SITES ]',ttT:'!!! TEXT DEGRADATION !!!',tdT:'Paste modern text — get a version from the past!!!',elT:'[ SELECT ERA ]',ytL:'[ YOUR TEXT ]',rlT:'[ RESULT ]',te1:'Early Internet',te2:'Blogs / ICQ',te3:'First iPhone',te4:'Instagram / Flat',tPl:'Paste your text here...',tB:'⟲ DEGRADE !!!',tLd:'*** LOADING... ***',tSR:'Status: Ready.',tSE:'Status: ERROR! Enter text!!!',tSL:'Degrading...',tSD:'Done!!! =)',ttP:'!!! PHOTO DEGRADATION !!!',tdP:'Upload image or take photo — AI will degrade the design!!!',elP:'[ SELECT ERA ]',uL:'[ UPLOAD FILE ]',uTx:'Click to select file<br><span style="font-size:10px;color:#6666cc;">(JPG, PNG — logo, business card, screenshot)</span>',cL2:'[ TAKE A PHOTO ]',csB:'📷 ENABLE CAMERA',rlP:'[ RESULT ]',pB:'⟲ DEGRADE !!!',pLd:'*** AI ANALYZING IMAGE... ***',pSR:'Status: Upload a file or take a photo.',pSLd:'Status: File loaded — press button!!!',pSSn:'Status: Photo taken — press button!!!',pSCm:'Status: Camera on!!!',pSCE:'Status: Camera error — use file upload!!!',pSL:'AI analyzing...',pSD:'Done!!! Design degraded =)',pe1:'Early Internet',pe2:'Blogs / ICQ',pe3:'First iPhone',pe4:'Instagram / Flat',ttU:'!!! VISUAL SITE DEGRADATION !!!',tdU:'Paste any URL — get a REAL retro HTML version!!!',elU:'[ SELECT ERA ]',urL:'[ WEBSITE URL ]',uH:'* AI generates a REAL retro HTML version of the site!',uB:'⟲ DEGRADE WEBSITE !!!',uLd:'*** GENERATING RETRO SITE... ***',uSR:'Status: Enter URL.',uSE:'Status: ERROR! Enter URL!!!',uSL:'Generating retro version...',uSD:'Done!!! Retro site ready =)',ue1:'Early Internet',ue2:'Blogs / ICQ',ue3:'First iPhone',ue4:'Instagram / Flat',rlU:'[ RETRO VERSION ]',cp:'[ COPY ]',cpd:'[ COPIED!!! :) ]',sh:'[ ✈ SHARE TO TELEGRAM ]',pT:':: POLL ::',vB:'VOTE',bT:':: BANNERS ::',fT:':: FRIENDS ::',plT:':: PLAN ::',prL:'PRO version',byB:'BUY NOW!!!',snB:'📸 SNAP PHOTO',stB:'✕ STOP',eC:'CONNECTION ERROR!!!',eG:'ERROR!!!',sb:'🎲 SURPRISE ME!!!'},
-ru:{hS:':: Машина времени для дизайна :: rewindai.co ::',mq:'*** ДОБРО ПОЖАЛОВАТЬ НА REWIND.AI *** Деградируй текст, фото и сайты!!! *** НОВИНКА: ВИЗУАЛЬНЫЙ РЕЖИМ!!! =)',n1:'[ ГЛАВНАЯ ]',n2:'[ ТЕКСТ ]',n3:'[ ФОТО ]',n4:'[ САЙТЫ ]',n5:'[ ГОСТЕВАЯ ]',n6:'[ КОНТАКТЫ ]',mT:':: МЕНЮ ::',mTx:'Текст',mPh:'Фото / Файл',mUr:'Ссылка на сайт',mGu:'Гостевая',mAb:'О проекте',cT:':: СЧЁТЧИК ::',cL:'посетителей сайта',eT:':: ПРИМЕРЫ ::',x1:'» Стартап',x2:'» Сайт',x3:'» Приложение',x4:'» AI-продукт',rT:':: ЭПОХИ ::',e1:'Ранний Рунет',e2:'ЖЖ и аська',e3:'Первый iPhone',e4:'Instagram / Flat',nT:':: НОВОСТИ ::',nTx:'<b>2002.03.21</b><br>Визуальный режим!!!<br><br><b>2002.03.01</b><br>Сайт открылся!!!',tb1:'[ ТЕКСТ ]',tb2:'[ ФОТО ]',tb3:'[ САЙТЫ ]',ttT:'!!! ДЕГРАДАЦИЯ ТЕКСТА !!!',tdT:'Вставьте современный текст — получите версию из прошлого!!!',elT:'[ ВЫБЕРИТЕ ЭПОХУ ]',ytL:'[ ВАШ ТЕКСТ ]',rlT:'[ РЕЗУЛЬТАТ ]',te1:'Ранний Рунет',te2:'ЖЖ / аська',te3:'Первый iPhone',te4:'Instagram / Flat',tPl:'Вставьте текст здесь...',tB:'⟲ ДЕГРАДИРОВАТЬ !!!',tLd:'*** ЗАГРУЗКА... ***',tSR:'Статус: Готов.',tSE:'Статус: ОШИБКА! Введите текст!!!',tSL:'Деградирую...',tSD:'Готово!!! =)',ttP:'!!! ДЕГРАДАЦИЯ ФОТО !!!',tdP:'Загрузите изображение или сфотографируйте — AI деградирует дизайн!!!',elP:'[ ВЫБЕРИТЕ ЭПОХУ ]',uL:'[ ЗАГРУЗИТЬ ФАЙЛ ]',uTx:'Нажмите для выбора файла<br><span style="font-size:10px;color:#6666cc;">(JPG, PNG — логотип, визитка, скриншот)</span>',cL2:'[ СФОТОГРАФИРОВАТЬ ]',csB:'📷 ВКЛЮЧИТЬ КАМЕРУ',rlP:'[ РЕЗУЛЬТАТ ]',pB:'⟲ ДЕГРАДИРОВАТЬ !!!',pLd:'*** AI АНАЛИЗИРУЕТ ИЗОБРАЖЕНИЕ... ***',pSR:'Статус: Загрузите файл или сфотографируйте.',pSLd:'Статус: Файл загружен — нажмите кнопку!!!',pSSn:'Статус: Фото сделано — нажмите кнопку!!!',pSCm:'Статус: Камера включена!!!',pSCE:'Статус: Ошибка камеры!!!',pSL:'AI анализирует...',pSD:'Готово!!! Дизайн деградирован =)',pe1:'Ранний Рунет',pe2:'ЖЖ / аська',pe3:'Первый iPhone',pe4:'Instagram / Flat',ttU:'!!! ВИЗУАЛЬНАЯ ДЕГРАДАЦИЯ САЙТА !!!',tdU:'Вставьте адрес — получите РЕАЛЬНУЮ ретро-версию сайта!!!',elU:'[ ВЫБЕРИТЕ ЭПОХУ ]',urL:'[ АДРЕС САЙТА ]',uH:'* AI генерирует НАСТОЯЩИЙ ретро-HTML сайта!',uB:'⟲ ДЕГРАДИРОВАТЬ САЙТ !!!',uLd:'*** ГЕНЕРИРУЮ РЕТРО-САЙТ... ***',uSR:'Статус: Введите адрес.',uSE:'Статус: ОШИБКА! Введите адрес!!!',uSL:'Генерирую ретро-версию...',uSD:'Готово!!! Ретро-сайт готов =)',ue1:'Ранний Рунет',ue2:'ЖЖ / аська',ue3:'Первый iPhone',ue4:'Instagram / Flat',rlU:'[ РЕТРО ВЕРСИЯ ]',cp:'[ СКОПИРОВАТЬ ]',cpd:'[ СКОПИРОВАНО!!! ]',sh:'[ ✈ ПОДЕЛИТЬСЯ В TELEGRAM ]',pT:':: ОПРОС ::',vB:'ГОЛОСОВАТЬ',bT:':: БАНЕРЫ ::',fT:':: ДРУЗЬЯ ::',plT:':: ТАРИФ ::',prL:'PRO версия',byB:'КУПИТЬ!!!',snB:'📸 СФОТОГРАФИРОВАТЬ',stB:'✕ ВЫКЛЮЧИТЬ',eC:'ОШИБКА СОЕДИНЕНИЯ!!!',eG:'ОШИБКА!!!',sb:'🎲 УДИВИ МЕНЯ!!!'}};
+// GEN COUNTER
+function bumpGenCounter(){
+  genCount++;
+  const el=document.getElementById('genCount');
+  if(el)el.textContent=genCount;
+}
+
+// FULLSCREEN
+function openFullscreen(){
+  if(!currentHtml)return;
+  const w=window.open('','_blank');
+  w.document.write(currentHtml);
+  w.document.close();
+}
+
+const T={en:{hS:':: Time Machine for Design :: rewindai.co ::',mq:'*** WELCOME TO REWIND.AI *** Degrade your text, photos and websites!!! *** Optimized for IE 6.0 *** VISUAL MODE + FULLSCREEN + CURSOR STARS!!! =)',n1:'[ HOME ]',n2:'[ TEXT ]',n3:'[ PHOTO ]',n4:'[ SITES ]',n5:'[ GUESTBOOK ]',n6:'[ CONTACTS ]',mT:':: MENU ::',mTx:'Text',mPh:'Photo / File',mUr:'Website URL',mGu:'Guestbook',mAb:'About',cT:':: COUNTER ::',cL:'site visitors',eT:':: EXAMPLES ::',x1:'» Startup',x2:'» Website',x3:'» App',x4:'» AI product',rT:':: ERAS ::',e1:'Early Internet',e2:'Blogs & ICQ',e3:'First iPhone',e4:'Instagram / Flat',nT:':: NEWS ::',nTx:'<b>2002.03.21</b><br>Fullscreen + stars!!!<br><br><b>2002.03.01</b><br>Site launched!!!',tb1:'[ TEXT ]',tb2:'[ PHOTO ]',tb3:'[ SITES ]',ttT:'!!! TEXT DEGRADATION !!!',tdT:'Paste modern text — get a version from the past!!!',elT:'[ SELECT ERA ]',ytL:'[ YOUR TEXT ]',rlT:'[ RESULT ]',te1:'Early Internet',te2:'Blogs / ICQ',te3:'First iPhone',te4:'Instagram / Flat',tPl:'Paste your text here...',tB:'⟲ DEGRADE !!!',tLd:'*** LOADING... ***',tSR:'Status: Ready.',tSE:'Status: ERROR! Enter text!!!',tSL:'Degrading...',tSD:'Done!!! =)',ttP:'!!! PHOTO DEGRADATION !!!',tdP:'Upload image or take photo — AI will degrade the design!!!',elP:'[ SELECT ERA ]',uL:'[ UPLOAD FILE ]',uTx:'Click to select file<br><span style="font-size:10px;color:#6666cc;">(JPG, PNG — logo, business card, screenshot)</span>',cL2:'[ TAKE A PHOTO ]',csB:'📷 ENABLE CAMERA',rlP:'[ RESULT ]',pB:'⟲ DEGRADE !!!',pLd:'*** AI ANALYZING IMAGE... ***',pSR:'Status: Upload a file or take a photo.',pSLd:'Status: File loaded — press button!!!',pSSn:'Status: Photo taken — press button!!!',pSCm:'Status: Camera on!!!',pSCE:'Status: Camera error — use file upload!!!',pSL:'AI analyzing...',pSD:'Done!!! Design degraded =)',pe1:'Early Internet',pe2:'Blogs / ICQ',pe3:'First iPhone',pe4:'Instagram / Flat',ttU:'!!! VISUAL SITE DEGRADATION !!!',tdU:'Paste any URL — get a REAL retro HTML version!!!',elU:'[ SELECT ERA ]',urL:'[ WEBSITE URL ]',uH:'* AI generates a REAL retro HTML version of the site!',uB:'⟲ DEGRADE WEBSITE !!!',uLd:'*** GENERATING RETRO SITE... ***',uSR:'Status: Enter URL.',uSE:'Status: ERROR! Enter URL!!!',uSL:'Generating retro version...',uSD:'Done!!! Retro site ready =)',ue1:'Early Internet',ue2:'Blogs / ICQ',ue3:'First iPhone',ue4:'Instagram / Flat',rlU:'[ RETRO VERSION ]',cp:'[ COPY ]',cpd:'[ COPIED!!! :) ]',sh:'[ ✈ SHARE TO TELEGRAM ]',fs:'[ 🖥 OPEN FULLSCREEN!!! ]',pT:':: POLL ::',vB:'VOTE',bT:':: BANNERS ::',fT:':: FRIENDS ::',plT:':: PLAN ::',prL:'PRO version',byB:'BUY NOW!!!',snB:'📸 SNAP PHOTO',stB:'✕ STOP',eC:'CONNECTION ERROR!!!',eG:'ERROR!!!',sb:'🎲 SURPRISE ME!!!',gc:'⚡ Already degraded: ',gcs:' times today!!!'},
+ru:{hS:':: Машина времени для дизайна :: rewindai.co ::',mq:'*** ДОБРО ПОЖАЛОВАТЬ НА REWIND.AI *** Деградируй текст, фото и сайты!!! *** ВИЗУАЛЬНЫЙ РЕЖИМ + ПОЛНЫЙ ЭКРАН + ЗВЁЗДОЧКИ!!! =)',n1:'[ ГЛАВНАЯ ]',n2:'[ ТЕКСТ ]',n3:'[ ФОТО ]',n4:'[ САЙТЫ ]',n5:'[ ГОСТЕВАЯ ]',n6:'[ КОНТАКТЫ ]',mT:':: МЕНЮ ::',mTx:'Текст',mPh:'Фото / Файл',mUr:'Ссылка на сайт',mGu:'Гостевая',mAb:'О проекте',cT:':: СЧЁТЧИК ::',cL:'посетителей сайта',eT:':: ПРИМЕРЫ ::',x1:'» Стартап',x2:'» Сайт',x3:'» Приложение',x4:'» AI-продукт',rT:':: ЭПОХИ ::',e1:'Ранний Рунет',e2:'ЖЖ и аська',e3:'Первый iPhone',e4:'Instagram / Flat',nT:':: НОВОСТИ ::',nTx:'<b>2002.03.21</b><br>Полный экран + звёзды!!!<br><br><b>2002.03.01</b><br>Сайт открылся!!!',tb1:'[ ТЕКСТ ]',tb2:'[ ФОТО ]',tb3:'[ САЙТЫ ]',ttT:'!!! ДЕГРАДАЦИЯ ТЕКСТА !!!',tdT:'Вставьте современный текст — получите версию из прошлого!!!',elT:'[ ВЫБЕРИТЕ ЭПОХУ ]',ytL:'[ ВАШ ТЕКСТ ]',rlT:'[ РЕЗУЛЬТАТ ]',te1:'Ранний Рунет',te2:'ЖЖ / аська',te3:'Первый iPhone',te4:'Instagram / Flat',tPl:'Вставьте текст здесь...',tB:'⟲ ДЕГРАДИРОВАТЬ !!!',tLd:'*** ЗАГРУЗКА... ***',tSR:'Статус: Готов.',tSE:'Статус: ОШИБКА! Введите текст!!!',tSL:'Деградирую...',tSD:'Готово!!! =)',ttP:'!!! ДЕГРАДАЦИЯ ФОТО !!!',tdP:'Загрузите изображение или сфотографируйте — AI деградирует дизайн!!!',elP:'[ ВЫБЕРИТЕ ЭПОХУ ]',uL:'[ ЗАГРУЗИТЬ ФАЙЛ ]',uTx:'Нажмите для выбора файла<br><span style="font-size:10px;color:#6666cc;">(JPG, PNG — логотип, визитка, скриншот)</span>',cL2:'[ СФОТОГРАФИРОВАТЬ ]',csB:'📷 ВКЛЮЧИТЬ КАМЕРУ',rlP:'[ РЕЗУЛЬТАТ ]',pB:'⟲ ДЕГРАДИРОВАТЬ !!!',pLd:'*** AI АНАЛИЗИРУЕТ ИЗОБРАЖЕНИЕ... ***',pSR:'Статус: Загрузите файл или сфотографируйте.',pSLd:'Статус: Файл загружен — нажмите кнопку!!!',pSSn:'Статус: Фото сделано — нажмите кнопку!!!',pSCm:'Статус: Камера включена!!!',pSCE:'Статус: Ошибка камеры!!!',pSL:'AI анализирует...',pSD:'Готово!!! Дизайн деградирован =)',pe1:'Ранний Рунет',pe2:'ЖЖ / аська',pe3:'Первый iPhone',pe4:'Instagram / Flat',ttU:'!!! ВИЗУАЛЬНАЯ ДЕГРАДАЦИЯ САЙТА !!!',tdU:'Вставьте адрес — получите РЕАЛЬНУЮ ретро-версию сайта!!!',elU:'[ ВЫБЕРИТЕ ЭПОХУ ]',urL:'[ АДРЕС САЙТА ]',uH:'* AI генерирует НАСТОЯЩИЙ ретро-HTML сайта!',uB:'⟲ ДЕГРАДИРОВАТЬ САЙТ !!!',uLd:'*** ГЕНЕРИРУЮ РЕТРО-САЙТ... ***',uSR:'Статус: Введите адрес.',uSE:'Статус: ОШИБКА! Введите адрес!!!',uSL:'Генерирую ретро-версию...',uSD:'Готово!!! Ретро-сайт готов =)',ue1:'Ранний Рунет',ue2:'ЖЖ / аська',ue3:'Первый iPhone',ue4:'Instagram / Flat',rlU:'[ РЕТРО ВЕРСИЯ ]',cp:'[ СКОПИРОВАТЬ ]',cpd:'[ СКОПИРОВАНО!!! ]',sh:'[ ✈ ПОДЕЛИТЬСЯ В TELEGRAM ]',fs:'[ 🖥 ОТКРЫТЬ НА ВЕСЬ ЭКРАН!!! ]',pT:':: ОПРОС ::',vB:'ГОЛОСОВАТЬ',bT:':: БАНЕРЫ ::',fT:':: ДРУЗЬЯ ::',plT:':: ТАРИФ ::',prL:'PRO версия',byB:'КУПИТЬ!!!',snB:'📸 СФОТОГРАФИРОВАТЬ',stB:'✕ ВЫКЛЮЧИТЬ',eC:'ОШИБКА СОЕДИНЕНИЯ!!!',eG:'ОШИБКА!!!',sb:'🎲 УДИВИ МЕНЯ!!!',gc:'⚡ Уже деградировано: ',gcs:' раз сегодня!!!'}};
 
 const epEN={'2000':'You are a webmaster from 2001. Rewrite in early 2000s style: CAPITAL LETTERS, emoticons :) :D ;-), "Dear visitors!!!", exclamation marks, mention IE6 or Flash.','2005':'You are a blogger 2005-2007 on MySpace. First person: "lol","omg","rofl", emoticons =) ^_^ o_O, lots of ellipsis..., mention AIM or MySpace.','2010':'Internet user 2009-2012. Use "like","epic win","fail", hashtags #awesome #winning, mention Facebook or iPhone.','2015':'Instagram content manager 2013-2017. Minimalist iOS 7 style. Short sentences. Hashtags #motivation #lifestyle #minimal. Emojis ✨🙌💫🔥👌.'};
 const epRU={'2000':'Ты веб-мастер 2001 года. Пиши в стиле раннего Рунета: ЗАГЛАВНЫЕ БУКВЫ, смайлики :) :D ;-), "Уважаемые посетители!!!", восклицательные знаки, упомяни IE6 или Flash.','2005':'Ты блогер 2005-2007 на ЖЖ. Пиши от первого лица: "короч","вобщем","зачот", смайлики =) ^_^ o_O, многоточие... везде..., упомяни аську.','2010':'Пользователь 2009-2012. Используй "лайкнуть","топчик","зачот", хэштеги #вотэтода #топ, упомяни ВКонтакте или iPhone 4.','2015':'Контент-менеджер Instagram 2013-2017. Минималистичный стиль iOS 7. Короткие предложения. Хэштеги #motivation #lifestyle #minimal. Эмодзи ✨🙌💫🔥👌.'};
-
-const vpEN={'2000':'Generate a complete HTML page showing what {URL} would look like in 2001. Requirements: dark blue background #000080, yellow links #ffff00, Comic Sans MS font, 3-column table layout, red-orange-yellow gradient header, green scrolling marquee, visitor counter, IE 6.0 badge, Flash required notice, guestbook link. Write all content about this site in 2001 style with CAPS and exclamation marks!!! Return ONLY complete HTML, no markdown.','2005':'Generate a complete HTML page showing what {URL} would look like as a LiveJournal blog in 2005. Light gray background, Tahoma font, personal diary style, mood indicator, friends list, emoticons =) ^_^ o_O, ellipsis..., "lol","omg". Write content in 2005 blog style. Return ONLY complete HTML, no markdown.','2010':'Generate a complete HTML page showing what {URL} would look like in 2010. Glossy gradient buttons, rounded corners, Facebook/Twitter like buttons with counters, hashtags, iPhone-style icons. Write content in 2010 social media style. Return ONLY complete HTML, no markdown.','2015':'Generate a complete HTML page showing what {URL} would look like in 2015 Instagram/flat design era. White background, Helvetica font, hero banner, Instagram-style grid, hashtags, emojis ✨🙌💫, Stories circles at top. Write content in 2015 Instagram style. Return ONLY complete HTML, no markdown.'};
-const vpRU={'2000':'Сгенерируй полную HTML страницу как выглядел бы сайт {URL} в 2001 году. Тёмно-синий фон #000080, жёлтые ссылки, Comic Sans MS, табличная вёрстка 3 колонки, градиентная шапка красно-оранжево-жёлтая, зелёная бегущая строка, счётчик посетителей, значок IE 6.0, требование Flash, гостевая книга. Весь контент в стиле 2001: ЗАГЛАВНЫЕ БУКВЫ и восклицательные знаки!!! Верни ТОЛЬКО HTML, без markdown.','2005':'Сгенерируй полную HTML страницу как выглядел бы сайт {URL} как ЖЖ в 2005 году. Светло-серый фон, шрифт Tahoma, стиль личного дневника, настроение, список друзей, смайлики =) ^_^ o_O, многоточие..., "короч","зачот". Верни ТОЛЬКО HTML.','2010':'Сгенерируй полную HTML страницу как выглядел бы сайт {URL} в 2010 году. Глянцевые кнопки, скруглённые углы, кнопки ВКонтакте/Facebook со счётчиками, хэштеги, иконки iPhone. Контент в стиле соцсетей 2010. Верни ТОЛЬКО HTML.','2015':'Сгенерируй полную HTML страницу как выглядел бы сайт {URL} в стиле Instagram 2015. Белый фон, Helvetica, hero-баннер, сетка Instagram, хэштеги, эмодзи ✨🙌💫, Сторис вверху. Контент в стиле Instagram 2015. Верни ТОЛЬКО HTML.'};
+const vpEN={'2000':'Generate a complete HTML page showing what {URL} would look like in 2001. dark blue background #000080, yellow links, Comic Sans MS, 3-column table layout, red-orange-yellow gradient header, green marquee, visitor counter, IE 6.0 badge, Flash required. Content in CAPS with exclamation marks!!! Return ONLY raw HTML, no markdown.','2005':'Generate a complete HTML page showing what {URL} would look like as LiveJournal blog in 2005. Light gray background, Tahoma, diary style, mood indicator, friends list, emoticons =) ^_^ o_O, ellipsis... Return ONLY raw HTML, no markdown.','2010':'Generate a complete HTML page showing what {URL} would look like in 2010. Glossy buttons, rounded corners, Facebook/Twitter like buttons, hashtags, iPhone icons. Return ONLY raw HTML, no markdown.','2015':'Generate a complete HTML page showing what {URL} would look like in 2015 Instagram flat design. White background, Helvetica, hero banner, Instagram grid, hashtags, emojis ✨🙌, Stories circles. Return ONLY raw HTML, no markdown.'};
+const vpRU={'2000':'Сгенерируй полную HTML страницу как выглядел бы сайт {URL} в 2001 году. Тёмно-синий фон #000080, жёлтые ссылки, Comic Sans, табличная вёрстка 3 колонки, градиентная шапка, зелёная бегущая строка, счётчик посетителей, IE 6.0, Flash. Контент ЗАГЛАВНЫМИ с восклицательными!!! Верни ТОЛЬКО HTML.','2005':'Сгенерируй HTML как выглядел бы {URL} как ЖЖ в 2005. Серый фон, Tahoma, дневник, настроение, друзья, смайлики =) ^_^, многоточие... Верни ТОЛЬКО HTML.','2010':'Сгенерируй HTML как выглядел бы {URL} в 2010. Глянцевые кнопки, скругления, ВКонтакте/Facebook, хэштеги, iPhone иконки. Верни ТОЛЬКО HTML.','2015':'Сгенерируй HTML как выглядел бы {URL} в стиле Instagram 2015. Белый фон, Helvetica, hero, Instagram сетка, хэштеги, эмодзи ✨🙌, Сторис. Верни ТОЛЬКО HTML.'};
 
 function tr(k){return T[lang][k]||k;}
 function gP(){return lang==='ru'?epRU:epEN;}
@@ -304,6 +355,9 @@ function applyLang(){
   document.getElementById('textShare').textContent=L.sh;
   document.getElementById('photoShare').textContent=L.sh;
   document.getElementById('urlShare').textContent=L.sh;
+  document.getElementById('fullscreenBtn').textContent=L.fs||'🖥 OPEN FULLSCREEN!!!';
+  const gc=document.getElementById('genCounter');
+  if(gc)gc.innerHTML=L.gc+'<span id="genCount">'+genCount+'</span>'+L.gcs;
   document.getElementById('btnEN').classList.toggle('active',lang==='en');
   document.getElementById('btnRU').classList.toggle('active',lang==='ru');
   const exRU=['Мы создаём умные инструменты для современных команд.','Добро пожаловать на наш сайт!','Скачай приложение и экономь время.','Наш AI автоматизирует рутину.'];
@@ -338,16 +392,24 @@ async function callAPI(body){
   const d=await r.json();return d.content?.[0]?.text||tr('eG');
 }
 function setUI(prefix,loading,status,btnTxt,disabled){document.getElementById(prefix+'Loading').style.display=loading?'block':'none';document.getElementById(prefix+'Status').textContent=status;document.getElementById(prefix+'Btn').disabled=disabled;document.getElementById(prefix+'Btn').textContent=btnTxt;}
-function showShare(prefix){document.getElementById(prefix+'Copy').style.display='block';document.getElementById(prefix+'Copy').textContent=tr('cp');document.getElementById(prefix+'Share').style.display='block';document.getElementById(prefix+'Share').textContent=tr('sh');}
+function showShare(prefix){
+  document.getElementById(prefix+'Copy').style.display='block';document.getElementById(prefix+'Copy').textContent=tr('cp');
+  document.getElementById(prefix+'Share').style.display='block';document.getElementById(prefix+'Share').textContent=tr('sh');
+  const wm=document.getElementById(prefix+'Watermark');if(wm)wm.style.display='block';
+}
 async function runText(){
   const input=document.getElementById('textInput').value.trim();
   if(!input){document.getElementById('textStatus').textContent=tr('tSE');return;}
   playModem();setUI('text',true,tr('tSL'),tr('tB'),true);
   document.getElementById('textCopy').style.display='none';document.getElementById('textShare').style.display='none';
+  const wm=document.getElementById('textWatermark');if(wm)wm.style.display='none';
   const out=document.getElementById('textOutput');out.className='output-box';out.textContent='';
   const msg=lang==='ru'?'Перепиши в стиле своей эпохи. Только результат:\n\n'+input:'Rewrite in the style of your era. Only the result:\n\n'+input;
-  try{const result=await callAPI({model:'claude-haiku-4-5',max_tokens:1000,system:gP()[eras.text],messages:[{role:'user',content:msg}]});out.textContent=result;out.className='output-box era-'+eras.text;showShare('text');setUI('text',false,tr('tSD'),tr('tB'),false);}
-  catch(e){out.textContent=tr('eC');setUI('text',false,'Error :(',tr('tB'),false);}
+  try{
+    const result=await callAPI({model:'claude-haiku-4-5',max_tokens:1000,system:gP()[eras.text],messages:[{role:'user',content:msg}]});
+    out.textContent=result;out.className='output-box era-'+eras.text;
+    bumpGenCounter();showShare('text');setUI('text',false,tr('tSD'),tr('tB'),false);
+  }catch(e){out.textContent=tr('eC');setUI('text',false,'Error :(',tr('tB'),false);}
 }
 function handleFile(e){const file=e.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=ev=>{const dataUrl=ev.target.result;document.getElementById('filePreview').src=dataUrl;document.getElementById('filePreview').style.display='block';document.getElementById('camPreview').style.display='none';photoImageBase64=dataUrl.split(',')[1];window.photoMediaType=file.type||'image/jpeg';document.getElementById('photoStatus').textContent=tr('pSLd');};reader.readAsDataURL(file);}
 async function startCamera(){try{cameraStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'}});const video=document.getElementById('cameraFeed');video.srcObject=cameraStream;video.style.display='block';document.getElementById('snapBtn').style.display='inline';document.getElementById('stopCamBtn').style.display='inline';document.getElementById('photoStatus').textContent=tr('pSCm');}catch(e){document.getElementById('photoStatus').textContent=tr('pSCE');}}
@@ -357,26 +419,34 @@ async function runPhoto(){
   if(!photoImageBase64){document.getElementById('photoStatus').textContent=tr('pSR');return;}
   playModem();setUI('photo',true,tr('pSL'),tr('pB'),true);
   document.getElementById('photoCopy').style.display='none';document.getElementById('photoShare').style.display='none';
+  const wm=document.getElementById('photoWatermark');if(wm)wm.style.display='none';
   const out=document.getElementById('photoOutput');out.className='output-box';out.textContent='';
   const prompt=lang==='ru'?'Ты смотришь на это изображение. Опиши как бы выглядел ЭТОТ дизайн в стиле своей эпохи: цвета, шрифты, элементы. Пиши в стиле своей эпохи.':'You are looking at this image. Describe how THIS design would look in the style of your era: colors, fonts, elements. Write in the style of your era.';
-  try{const result=await callAPI({model:'claude-haiku-4-5',max_tokens:1000,system:gP()[eras.photo],messages:[{role:'user',content:[{type:'image',source:{type:'base64',media_type:window.photoMediaType||'image/jpeg',data:photoImageBase64}},{type:'text',text:prompt}]}]});out.textContent=result;out.className='output-box era-'+eras.photo;showShare('photo');setUI('photo',false,tr('pSD'),tr('pB'),false);}
-  catch(e){out.textContent=tr('eG');setUI('photo',false,'Error :(',tr('pB'),false);}
+  try{
+    const result=await callAPI({model:'claude-haiku-4-5',max_tokens:1000,system:gP()[eras.photo],messages:[{role:'user',content:[{type:'image',source:{type:'base64',media_type:window.photoMediaType||'image/jpeg',data:photoImageBase64}},{type:'text',text:prompt}]}]});
+    out.textContent=result;out.className='output-box era-'+eras.photo;
+    bumpGenCounter();showShare('photo');setUI('photo',false,tr('pSD'),tr('pB'),false);
+  }catch(e){out.textContent=tr('eG');setUI('photo',false,'Error :(',tr('pB'),false);}
 }
 async function runUrl(){
   const url=document.getElementById('urlInput').value.trim();
   if(!url){document.getElementById('urlStatus').textContent=tr('uSE');return;}
   playModem();setUI('url',true,tr('uSL'),tr('uB'),true);
   document.getElementById('urlCopy').style.display='none';document.getElementById('urlShare').style.display='none';
+  document.getElementById('fullscreenBtn').style.display='none';
   const iframe=document.getElementById('urlVisual');const out=document.getElementById('urlOutput');
-  iframe.style.display='none';out.style.display='none';out.textContent='';
+  iframe.style.display='none';out.style.display='none';out.textContent='';currentHtml='';
   const prompt=gV()[eras.url].replace('{URL}',url);
   try{
-    const result=await callAPI({model:'claude-haiku-4-5',max_tokens:4000,system:'You are a web developer. Return ONLY raw HTML code. Start with <!DOCTYPE html> or <html>. No markdown, no backticks, no explanations.',messages:[{role:'user',content:prompt}]});
+    const result=await callAPI({model:'claude-haiku-4-5',max_tokens:4000,system:'You are a web developer. Return ONLY raw HTML code. Start with <!DOCTYPE html> or <html>. No markdown, no backticks, no explanations. HTML must be complete and self-contained.',messages:[{role:'user',content:prompt}]});
     let html=result.trim();
     if(html.startsWith('```')){html=html.replace(/^```html?\n?/,'').replace(/\n?```$/,'').trim();}
     if(!html.startsWith('<')){const idx=html.indexOf('<');if(idx>-1)html=html.substring(idx);}
+    currentHtml=html;
     out.textContent=html;iframe.srcdoc=html;iframe.style.display='block';
-    showShare('url');setUI('url',false,tr('uSD'),tr('uB'),false);
+    document.getElementById('fullscreenBtn').style.display='block';
+    document.getElementById('fullscreenBtn').textContent=tr('fs')||'🖥 OPEN FULLSCREEN!!!';
+    bumpGenCounter();showShare('url');setUI('url',false,tr('uSD'),tr('uB'),false);
   }catch(e){out.textContent=tr('eC');out.style.display='block';setUI('url',false,'Error :(',tr('uB'),false);}
 }
 setTimeout(()=>{
